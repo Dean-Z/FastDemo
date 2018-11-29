@@ -15,6 +15,10 @@
 		9645722521AF8BF9009EDCEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645722421AF8BF9009EDCEB /* main.m */; };
 		9645722F21AF8BF9009EDCEB /* FastDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645722E21AF8BF9009EDCEB /* FastDemoTests.m */; };
 		9645723A21AF8BF9009EDCEB /* FastDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645723921AF8BF9009EDCEB /* FastDemoUITests.m */; };
+		9645724D21AF990C009EDCEB /* NSAttributedString+FDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645724C21AF990C009EDCEB /* NSAttributedString+FDUtil.m */; };
+		9645725021AF9AA7009EDCEB /* NSData+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645724F21AF9AA7009EDCEB /* NSData+FDUtils.m */; };
+		9645725321AF9B51009EDCEB /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645725121AF9B51009EDCEB /* NSData+CommonCrypto.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9645725621AF9CE0009EDCEB /* NSString+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645725521AF9CE0009EDCEB /* NSString+FDUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,14 @@
 		9645723B21AF8BF9009EDCEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9645724821AF8D53009EDCEB /* FDBlockContants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDBlockContants.h; sourceTree = "<group>"; };
 		9645724921AF8DF0009EDCEB /* FDFuncations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFuncations.h; sourceTree = "<group>"; };
+		9645724B21AF990C009EDCEB /* NSAttributedString+FDUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+FDUtil.h"; sourceTree = "<group>"; };
+		9645724C21AF990C009EDCEB /* NSAttributedString+FDUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+FDUtil.m"; sourceTree = "<group>"; };
+		9645724E21AF9AA7009EDCEB /* NSData+FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+FDUtils.h"; sourceTree = "<group>"; };
+		9645724F21AF9AA7009EDCEB /* NSData+FDUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+FDUtils.m"; sourceTree = "<group>"; };
+		9645725121AF9B51009EDCEB /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
+		9645725221AF9B51009EDCEB /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
+		9645725421AF9CE0009EDCEB /* NSString+FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FDUtils.h"; sourceTree = "<group>"; };
+		9645725521AF9CE0009EDCEB /* NSString+FDUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FDUtils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +115,7 @@
 		9645721421AF8BF8009EDCEB /* FastDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9645724A21AF98DB009EDCEB /* Categorys */,
 				9645724721AF8CEF009EDCEB /* Funcations */,
 				9645721521AF8BF8009EDCEB /* AppDelegate.h */,
 				9645721621AF8BF8009EDCEB /* AppDelegate.m */,
@@ -142,6 +155,21 @@
 				9645724921AF8DF0009EDCEB /* FDFuncations.h */,
 			);
 			path = Funcations;
+			sourceTree = "<group>";
+		};
+		9645724A21AF98DB009EDCEB /* Categorys */ = {
+			isa = PBXGroup;
+			children = (
+				9645725221AF9B51009EDCEB /* NSData+CommonCrypto.h */,
+				9645725121AF9B51009EDCEB /* NSData+CommonCrypto.m */,
+				9645724B21AF990C009EDCEB /* NSAttributedString+FDUtil.h */,
+				9645724C21AF990C009EDCEB /* NSAttributedString+FDUtil.m */,
+				9645724E21AF9AA7009EDCEB /* NSData+FDUtils.h */,
+				9645724F21AF9AA7009EDCEB /* NSData+FDUtils.m */,
+				9645725421AF9CE0009EDCEB /* NSString+FDUtils.h */,
+				9645725521AF9CE0009EDCEB /* NSString+FDUtils.m */,
+			);
+			path = Categorys;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +303,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */,
+				9645724D21AF990C009EDCEB /* NSAttributedString+FDUtil.m in Sources */,
+				9645725621AF9CE0009EDCEB /* NSString+FDUtils.m in Sources */,
+				9645725321AF9B51009EDCEB /* NSData+CommonCrypto.m in Sources */,
 				9645722521AF8BF9009EDCEB /* main.m in Sources */,
+				9645725021AF9AA7009EDCEB /* NSData+FDUtils.m in Sources */,
 				9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,11 +481,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 453YYC45S6;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FastDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = FD.FastDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -466,11 +500,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 453YYC45S6;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FastDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = FD.FastDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
