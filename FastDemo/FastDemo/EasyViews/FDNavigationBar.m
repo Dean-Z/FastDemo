@@ -8,13 +8,13 @@
 
 #import "UIView+FDSeparatorView.h"
 #import "FDNavigationBar.h"
-#import "FDFuncations.h"
-#import "Masonry.h"
+#import "FDKit.h"
 
 @interface FDNavigationBar()
 
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong, readwrite) UIButton *backItem;
+@property (nonatomic, strong, readwrite) UIButton *addItem;
 @property (nonatomic, strong, readwrite) UILabel *titleLabel;
 
 @property (nonatomic, strong) UIView *leftLastView;
@@ -52,11 +52,22 @@
     self.leftLastView = nil;
     self.rightLastView = nil;
     
+    // LEFT
+    
     if (parts & FDNavigationBarPartBack) {
         [self installBackItem];
         self.leftLastView = self.backItem;
     } else {
         [self uninstallWithView:_backItem];
+    }
+    
+    // RIGHT
+    
+    if (parts & FDNavigationBarPartAdd) {
+        [self installAddItem];
+        self.rightLastView = self.addItem;
+    } else {
+        [self uninstallWithView:_addItem];
     }
 }
 
@@ -101,6 +112,16 @@
     [self.contentView addSubview:self.backItem];
     [self.backItem mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView);
+        make.width.equalTo(@(44));
+        make.top.equalTo(@([self contentCenterY]));
+    }];
+}
+
+- (void)installAddItem {
+    [self.contentView addSubview:self.addItem];
+    [self.addItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView);
+        make.width.equalTo(@(44));
         make.top.equalTo(@([self contentCenterY]));
     }];
 }
@@ -123,7 +144,15 @@
 #pragma mark - Action
 
 - (void)backItemAction {
-    
+    if (self.onClickBackAction) {
+        self.onClickBackAction();
+    }
+}
+
+- (void)addItemAction {
+    if (self.onClickAddAction) {
+        self.onClickAddAction();
+    }
 }
 
 #pragma mark - Getter
@@ -138,11 +167,19 @@
 - (UIButton *)backItem {
     if (!_backItem) {
         _backItem = [UIButton new];
-        [_backItem setTitle:@"Back" forState:(UIControlStateNormal)];
-        [_backItem setTitleColor:HEXCOLOR(0x777777) forState:(UIControlStateNormal)];
+        [_backItem setImage:[UIImage imageNamed:@"arrow_back"] forState:UIControlStateNormal];
         [_backItem addTarget:self action:@selector(backItemAction) forControlEvents:(UIControlEventTouchUpInside)];
     }
     return _backItem;
+}
+
+- (UIButton *)addItem {
+    if (!_addItem) {
+        _addItem = [UIButton new];
+        [_addItem setImage:[UIImage imageNamed:@"icon_add_default_m"] forState:UIControlStateNormal];
+        [_addItem addTarget:self action:@selector(addItemAction) forControlEvents:(UIControlEventTouchUpInside)];
+    }
+    return _addItem;
 }
 
 - (UILabel *)titleLabel {

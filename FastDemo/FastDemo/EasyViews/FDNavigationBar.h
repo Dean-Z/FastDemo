@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FDBlockContants.h"
 
 typedef NS_OPTIONS(NSInteger, FDNavigationBarParts) {
     FDNavigationBarPartNone         = 0,
     FDNavigationBarPartBack         = 1 << 0,
+    FDNavigationBarPartAdd          = 1 << 1,
 };
 
 @interface FDNavigationBar : UIView
@@ -20,6 +22,9 @@ typedef NS_OPTIONS(NSInteger, FDNavigationBarParts) {
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic) FDNavigationBarParts parts;
+
+@property (nonatomic, copy) fd_block_void onClickBackAction;
+@property (nonatomic, copy) fd_block_void onClickAddAction;
 
 - (void)addPart:(FDNavigationBarParts)part;
 

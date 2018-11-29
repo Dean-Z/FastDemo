@@ -8,9 +8,9 @@
 
 #import "UIViewController+FDNavigationBar.h"
 #import "FDNavigationBar.h"
-#import "Masonry.h"
 #import <objc/runtime.h>
 #import "FDFuncations.h"
+#import "Masonry.h"
 
 static const char FDNavigationBarKey = '\0';
 static void *navigationBarKey = &navigationBarKey;

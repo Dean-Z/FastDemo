@@ -24,6 +24,9 @@
 		9645726021AFBAC3009EDCEB /* UIView+FDSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645725F21AFBAC3009EDCEB /* UIView+FDSeparatorView.m */; };
 		9645726321AFBCA5009EDCEB /* UIScreen+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645726221AFBCA5009EDCEB /* UIScreen+FDUtils.m */; };
 		9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645726521AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m */; };
+		9645726A21AFCC86009EDCEB /* FDNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645726921AFCC86009EDCEB /* FDNetService.m */; };
+		9645726E21AFD211009EDCEB /* FDRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645726D21AFD211009EDCEB /* FDRequestController.m */; };
+		9645727321B037DB009EDCEB /* FDRequestParamView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645727221B037DB009EDCEB /* FDRequestParamView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,13 @@
 		9645726221AFBCA5009EDCEB /* UIScreen+FDUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+FDUtils.m"; sourceTree = "<group>"; };
 		9645726421AFC1AA009EDCEB /* UIViewController+FDNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FDNavigationBar.h"; sourceTree = "<group>"; };
 		9645726521AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FDNavigationBar.m"; sourceTree = "<group>"; };
+		9645726821AFCC86009EDCEB /* FDNetService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDNetService.h; sourceTree = "<group>"; };
+		9645726921AFCC86009EDCEB /* FDNetService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDNetService.m; sourceTree = "<group>"; };
+		9645726C21AFD211009EDCEB /* FDRequestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestController.h; sourceTree = "<group>"; };
+		9645726D21AFD211009EDCEB /* FDRequestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRequestController.m; sourceTree = "<group>"; };
+		9645726F21AFD35C009EDCEB /* FDKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDKit.h; sourceTree = "<group>"; };
+		9645727121B037DB009EDCEB /* FDRequestParamView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestParamView.h; sourceTree = "<group>"; };
+		9645727221B037DB009EDCEB /* FDRequestParamView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRequestParamView.m; sourceTree = "<group>"; };
 		9E9895EC9DC97AC80A86E92C /* Pods-FastDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,11 +161,13 @@
 		9645721421AF8BF8009EDCEB /* FastDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9645726721AFCC6F009EDCEB /* NetService */,
 				9645725721AFB7DE009EDCEB /* EasyViews */,
 				9645724A21AF98DB009EDCEB /* Categorys */,
 				9645724721AF8CEF009EDCEB /* Funcations */,
 				9645721521AF8BF8009EDCEB /* AppDelegate.h */,
 				9645721621AF8BF8009EDCEB /* AppDelegate.m */,
+				9645726B21AFD1E4009EDCEB /* DemoControllers */,
 				9645721821AF8BF8009EDCEB /* ViewController.h */,
 				9645721921AF8BF8009EDCEB /* ViewController.m */,
 				9645721B21AF8BF8009EDCEB /* Main.storyboard */,
@@ -190,6 +202,7 @@
 			children = (
 				9645724821AF8D53009EDCEB /* FDBlockContants.h */,
 				9645724921AF8DF0009EDCEB /* FDFuncations.h */,
+				9645726F21AFD35C009EDCEB /* FDKit.h */,
 			);
 			path = Funcations;
 			sourceTree = "<group>";
@@ -222,6 +235,34 @@
 				9645725921AFB804009EDCEB /* FDNavigationBar.m */,
 			);
 			path = EasyViews;
+			sourceTree = "<group>";
+		};
+		9645726721AFCC6F009EDCEB /* NetService */ = {
+			isa = PBXGroup;
+			children = (
+				9645726821AFCC86009EDCEB /* FDNetService.h */,
+				9645726921AFCC86009EDCEB /* FDNetService.m */,
+			);
+			path = NetService;
+			sourceTree = "<group>";
+		};
+		9645726B21AFD1E4009EDCEB /* DemoControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9645727021B03232009EDCEB /* Views */,
+				9645726C21AFD211009EDCEB /* FDRequestController.h */,
+				9645726D21AFD211009EDCEB /* FDRequestController.m */,
+			);
+			path = DemoControllers;
+			sourceTree = "<group>";
+		};
+		9645727021B03232009EDCEB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9645727121B037DB009EDCEB /* FDRequestParamView.h */,
+				9645727221B037DB009EDCEB /* FDRequestParamView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,9 +446,12 @@
 			files = (
 				9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */,
 				9645724D21AF990C009EDCEB /* NSAttributedString+FDUtil.m in Sources */,
+				9645727321B037DB009EDCEB /* FDRequestParamView.m in Sources */,
 				9645725621AF9CE0009EDCEB /* NSString+FDUtils.m in Sources */,
+				9645726A21AFCC86009EDCEB /* FDNetService.m in Sources */,
 				9645725A21AFB804009EDCEB /* FDNavigationBar.m in Sources */,
 				9645725321AF9B51009EDCEB /* NSData+CommonCrypto.m in Sources */,
+				9645726E21AFD211009EDCEB /* FDRequestController.m in Sources */,
 				9645726321AFBCA5009EDCEB /* UIScreen+FDUtils.m in Sources */,
 				9645722521AF8BF9009EDCEB /* main.m in Sources */,
 				9645725021AF9AA7009EDCEB /* NSData+FDUtils.m in Sources */,
@@ -519,7 +563,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -572,7 +616,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
