@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Funcations/FDFuncations.h"
+#import "UIViewController+FDNavigationBar.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationBar.title = @"FastDemo";
 }
 
 

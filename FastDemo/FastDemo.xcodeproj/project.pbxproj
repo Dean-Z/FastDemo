@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C5A5A06F9E1620EDFC5A0E4 /* libPods-FastDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA0324D7333E19035AF3B05 /* libPods-FastDemo.a */; };
 		9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645721621AF8BF8009EDCEB /* AppDelegate.m */; };
 		9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645721921AF8BF8009EDCEB /* ViewController.m */; };
 		9645721D21AF8BF8009EDCEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9645721B21AF8BF8009EDCEB /* Main.storyboard */; };
@@ -19,6 +20,10 @@
 		9645725021AF9AA7009EDCEB /* NSData+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645724F21AF9AA7009EDCEB /* NSData+FDUtils.m */; };
 		9645725321AF9B51009EDCEB /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645725121AF9B51009EDCEB /* NSData+CommonCrypto.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9645725621AF9CE0009EDCEB /* NSString+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645725521AF9CE0009EDCEB /* NSString+FDUtils.m */; };
+		9645725A21AFB804009EDCEB /* FDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645725921AFB804009EDCEB /* FDNavigationBar.m */; };
+		9645726021AFBAC3009EDCEB /* UIView+FDSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645725F21AFBAC3009EDCEB /* UIView+FDSeparatorView.m */; };
+		9645726321AFBCA5009EDCEB /* UIScreen+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645726221AFBCA5009EDCEB /* UIScreen+FDUtils.m */; };
+		9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645726521AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2707151C4027D76844E18682 /* Pods-FastDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		5FA0324D7333E19035AF3B05 /* libPods-FastDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FastDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9645721221AF8BF8009EDCEB /* FastDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9645721521AF8BF8009EDCEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9645721621AF8BF8009EDCEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -65,6 +72,15 @@
 		9645725221AF9B51009EDCEB /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
 		9645725421AF9CE0009EDCEB /* NSString+FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FDUtils.h"; sourceTree = "<group>"; };
 		9645725521AF9CE0009EDCEB /* NSString+FDUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FDUtils.m"; sourceTree = "<group>"; };
+		9645725821AFB804009EDCEB /* FDNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDNavigationBar.h; sourceTree = "<group>"; };
+		9645725921AFB804009EDCEB /* FDNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDNavigationBar.m; sourceTree = "<group>"; };
+		9645725E21AFBAC3009EDCEB /* UIView+FDSeparatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FDSeparatorView.h"; sourceTree = "<group>"; };
+		9645725F21AFBAC3009EDCEB /* UIView+FDSeparatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FDSeparatorView.m"; sourceTree = "<group>"; };
+		9645726121AFBCA5009EDCEB /* UIScreen+FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+FDUtils.h"; sourceTree = "<group>"; };
+		9645726221AFBCA5009EDCEB /* UIScreen+FDUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+FDUtils.m"; sourceTree = "<group>"; };
+		9645726421AFC1AA009EDCEB /* UIViewController+FDNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FDNavigationBar.h"; sourceTree = "<group>"; };
+		9645726521AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FDNavigationBar.m"; sourceTree = "<group>"; };
+		9E9895EC9DC97AC80A86E92C /* Pods-FastDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5A5A06F9E1620EDFC5A0E4 /* libPods-FastDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +109,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D78915D58DA2F2DB12D9B94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FA0324D7333E19035AF3B05 /* libPods-FastDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		605AAC6A2856FD40B585BF12 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2707151C4027D76844E18682 /* Pods-FastDemo.debug.xcconfig */,
+				9E9895EC9DC97AC80A86E92C /* Pods-FastDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9645720921AF8BF8009EDCEB = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +133,8 @@
 				9645722D21AF8BF9009EDCEB /* FastDemoTests */,
 				9645723821AF8BF9009EDCEB /* FastDemoUITests */,
 				9645721321AF8BF8009EDCEB /* Products */,
+				605AAC6A2856FD40B585BF12 /* Pods */,
+				0D78915D58DA2F2DB12D9B94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +151,7 @@
 		9645721421AF8BF8009EDCEB /* FastDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9645725721AFB7DE009EDCEB /* EasyViews */,
 				9645724A21AF98DB009EDCEB /* Categorys */,
 				9645724721AF8CEF009EDCEB /* Funcations */,
 				9645721521AF8BF8009EDCEB /* AppDelegate.h */,
@@ -160,16 +197,31 @@
 		9645724A21AF98DB009EDCEB /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
-				9645725221AF9B51009EDCEB /* NSData+CommonCrypto.h */,
-				9645725121AF9B51009EDCEB /* NSData+CommonCrypto.m */,
 				9645724B21AF990C009EDCEB /* NSAttributedString+FDUtil.h */,
 				9645724C21AF990C009EDCEB /* NSAttributedString+FDUtil.m */,
+				9645725221AF9B51009EDCEB /* NSData+CommonCrypto.h */,
+				9645725121AF9B51009EDCEB /* NSData+CommonCrypto.m */,
 				9645724E21AF9AA7009EDCEB /* NSData+FDUtils.h */,
 				9645724F21AF9AA7009EDCEB /* NSData+FDUtils.m */,
 				9645725421AF9CE0009EDCEB /* NSString+FDUtils.h */,
 				9645725521AF9CE0009EDCEB /* NSString+FDUtils.m */,
+				9645726121AFBCA5009EDCEB /* UIScreen+FDUtils.h */,
+				9645726221AFBCA5009EDCEB /* UIScreen+FDUtils.m */,
+				9645725E21AFBAC3009EDCEB /* UIView+FDSeparatorView.h */,
+				9645725F21AFBAC3009EDCEB /* UIView+FDSeparatorView.m */,
+				9645726421AFC1AA009EDCEB /* UIViewController+FDNavigationBar.h */,
+				9645726521AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m */,
 			);
 			path = Categorys;
+			sourceTree = "<group>";
+		};
+		9645725721AFB7DE009EDCEB /* EasyViews */ = {
+			isa = PBXGroup;
+			children = (
+				9645725821AFB804009EDCEB /* FDNavigationBar.h */,
+				9645725921AFB804009EDCEB /* FDNavigationBar.m */,
+			);
+			path = EasyViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,9 +231,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9645723E21AF8BF9009EDCEB /* Build configuration list for PBXNativeTarget "FastDemo" */;
 			buildPhases = (
+				984DF209D11BF7F3FB368608 /* [CP] Check Pods Manifest.lock */,
 				9645720E21AF8BF8009EDCEB /* Sources */,
 				9645720F21AF8BF8009EDCEB /* Frameworks */,
 				9645721021AF8BF8009EDCEB /* Resources */,
+				74DC706B8FEAA3E75B580C54 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,6 +351,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		74DC706B8FEAA3E75B580C54 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		984DF209D11BF7F3FB368608 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FastDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9645720E21AF8BF8009EDCEB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -305,10 +406,14 @@
 				9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */,
 				9645724D21AF990C009EDCEB /* NSAttributedString+FDUtil.m in Sources */,
 				9645725621AF9CE0009EDCEB /* NSString+FDUtils.m in Sources */,
+				9645725A21AFB804009EDCEB /* FDNavigationBar.m in Sources */,
 				9645725321AF9B51009EDCEB /* NSData+CommonCrypto.m in Sources */,
+				9645726321AFBCA5009EDCEB /* UIScreen+FDUtils.m in Sources */,
 				9645722521AF8BF9009EDCEB /* main.m in Sources */,
 				9645725021AF9AA7009EDCEB /* NSData+FDUtils.m in Sources */,
+				9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */,
 				9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */,
+				9645726021AFBAC3009EDCEB /* UIView+FDSeparatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +582,7 @@
 		};
 		9645723F21AF8BF9009EDCEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2707151C4027D76844E18682 /* Pods-FastDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -496,6 +602,7 @@
 		};
 		9645724021AF8BF9009EDCEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E9895EC9DC97AC80A86E92C /* Pods-FastDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
