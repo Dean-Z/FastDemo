@@ -207,9 +207,10 @@
 - (UIButton *)mockButton {
     if (!_mockButton) {
         _mockButton = [UIButton new];
-        _mockButton.backgroundColor = HEXCOLOR(0x6ff5fc);
+        _mockButton.backgroundColor = HEXCOLOR(0x666666);
         [_mockButton setTitle:@"Mock" forState:UIControlStateNormal];
         [_mockButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_mockButton.titleLabel setFont:[UIFont systemFontOfSize:13]];
         [_mockButton addTarget:self action:@selector(mockAction) forControlEvents:UIControlEventTouchUpInside];
         _mockButton.layer.cornerRadius = 5.f;
         _mockButton.layer.masksToBounds = YES;

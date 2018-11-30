@@ -12,6 +12,7 @@
 #import "Masonry.h"
 
 #import "FDRequestController.h"
+#import "FDDownloadController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -31,7 +32,7 @@
 - (void)setup {
     self.navigationBar.title = @"FastDemo";
     [self.view addSubview:self.tableView];
-    self.itemsArray = @[@"AFNetworking / Request URL", @"AFNetworking / Download File"];
+    self.itemsArray = @[@"AFNetworking / Request URL", @"AFNetworking / Download Files"];
     [self.tableView setTableFooterView:[UIView new]];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.navigationBar.mas_bottom);
@@ -64,6 +65,9 @@
     if (indexPath.row == 0) {
         FDRequestController *requestVC = [FDRequestController new];
         [self.navigationController pushViewController:requestVC animated:YES];
+    } else if (indexPath.row == 1) {
+        FDDownloadController *downloadVC = [FDDownloadController new];
+        [self.navigationController pushViewController:downloadVC animated:YES];
     }
 }
 
