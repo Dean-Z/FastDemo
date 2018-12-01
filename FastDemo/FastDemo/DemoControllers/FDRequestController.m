@@ -238,7 +238,7 @@
 - (NSString *)convertToJSONData:(id)infoDict {
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:infoDict
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                       options:NSJSONWritingPrettyPrinted
                                                          error:&error];
     NSString *jsonString = @"";
     
@@ -247,9 +247,6 @@
     } else {
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
-    
-//    jsonString = [jsonString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];  //去除掉首尾的空白字符和换行字符
-//    [jsonString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     
     return jsonString;
 }

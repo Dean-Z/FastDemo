@@ -31,6 +31,8 @@
 		9645727C21B0E74E009EDCEB /* FDDownloadRequestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645727B21B0E74E009EDCEB /* FDDownloadRequestView.m */; };
 		9645728221B0EB21009EDCEB /* RMDisplayLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645727F21B0EB21009EDCEB /* RMDisplayLabel.m */; };
 		9645728321B0EB21009EDCEB /* RMDownloadIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728121B0EB21009EDCEB /* RMDownloadIndicator.m */; };
+		9645728621B223B8009EDCEB /* FDFileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728521B223B8009EDCEB /* FDFileDownloader.m */; };
+		9645728921B226B4009EDCEB /* UIView+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728821B226B4009EDCEB /* UIView+FDUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,10 @@
 		9645727F21B0EB21009EDCEB /* RMDisplayLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDisplayLabel.m; sourceTree = "<group>"; };
 		9645728021B0EB21009EDCEB /* RMDisplayLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDisplayLabel.h; sourceTree = "<group>"; };
 		9645728121B0EB21009EDCEB /* RMDownloadIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDownloadIndicator.m; sourceTree = "<group>"; };
+		9645728421B223B8009EDCEB /* FDFileDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFileDownloader.h; sourceTree = "<group>"; };
+		9645728521B223B8009EDCEB /* FDFileDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFileDownloader.m; sourceTree = "<group>"; };
+		9645728721B226B4009EDCEB /* UIView+FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FDUtils.h"; sourceTree = "<group>"; };
+		9645728821B226B4009EDCEB /* UIView+FDUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FDUtils.m"; sourceTree = "<group>"; };
 		9E9895EC9DC97AC80A86E92C /* Pods-FastDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,6 +242,8 @@
 				9645725F21AFBAC3009EDCEB /* UIView+FDSeparatorView.m */,
 				9645726421AFC1AA009EDCEB /* UIViewController+FDNavigationBar.h */,
 				9645726521AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m */,
+				9645728721B226B4009EDCEB /* UIView+FDUtils.h */,
+				9645728821B226B4009EDCEB /* UIView+FDUtils.m */,
 			);
 			path = Categorys;
 			sourceTree = "<group>";
@@ -255,6 +263,8 @@
 			children = (
 				9645726821AFCC86009EDCEB /* FDNetService.h */,
 				9645726921AFCC86009EDCEB /* FDNetService.m */,
+				9645728421B223B8009EDCEB /* FDFileDownloader.h */,
+				9645728521B223B8009EDCEB /* FDFileDownloader.m */,
 			);
 			path = NetService;
 			sourceTree = "<group>";
@@ -472,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9645728621B223B8009EDCEB /* FDFileDownloader.m in Sources */,
 				9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */,
 				9645724D21AF990C009EDCEB /* NSAttributedString+FDUtil.m in Sources */,
 				9645727321B037DB009EDCEB /* FDRequestParamView.m in Sources */,
@@ -485,6 +496,7 @@
 				9645722521AF8BF9009EDCEB /* main.m in Sources */,
 				9645725021AF9AA7009EDCEB /* NSData+FDUtils.m in Sources */,
 				9645728321B0EB21009EDCEB /* RMDownloadIndicator.m in Sources */,
+				9645728921B226B4009EDCEB /* UIView+FDUtils.m in Sources */,
 				9645727621B0D05D009EDCEB /* FDDownloadController.m in Sources */,
 				9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */,
 				9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */,

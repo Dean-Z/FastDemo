@@ -12,6 +12,7 @@
 #import "FDFuncations.h"
 #import "FDBlockContants.h"
 #import "UIViewController+FDNavigationBar.h"
+#import "UIView+FDUtils.h"
 #import "Masonry.h"
 
 #endif /* FDKit_h */

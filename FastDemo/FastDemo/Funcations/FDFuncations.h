@@ -60,6 +60,14 @@ NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", em
 ([emailTest evaluateWithObject:email]);})
 
 /*********
+ DEVICE PATH
+ *********/
+#define FDPathTemp NSTemporaryDirectory()
+#define FDPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+#define FDPathLibrary [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject]
+#define FDPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+/*********
  OTHER
  *********/
 #define WEAKSELF typeof(self) __weak weakSelf = self;

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UITextField *inputTextField;
 
 - (instancetype)init;
+- (void)download;
 
 @end
 
