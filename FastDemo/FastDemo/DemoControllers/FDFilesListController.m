@@ -51,6 +51,7 @@
     }
     if (!error) {
         [self.tableView reloadData];
+        [self.tableView setTableFooterView:[UIView new]];
     }
 }
 

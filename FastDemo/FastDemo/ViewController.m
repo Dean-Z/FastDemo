@@ -13,6 +13,7 @@
 
 #import "FDRequestController.h"
 #import "FDDownloadController.h"
+#import "FDFilesListController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -32,7 +33,7 @@
 - (void)setup {
     self.navigationBar.title = @"FastDemo";
     [self.view addSubview:self.tableView];
-    self.itemsArray = @[@"AFNetworking / Request URL", @"AFNetworking / Download Files"];
+    self.itemsArray = @[@"AFNetworking / Request URL", @"AFNetworking / Download Files", @"NSFileManager / Document Files"];
     [self.tableView setTableFooterView:[UIView new]];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.navigationBar.mas_bottom);
@@ -68,6 +69,9 @@
     } else if (indexPath.row == 1) {
         FDDownloadController *downloadVC = [FDDownloadController new];
         [self.navigationController pushViewController:downloadVC animated:YES];
+    } else if (indexPath.row == 2) {
+        FDFilesListController *fileListVC = [FDFilesListController new];
+        [self.navigationController pushViewController:fileListVC animated:YES];
     }
 }
 
