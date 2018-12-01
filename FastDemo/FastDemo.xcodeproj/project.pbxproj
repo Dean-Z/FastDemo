@@ -33,6 +33,8 @@
 		9645728321B0EB21009EDCEB /* RMDownloadIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728121B0EB21009EDCEB /* RMDownloadIndicator.m */; };
 		9645728621B223B8009EDCEB /* FDFileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728521B223B8009EDCEB /* FDFileDownloader.m */; };
 		9645728921B226B4009EDCEB /* UIView+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728821B226B4009EDCEB /* UIView+FDUtils.m */; };
+		9645728C21B2496A009EDCEB /* FDFilesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728B21B2496A009EDCEB /* FDFilesListController.m */; };
+		9645728F21B2CDB2009EDCEB /* FDFilesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728E21B2CDB2009EDCEB /* FDFilesCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,10 @@
 		9645728521B223B8009EDCEB /* FDFileDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFileDownloader.m; sourceTree = "<group>"; };
 		9645728721B226B4009EDCEB /* UIView+FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FDUtils.h"; sourceTree = "<group>"; };
 		9645728821B226B4009EDCEB /* UIView+FDUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FDUtils.m"; sourceTree = "<group>"; };
+		9645728A21B2496A009EDCEB /* FDFilesListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFilesListController.h; sourceTree = "<group>"; };
+		9645728B21B2496A009EDCEB /* FDFilesListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFilesListController.m; sourceTree = "<group>"; };
+		9645728D21B2CDB2009EDCEB /* FDFilesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFilesCell.h; sourceTree = "<group>"; };
+		9645728E21B2CDB2009EDCEB /* FDFilesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFilesCell.m; sourceTree = "<group>"; };
 		9E9895EC9DC97AC80A86E92C /* Pods-FastDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -277,6 +283,8 @@
 				9645726D21AFD211009EDCEB /* FDRequestController.m */,
 				9645727421B0D05D009EDCEB /* FDDownloadController.h */,
 				9645727521B0D05D009EDCEB /* FDDownloadController.m */,
+				9645728A21B2496A009EDCEB /* FDFilesListController.h */,
+				9645728B21B2496A009EDCEB /* FDFilesListController.m */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -288,6 +296,8 @@
 				9645727221B037DB009EDCEB /* FDRequestParamView.m */,
 				9645727A21B0E74E009EDCEB /* FDDownloadRequestView.h */,
 				9645727B21B0E74E009EDCEB /* FDDownloadRequestView.m */,
+				9645728D21B2CDB2009EDCEB /* FDFilesCell.h */,
+				9645728E21B2CDB2009EDCEB /* FDFilesCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -486,6 +496,7 @@
 				9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */,
 				9645724D21AF990C009EDCEB /* NSAttributedString+FDUtil.m in Sources */,
 				9645727321B037DB009EDCEB /* FDRequestParamView.m in Sources */,
+				9645728C21B2496A009EDCEB /* FDFilesListController.m in Sources */,
 				9645725621AF9CE0009EDCEB /* NSString+FDUtils.m in Sources */,
 				9645726A21AFCC86009EDCEB /* FDNetService.m in Sources */,
 				9645725A21AFB804009EDCEB /* FDNavigationBar.m in Sources */,
@@ -498,6 +509,7 @@
 				9645728321B0EB21009EDCEB /* RMDownloadIndicator.m in Sources */,
 				9645728921B226B4009EDCEB /* UIView+FDUtils.m in Sources */,
 				9645727621B0D05D009EDCEB /* FDDownloadController.m in Sources */,
+				9645728F21B2CDB2009EDCEB /* FDFilesCell.m in Sources */,
 				9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */,
 				9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */,
 				9645726021AFBAC3009EDCEB /* UIView+FDSeparatorView.m in Sources */,

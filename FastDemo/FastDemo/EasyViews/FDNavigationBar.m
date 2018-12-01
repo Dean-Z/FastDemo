@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong, readwrite) UIButton *backItem;
 @property (nonatomic, strong, readwrite) UIButton *addItem;
+@property (nonatomic, strong, readwrite) UIButton *fileItem;
 @property (nonatomic, strong, readwrite) UILabel *titleLabel;
 
 @property (nonatomic, strong) UIView *leftLastView;
@@ -69,6 +70,13 @@
     } else {
         [self uninstallWithView:_addItem];
     }
+    
+    if (parts & FDNavigationBarPartFiles) {
+        [self installFileItem];
+        self.rightLastView = self.fileItem;
+    } else {
+        [self uninstallWithView:_fileItem];
+    }
 }
 
 - (void)setTitle:(NSString *)title {
@@ -120,8 +128,8 @@
 - (void)installAddItem {
     [self.contentView addSubview:self.addItem];
     [self.addItem mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView);
-        make.width.equalTo(@(44));
+        make.right.equalTo(self.contentView).offset(-10);
+        make.width.equalTo(@(30));
         make.top.equalTo(@([self contentCenterY]));
     }];
 }
@@ -132,6 +140,15 @@
         make.left.greaterThanOrEqualTo(@(75));
         make.right.lessThanOrEqualTo(@(-75));
         make.centerX.equalTo(self.contentView);
+        make.top.equalTo(@([self contentCenterY]));
+    }];
+}
+
+- (void)installFileItem {
+    [self.contentView addSubview:self.fileItem];
+    [self.fileItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.rightLastView.mas_left);
+        make.width.equalTo(@(30));
         make.top.equalTo(@([self contentCenterY]));
     }];
 }
@@ -152,6 +169,12 @@
 - (void)addItemAction {
     if (self.onClickAddAction) {
         self.onClickAddAction();
+    }
+}
+
+- (void)fileAction {
+    if (self.onClickFileAction) {
+        self.onClickFileAction();
     }
 }
 
@@ -180,6 +203,15 @@
         [_addItem addTarget:self action:@selector(addItemAction) forControlEvents:(UIControlEventTouchUpInside)];
     }
     return _addItem;
+}
+
+- (UIButton *)fileItem {
+    if (!_fileItem) {
+        _fileItem = [UIButton new];
+        [_fileItem setImage:[UIImage imageNamed:@"icon_files"] forState:UIControlStateNormal];
+        [_fileItem addTarget:self action:@selector(fileAction) forControlEvents:(UIControlEventTouchUpInside)];
+    }
+    return _fileItem;
 }
 
 - (UILabel *)titleLabel {

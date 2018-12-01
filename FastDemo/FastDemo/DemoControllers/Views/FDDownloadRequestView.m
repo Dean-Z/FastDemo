@@ -35,7 +35,7 @@
     
     [self.progressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.top.bottom.equalTo(self);
-        make.width.equalTo(@(80));
+        make.width.equalTo(@(60));
     }];
     
     [self.inputTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -56,7 +56,8 @@
     }
     [self setUserInteractionEnabled:NO];
     NSURL *url = [NSURL URLWithString:self.inputTextField.text];
-    NSString *filePath = [NSString stringWithFormat:@"%@/%@",FDPathDocument,[self.inputTextField.text MD5]];
+    NSString *fileName = [[self.inputTextField.text lastPathComponent] stringByRemovingPercentEncoding];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@",FDPathDocument,fileName];
     WEAKSELF
     [[FDFileDownloader shareDownloader] downloadWithURL:url filePath:filePath progress:^(float progress) {
         [weakSelf.progressView mas_remakeConstraints:^(MASConstraintMaker *make) {

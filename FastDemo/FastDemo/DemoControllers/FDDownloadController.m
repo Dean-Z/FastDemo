@@ -8,6 +8,7 @@
 
 #import "FDDownloadController.h"
 #import "FDDownloadRequestView.h"
+#import "FDFilesListController.h"
 #import "FDKit.h"
 
 @interface FDDownloadController ()
@@ -29,13 +30,18 @@
 - (void)setup {
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationBar.title = @"Download Files";
-    self.navigationBar.parts = FDNavigationBarPartBack | FDNavigationBarPartAdd;
+    self.navigationBar.parts = FDNavigationBarPartBack | FDNavigationBarPartAdd | FDNavigationBarPartFiles;
     WEAKSELF
     self.navigationBar.onClickBackAction = ^{
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     self.navigationBar.onClickAddAction = ^{
         [weakSelf addDownloadRequestView];
+    };
+    
+    self.navigationBar.onClickFileAction = ^{
+        FDFilesListController *vc = [FDFilesListController new];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     
     [self.view addSubview:self.requestButton];
@@ -61,7 +67,7 @@
             make.left.equalTo(self.view).offset(0);
             make.right.equalTo(self.view).offset(0);
             make.height.equalTo(@(50));
-            make.top.equalTo(self.navigationBar.mas_bottom).offset(20);
+            make.top.equalTo(self.navigationBar.mas_bottom).offset(0);
         }];
     } else {
         UIView *lastView = self.downloadRequestViews.lastObject;

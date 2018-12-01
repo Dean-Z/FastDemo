@@ -13,6 +13,7 @@ typedef NS_OPTIONS(NSInteger, FDNavigationBarParts) {
     FDNavigationBarPartNone         = 0,
     FDNavigationBarPartBack         = 1 << 0,
     FDNavigationBarPartAdd          = 1 << 1,
+    FDNavigationBarPartFiles        = 1 << 2,
 };
 
 @interface FDNavigationBar : UIView
@@ -25,6 +26,7 @@ typedef NS_OPTIONS(NSInteger, FDNavigationBarParts) {
 
 @property (nonatomic, copy) fd_block_void onClickBackAction;
 @property (nonatomic, copy) fd_block_void onClickAddAction;
+@property (nonatomic, copy) fd_block_void onClickFileAction;
 
 - (void)addPart:(FDNavigationBarParts)part;
 
