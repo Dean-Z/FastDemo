@@ -6,7 +6,9 @@
 //  Copyright © 2018 Jason. All rights reserved.
 //
 
+#import "FDAlbumBrowserController.h"
 #import "FDFilesListController.h"
+#import "FDAnimatedTransition.h"
 #import "FDFilesCell.h"
 #import "FDKit.h"
 
@@ -14,6 +16,8 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (nonatomic, strong) FDAnimatedTransition *animatedTransition;
 
 @end
 
@@ -73,7 +77,39 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSString *fileName = self.dataArray[indexPath.row];
+    if ([self isImagePath:fileName]) {
+        FDAlbumBrowserController *browser = [FDAlbumBrowserController new];
+        UIView *fromView = [[UIApplication sharedApplication].keyWindow snapshotViewAfterScreenUpdates:NO];
+        browser.albumSouce = [self albumSource];
+        browser.currentIndex = 0;
+        browser.backgroundView = fromView;
+        browser.imageViewFrames = nil;
+        browser.transitioningDelegate = self.animatedTransition;
+        [self presentViewController:browser animated:YES completion:nil];
+        [self.animatedTransition setPresentFromWithView:(UIImageView *)self.view];
+        [self.animatedTransition setPictureImageViewsFrame:nil];
+        [self.animatedTransition setViewController:browser fromWindow:fromView];
+    }
+}
+
+- (NSArray *)albumSource {
+    NSMutableArray *source = @[].mutableCopy;
+    for (NSString *name in self.dataArray) {
+        if ([self isImagePath:name]) {
+            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",FDPathDocument,name]];
+            if (image) {
+                [source addObject:image];
+            }
+        }
+    }
+    return source;
+}
+
+- (BOOL)isImagePath:(NSString *)filePath {
+    return ([filePath hasSuffix:@".jpg"] ||
+            [filePath hasSuffix:@".jpeg"] ||
+            [filePath hasSuffix:@".png"]);
 }
 
 #pragma mark - Getter
