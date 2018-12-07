@@ -42,6 +42,9 @@
 		964572A121B3CB7A009EDCEB /* FDInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 964572A021B3CB7A009EDCEB /* FDInteractiveTransition.m */; };
 		964572A421B3CCA2009EDCEB /* FDDismissAnimationTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 964572A321B3CCA2009EDCEB /* FDDismissAnimationTransition.m */; };
 		964572A721B3CD5A009EDCEB /* FDAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 964572A621B3CD5A009EDCEB /* FDAnimatedTransition.m */; };
+		96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F421B946B7001A8383 /* FDRealmHelper.m */; };
+		96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F821B94A09001A8383 /* FDRequestParamsModel.m */; };
+		96D809FC21BA5690001A8383 /* FDRequestHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809FB21BA5690001A8383 /* FDRequestHistoryController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +138,12 @@
 		964572A321B3CCA2009EDCEB /* FDDismissAnimationTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDDismissAnimationTransition.m; sourceTree = "<group>"; };
 		964572A521B3CD5A009EDCEB /* FDAnimatedTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAnimatedTransition.h; sourceTree = "<group>"; };
 		964572A621B3CD5A009EDCEB /* FDAnimatedTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAnimatedTransition.m; sourceTree = "<group>"; };
+		96D809F321B946B7001A8383 /* FDRealmHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRealmHelper.h; sourceTree = "<group>"; };
+		96D809F421B946B7001A8383 /* FDRealmHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRealmHelper.m; sourceTree = "<group>"; };
+		96D809F721B94A09001A8383 /* FDRequestParamsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestParamsModel.h; sourceTree = "<group>"; };
+		96D809F821B94A09001A8383 /* FDRequestParamsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRequestParamsModel.m; sourceTree = "<group>"; };
+		96D809FA21BA5690001A8383 /* FDRequestHistoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestHistoryController.h; sourceTree = "<group>"; };
+		96D809FB21BA5690001A8383 /* FDRequestHistoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRequestHistoryController.m; sourceTree = "<group>"; };
 		9E9895EC9DC97AC80A86E92C /* Pods-FastDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +215,8 @@
 		9645721421AF8BF8009EDCEB /* FastDemo */ = {
 			isa = PBXGroup;
 			children = (
+				96D809F221B946A2001A8383 /* RealmHelper */,
+				964572A821B3EA8F009EDCEB /* AVPlayers */,
 				9645726721AFCC6F009EDCEB /* NetService */,
 				9645725721AFB7DE009EDCEB /* EasyViews */,
 				9645724A21AF98DB009EDCEB /* Categorys */,
@@ -300,9 +311,12 @@
 		9645726B21AFD1E4009EDCEB /* DemoControllers */ = {
 			isa = PBXGroup;
 			children = (
+				96D809F621B946F7001A8383 /* Models */,
 				9645727021B03232009EDCEB /* Views */,
 				9645726C21AFD211009EDCEB /* FDRequestController.h */,
 				9645726D21AFD211009EDCEB /* FDRequestController.m */,
+				96D809FA21BA5690001A8383 /* FDRequestHistoryController.h */,
+				96D809FB21BA5690001A8383 /* FDRequestHistoryController.m */,
 				9645727421B0D05D009EDCEB /* FDDownloadController.h */,
 				9645727521B0D05D009EDCEB /* FDDownloadController.m */,
 				9645728A21B2496A009EDCEB /* FDFilesListController.h */,
@@ -370,6 +384,31 @@
 				964572A621B3CD5A009EDCEB /* FDAnimatedTransition.m */,
 			);
 			path = AnimatedTransition;
+			sourceTree = "<group>";
+		};
+		964572A821B3EA8F009EDCEB /* AVPlayers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AVPlayers;
+			sourceTree = "<group>";
+		};
+		96D809F221B946A2001A8383 /* RealmHelper */ = {
+			isa = PBXGroup;
+			children = (
+				96D809F321B946B7001A8383 /* FDRealmHelper.h */,
+				96D809F421B946B7001A8383 /* FDRealmHelper.m */,
+			);
+			path = RealmHelper;
+			sourceTree = "<group>";
+		};
+		96D809F621B946F7001A8383 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96D809F721B94A09001A8383 /* FDRequestParamsModel.h */,
+				96D809F821B94A09001A8383 /* FDRequestParamsModel.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -551,6 +590,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96D809FC21BA5690001A8383 /* FDRequestHistoryController.m in Sources */,
+				96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */,
 				9645728621B223B8009EDCEB /* FDFileDownloader.m in Sources */,
 				9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */,
 				9645724D21AF990C009EDCEB /* NSAttributedString+FDUtil.m in Sources */,
@@ -574,6 +615,7 @@
 				9645728321B0EB21009EDCEB /* RMDownloadIndicator.m in Sources */,
 				9645728921B226B4009EDCEB /* UIView+FDUtils.m in Sources */,
 				9645727621B0D05D009EDCEB /* FDDownloadController.m in Sources */,
+				96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */,
 				9645728F21B2CDB2009EDCEB /* FDFilesCell.m in Sources */,
 				9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */,
 				9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */,
@@ -751,6 +793,7 @@
 			baseConfigurationReference = 2707151C4027D76844E18682 /* Pods-FastDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 453YYC45S6;
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -771,6 +814,7 @@
 			baseConfigurationReference = 9E9895EC9DC97AC80A86E92C /* Pods-FastDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 453YYC45S6;
 				HEADER_SEARCH_PATHS = "$(inherited)";

@@ -13,6 +13,9 @@
 
 #import "FDNetService.h"
 #import "NSString+FDUtils.h"
+#import "FDRequestParamsModel.h"
+#import "FDRequestHistoryController.h"
+#import "FDRealmHelper.h"
 
 @interface FDRequestController ()
 
@@ -21,6 +24,7 @@
 @property (nonatomic, strong) NSMutableArray *parmaViewsArray;
 @property (nonatomic, strong) UIButton *requestButton;
 @property (nonatomic, strong) UIButton *mockButton;
+@property (nonatomic, strong) UIButton *methodButton;
 
 @property (nonatomic, strong) UILabel *requestReultLabel;
 
@@ -32,11 +36,12 @@
     [super viewDidLoad];
     
     [self setup];
+    [FDRealmHelper shareRealmHelper];
 }
 
 - (void)setup {
     self.navigationBar.title = @"Request URL";
-    self.navigationBar.parts = FDNavigationBarPartBack | FDNavigationBarPartAdd;
+    self.navigationBar.parts = FDNavigationBarPartBack | FDNavigationBarPartAdd | FDNavigationBarPartFiles;
     self.view.backgroundColor = [UIColor whiteColor];
     WEAKSELF
     self.navigationBar.onClickBackAction = ^{
@@ -44,6 +49,10 @@
     };
     self.navigationBar.onClickAddAction = ^{
         [weakSelf addParamView];
+    };
+    self.navigationBar.onClickFileAction = ^{
+        FDRequestHistoryController *vc = [FDRequestHistoryController new];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     [self addViews];
     [self bringLayouts];
@@ -54,6 +63,7 @@
     [self.contentView addSubview:self.requestURLTextField];
     [self.contentView addSubview:self.requestButton];
     [self.contentView addSubview:self.mockButton];
+    [self.contentView addSubview:self.methodButton];
     [self.contentView addSubview:self.requestReultLabel];
 }
 
@@ -74,11 +84,17 @@
         make.width.equalTo(@(100));
         make.top.equalTo(self.requestURLTextField.mas_bottom).offset(20);
     }];
-    [self.mockButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+    [self.methodButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView).offset(20);
         make.height.equalTo(@(40));
         make.width.equalTo(@(100));
-        make.top.equalTo(self.requestURLTextField.mas_bottom).offset(20);
+        make.centerY.equalTo(self.requestButton);
+    }];
+    [self.mockButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.requestButton.mas_right).offset(20);
+        make.height.equalTo(@(40));
+        make.width.equalTo(@(100));
+        make.centerY.equalTo(self.requestButton);
     }];
     
     [self.requestReultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,15 +132,45 @@
 - (void)requestAction {
     [self resignAllFirstResponder];
     WEAKSELF
-    [[FDNetService sharedInstance] getRequestWithURL:self.requestURLTextField.text
-                                          parameters:[self allParmas] complete:^(id result) {
-                                              weakSelf.requestReultLabel.text = [weakSelf convertToJSONData:result];
-                                              [weakSelf.requestReultLabel layoutIfNeeded];
-                                              CGSize size = [weakSelf.requestReultLabel.text fd_sizeWithFont:weakSelf.requestReultLabel.font constrainedToSize:CGSizeMake(weakSelf.requestReultLabel.frame.size.width, CGFLOAT_MAX)];
-                                              weakSelf.contentView.contentSize = CGSizeMake(0, weakSelf.requestReultLabel.frame.origin.y + size.height);
-                                          } failed:^(NSError *error) {
-                                              NSLog(@"%@",error.localizedDescription);
-                                          }];
+    if ([self.methodButton.titleLabel.text isEqualToString:@"GET"]) {
+        [[FDNetService sharedInstance] getRequestWithURL:self.requestURLTextField.text
+                                              parameters:[self allParmas] complete:^(id result) {
+                                                  [weakSelf saveRequestData:result];
+                                                  weakSelf.requestReultLabel.text = [weakSelf convertToJSONData:result];
+                                                  [weakSelf.requestReultLabel layoutIfNeeded];
+                                                  CGSize size = [weakSelf.requestReultLabel.text fd_sizeWithFont:weakSelf.requestReultLabel.font constrainedToSize:CGSizeMake(weakSelf.requestReultLabel.frame.size.width, CGFLOAT_MAX)];
+                                                  weakSelf.contentView.contentSize = CGSizeMake(0, weakSelf.requestReultLabel.frame.origin.y + size.height);
+                                              } failed:^(NSError *error) {
+                                                  NSLog(@"%@",error.localizedDescription);
+                                              }];
+    } else {
+        [[FDNetService sharedInstance] postRequestWithURL:self.requestURLTextField.text
+                                              parameters:[self allParmas] complete:^(id result) {
+                                                  [weakSelf saveRequestData:result];
+                                                  weakSelf.requestReultLabel.text = [weakSelf convertToJSONData:result];
+                                                  [weakSelf.requestReultLabel layoutIfNeeded];
+                                                  CGSize size = [weakSelf.requestReultLabel.text fd_sizeWithFont:weakSelf.requestReultLabel.font constrainedToSize:CGSizeMake(weakSelf.requestReultLabel.frame.size.width, CGFLOAT_MAX)];
+                                                  weakSelf.contentView.contentSize = CGSizeMake(0, weakSelf.requestReultLabel.frame.origin.y + size.height);
+                                              } failed:^(NSError *error) {
+                                                  NSLog(@"%@",error.localizedDescription);
+                                              }];
+    }
+}
+
+- (void)saveRequestData:(NSDictionary *)result {
+    FDRequestParamsModel *model = [FDRequestParamsModel new];
+    model.requestUrl = self.requestURLTextField.text;
+    model.requestParams = [self convertToJSONData:[self allParmas]];
+    if ([self.methodButton.titleLabel.text isEqualToString:@"GET"]) {
+        model.method = 1;
+    } else {
+        model.method = 2;
+    }
+    model.result = [self convertToJSONData:result];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [realm addObject:model];
+    [realm commitWriteTransaction];
 }
 
 - (void)resignAllFirstResponder {
@@ -162,6 +208,14 @@
     paramView6.keyTextField.text = @"q";
     paramView6.valueTextField.text = @"Hello";
     
+}
+
+- (void)methodAction {
+    if ([self.methodButton.titleLabel.text isEqualToString:@"GET"]) {
+        [self.methodButton setTitle:@"POST" forState:UIControlStateNormal];
+    } else {
+        [self.methodButton setTitle:@"GET" forState:UIControlStateNormal];
+    }
 }
 
 - (NSDictionary *)allParmas {
@@ -216,6 +270,20 @@
         _mockButton.layer.masksToBounds = YES;
     }
     return _mockButton;
+}
+
+- (UIButton *)methodButton {
+    if (!_methodButton) {
+        _methodButton = [UIButton new];
+        _methodButton.backgroundColor = HEXCOLOR(0x666666);
+        [_methodButton setTitle:@"GET" forState:UIControlStateNormal];
+        [_methodButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_methodButton.titleLabel setFont:[UIFont systemFontOfSize:13]];
+        [_methodButton addTarget:self action:@selector(methodAction) forControlEvents:UIControlEventTouchUpInside];
+        _methodButton.layer.cornerRadius = 5.f;
+        _methodButton.layer.masksToBounds = YES;
+    }
+    return _methodButton;
 }
 
 - (UILabel *)requestReultLabel {
