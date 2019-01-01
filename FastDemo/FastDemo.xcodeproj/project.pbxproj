@@ -63,6 +63,13 @@
 		967F506921DB85F3006912B5 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 967F505B21DB85F3006912B5 /* libswresample.a */; };
 		967F506A21DB85F3006912B5 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 967F505C21DB85F3006912B5 /* libswscale.a */; };
 		967F506C21DB88E0006912B5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967F506B21DB88E0006912B5 /* AVFoundation.framework */; };
+		967F506F21DB8A57006912B5 /* 1-3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 967F506E21DB8A57006912B5 /* 1-3.mp4 */; };
+		967F507221DB8B23006912B5 /* FDFFmpegDemosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507121DB8B23006912B5 /* FDFFmpegDemosController.m */; };
+		967F507F21DB9229006912B5 /* KxMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507421DB9229006912B5 /* KxMovieViewController.m */; };
+		967F508021DB9229006912B5 /* KxMovieGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507621DB9229006912B5 /* KxMovieGLView.m */; };
+		967F508121DB9229006912B5 /* kxmovie.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 967F507821DB9229006912B5 /* kxmovie.bundle */; };
+		967F508221DB9229006912B5 /* KxAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507921DB9229006912B5 /* KxAudioManager.m */; };
+		967F508321DB9229006912B5 /* KxMovieDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507D21DB9229006912B5 /* KxMovieDecoder.m */; };
 		96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F421B946B7001A8383 /* FDRealmHelper.m */; };
 		96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F821B94A09001A8383 /* FDRequestParamsModel.m */; };
 		96D809FC21BA5690001A8383 /* FDRequestHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809FB21BA5690001A8383 /* FDRequestHistoryController.m */; };
@@ -291,6 +298,20 @@
 		967F505B21DB85F3006912B5 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
 		967F505C21DB85F3006912B5 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		967F506B21DB88E0006912B5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		967F506E21DB8A57006912B5 /* 1-3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1-3.mp4"; sourceTree = "<group>"; };
+		967F507021DB8B23006912B5 /* FDFFmpegDemosController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFFmpegDemosController.h; sourceTree = "<group>"; };
+		967F507121DB8B23006912B5 /* FDFFmpegDemosController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegDemosController.m; sourceTree = "<group>"; };
+		967F507421DB9229006912B5 /* KxMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieViewController.m; sourceTree = "<group>"; };
+		967F507521DB9229006912B5 /* KxMovieDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieDecoder.h; sourceTree = "<group>"; };
+		967F507621DB9229006912B5 /* KxMovieGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieGLView.m; sourceTree = "<group>"; };
+		967F507721DB9229006912B5 /* KxLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxLogger.h; sourceTree = "<group>"; };
+		967F507821DB9229006912B5 /* kxmovie.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = kxmovie.bundle; sourceTree = "<group>"; };
+		967F507921DB9229006912B5 /* KxAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxAudioManager.m; sourceTree = "<group>"; };
+		967F507A21DB9229006912B5 /* kxmovie-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "kxmovie-Prefix.pch"; sourceTree = "<group>"; };
+		967F507B21DB9229006912B5 /* KxMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieViewController.h; sourceTree = "<group>"; };
+		967F507C21DB9229006912B5 /* KxMovieGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieGLView.h; sourceTree = "<group>"; };
+		967F507D21DB9229006912B5 /* KxMovieDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieDecoder.m; sourceTree = "<group>"; };
+		967F507E21DB9229006912B5 /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxAudioManager.h; sourceTree = "<group>"; };
 		96D809F321B946B7001A8383 /* FDRealmHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRealmHelper.h; sourceTree = "<group>"; };
 		96D809F421B946B7001A8383 /* FDRealmHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRealmHelper.m; sourceTree = "<group>"; };
 		96D809F721B94A09001A8383 /* FDRequestParamsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestParamsModel.h; sourceTree = "<group>"; };
@@ -389,6 +410,7 @@
 		9645721421AF8BF8009EDCEB /* FastDemo */ = {
 			isa = PBXGroup;
 			children = (
+				967F506D21DB8A30006912B5 /* Source */,
 				967F4EAF21DB8092006912B5 /* FFmpeg */,
 				96D809F221B946A2001A8383 /* RealmHelper */,
 				964572A821B3EA8F009EDCEB /* AVPlayers */,
@@ -496,6 +518,8 @@
 				9645727521B0D05D009EDCEB /* FDDownloadController.m */,
 				9645728A21B2496A009EDCEB /* FDFilesListController.h */,
 				9645728B21B2496A009EDCEB /* FDFilesListController.m */,
+				967F507021DB8B23006912B5 /* FDFFmpegDemosController.h */,
+				967F507121DB8B23006912B5 /* FDFFmpegDemosController.m */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -571,6 +595,7 @@
 		967F4EAF21DB8092006912B5 /* FFmpeg */ = {
 			isa = PBXGroup;
 			children = (
+				967F507321DB9229006912B5 /* kxmovie */,
 				967F504D21DB85F3006912B5 /* lib */,
 				967F4FD621DB85E3006912B5 /* include */,
 			);
@@ -780,6 +805,32 @@
 			path = pkgconfig;
 			sourceTree = "<group>";
 		};
+		967F506D21DB8A30006912B5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				967F506E21DB8A57006912B5 /* 1-3.mp4 */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		967F507321DB9229006912B5 /* kxmovie */ = {
+			isa = PBXGroup;
+			children = (
+				967F507E21DB9229006912B5 /* KxAudioManager.h */,
+				967F507921DB9229006912B5 /* KxAudioManager.m */,
+				967F507721DB9229006912B5 /* KxLogger.h */,
+				967F507A21DB9229006912B5 /* kxmovie-Prefix.pch */,
+				967F507821DB9229006912B5 /* kxmovie.bundle */,
+				967F507521DB9229006912B5 /* KxMovieDecoder.h */,
+				967F507D21DB9229006912B5 /* KxMovieDecoder.m */,
+				967F507C21DB9229006912B5 /* KxMovieGLView.h */,
+				967F507621DB9229006912B5 /* KxMovieGLView.m */,
+				967F507B21DB9229006912B5 /* KxMovieViewController.h */,
+				967F507421DB9229006912B5 /* KxMovieViewController.m */,
+			);
+			path = kxmovie;
+			sourceTree = "<group>";
+		};
 		96D809F221B946A2001A8383 /* RealmHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,6 +963,8 @@
 				967F505D21DB85F3006912B5 /* libswscale.pc in Resources */,
 				967F506221DB85F3006912B5 /* libavutil.pc in Resources */,
 				967F506121DB85F3006912B5 /* libavformat.pc in Resources */,
+				967F508121DB9229006912B5 /* kxmovie.bundle in Resources */,
+				967F506F21DB8A57006912B5 /* 1-3.mp4 in Resources */,
 				967F506021DB85F3006912B5 /* libavcodec.pc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -986,6 +1039,8 @@
 			files = (
 				96D809FC21BA5690001A8383 /* FDRequestHistoryController.m in Sources */,
 				96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */,
+				967F507F21DB9229006912B5 /* KxMovieViewController.m in Sources */,
+				967F508221DB9229006912B5 /* KxAudioManager.m in Sources */,
 				9645728621B223B8009EDCEB /* FDFileDownloader.m in Sources */,
 				9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */,
 				9645724D21AF990C009EDCEB /* NSAttributedString+FDUtil.m in Sources */,
@@ -1000,6 +1055,8 @@
 				9645725321AF9B51009EDCEB /* NSData+CommonCrypto.m in Sources */,
 				964572A121B3CB7A009EDCEB /* FDInteractiveTransition.m in Sources */,
 				9645726E21AFD211009EDCEB /* FDRequestController.m in Sources */,
+				967F507221DB8B23006912B5 /* FDFFmpegDemosController.m in Sources */,
+				967F508021DB9229006912B5 /* KxMovieGLView.m in Sources */,
 				9645726321AFBCA5009EDCEB /* UIScreen+FDUtils.m in Sources */,
 				9645727C21B0E74E009EDCEB /* FDDownloadRequestView.m in Sources */,
 				964572A721B3CD5A009EDCEB /* FDAnimatedTransition.m in Sources */,
@@ -1012,6 +1069,7 @@
 				96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */,
 				9645728F21B2CDB2009EDCEB /* FDFilesCell.m in Sources */,
 				9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */,
+				967F508321DB9229006912B5 /* KxMovieDecoder.m in Sources */,
 				9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */,
 				9645726021AFBAC3009EDCEB /* UIView+FDSeparatorView.m in Sources */,
 				964572A421B3CCA2009EDCEB /* FDDismissAnimationTransition.m in Sources */,
