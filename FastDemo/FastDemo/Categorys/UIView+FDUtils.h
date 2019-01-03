@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (FDUtil)
+
+- (UIImage *)fd_captureScaneView;
+
 - (void)fd_removeAllSubviews;
 - (void)fd_setOrigX:(CGFloat)origX;
 - (void)fd_setOrigY:(CGFloat)origY;

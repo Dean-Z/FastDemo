@@ -16,6 +16,7 @@
 #import "FDFilesListController.h"
 
 #import "FDFFmpegDemosController.h"
+#import "FDAVFoundationDeomController.h"
 
 //#import <libavformat/avformat.h>
 //#import <libavcodec/avcodec.h>
@@ -60,7 +61,7 @@
 - (void)setup {
     self.navigationBar.title = @"FastDemo";
     [self.view addSubview:self.tableView];
-    self.itemsArray = @[@"AFNetworking / Request URL", @"AFNetworking / Download Files", @"NSFileManager / Document Files", @"FFmpeg SDK"];
+    self.itemsArray = @[@"AFNetworking / Request URL", @"AFNetworking / Download Files", @"NSFileManager / Document Files", @"FFmpeg SDK", @"AVFoundation"];
     [self.tableView setTableFooterView:[UIView new]];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.navigationBar.mas_bottom);
@@ -102,6 +103,9 @@
     } else if (indexPath.row == 3) {
         FDFFmpegDemosController *ffmpeg = [FDFFmpegDemosController new];
         [self.navigationController pushViewController:ffmpeg animated:YES];
+    } else if (indexPath.row == 4) {
+        FDAVFoundationDeomController *avfoundation = [FDAVFoundationDeomController new];
+        [self.navigationController pushViewController:avfoundation animated:YES];
     }
 }
 

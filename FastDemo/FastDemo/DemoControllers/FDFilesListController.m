@@ -7,6 +7,7 @@
 //
 
 #import "FDAlbumBrowserController.h"
+#import "KxMovieViewController.h"
 #import "FDFilesListController.h"
 #import "FDAnimatedTransition.h"
 #import "FDFilesCell.h"
@@ -90,6 +91,13 @@
         [self.animatedTransition setPresentFromWithView:(UIImageView *)self.view];
         [self.animatedTransition setPictureImageViewsFrame:nil];
         [self.animatedTransition setViewController:browser fromWindow:fromView];
+    } else if ([self isVideoPath:fileName]) {
+        NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        parameters[KxMovieParameterDisableDeinterlacing] = @(YES);
+        KxMovieViewController *vc = [KxMovieViewController movieViewControllerWithContentPath:[NSString stringWithFormat:@"%@/%@",FDPathDocument,fileName]
+                                                                                   parameters:parameters];
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 
@@ -104,6 +112,12 @@
         }
     }
     return source;
+}
+
+- (BOOL)isVideoPath:(NSString *)filePath {
+    return ([filePath hasSuffix:@".mov"] ||
+            [filePath hasSuffix:@".mp4"] ||
+            [filePath hasSuffix:@".flv"]);
 }
 
 - (BOOL)isImagePath:(NSString *)filePath {

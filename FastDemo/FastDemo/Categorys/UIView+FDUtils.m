@@ -12,6 +12,26 @@
 
 @implementation UIView (FDUtils)
 
+- (UIImage *)fd_captureScaneView {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+    UIImage* image = nil;
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(self.fd_width, self.fd_height),YES,2.0);
+    {
+        self.frame = CGRectMake(0, 0, self.fd_width, self.fd_height);
+        [self.layer renderInContext: UIGraphicsGetCurrentContext()];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+    }
+    UIGraphicsEndImageContext();
+    if (image != nil) {
+        return image;
+    }
+    return nil;
+}
+
 - (void)fd_removeAllSubviews
 {
     NSArray *subviews = self.subviews;

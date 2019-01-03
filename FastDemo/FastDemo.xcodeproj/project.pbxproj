@@ -70,6 +70,10 @@
 		967F508121DB9229006912B5 /* kxmovie.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 967F507821DB9229006912B5 /* kxmovie.bundle */; };
 		967F508221DB9229006912B5 /* KxAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507921DB9229006912B5 /* KxAudioManager.m */; };
 		967F508321DB9229006912B5 /* KxMovieDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507D21DB9229006912B5 /* KxMovieDecoder.m */; };
+		967F508621DCAE57006912B5 /* FDAVFoundationDeomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F508521DCAE57006912B5 /* FDAVFoundationDeomController.m */; };
+		967F508921DCB423006912B5 /* FDImageToVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F508821DCB423006912B5 /* FDImageToVideoController.m */; };
+		967F508C21DDAA73006912B5 /* FDMovieMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F508B21DDAA73006912B5 /* FDMovieMaker.m */; };
+		967F508F21DDAF41006912B5 /* FDAnimationImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F508E21DDAF41006912B5 /* FDAnimationImageFactory.m */; };
 		96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F421B946B7001A8383 /* FDRealmHelper.m */; };
 		96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F821B94A09001A8383 /* FDRequestParamsModel.m */; };
 		96D809FC21BA5690001A8383 /* FDRequestHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809FB21BA5690001A8383 /* FDRequestHistoryController.m */; };
@@ -312,6 +316,14 @@
 		967F507C21DB9229006912B5 /* KxMovieGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieGLView.h; sourceTree = "<group>"; };
 		967F507D21DB9229006912B5 /* KxMovieDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieDecoder.m; sourceTree = "<group>"; };
 		967F507E21DB9229006912B5 /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxAudioManager.h; sourceTree = "<group>"; };
+		967F508421DCAE57006912B5 /* FDAVFoundationDeomController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAVFoundationDeomController.h; sourceTree = "<group>"; };
+		967F508521DCAE57006912B5 /* FDAVFoundationDeomController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAVFoundationDeomController.m; sourceTree = "<group>"; };
+		967F508721DCB423006912B5 /* FDImageToVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDImageToVideoController.h; sourceTree = "<group>"; };
+		967F508821DCB423006912B5 /* FDImageToVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDImageToVideoController.m; sourceTree = "<group>"; };
+		967F508A21DDAA73006912B5 /* FDMovieMaker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDMovieMaker.h; sourceTree = "<group>"; };
+		967F508B21DDAA73006912B5 /* FDMovieMaker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDMovieMaker.m; sourceTree = "<group>"; };
+		967F508D21DDAF41006912B5 /* FDAnimationImageFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAnimationImageFactory.h; sourceTree = "<group>"; };
+		967F508E21DDAF41006912B5 /* FDAnimationImageFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAnimationImageFactory.m; sourceTree = "<group>"; };
 		96D809F321B946B7001A8383 /* FDRealmHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRealmHelper.h; sourceTree = "<group>"; };
 		96D809F421B946B7001A8383 /* FDRealmHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRealmHelper.m; sourceTree = "<group>"; };
 		96D809F721B94A09001A8383 /* FDRequestParamsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestParamsModel.h; sourceTree = "<group>"; };
@@ -520,6 +532,10 @@
 				9645728B21B2496A009EDCEB /* FDFilesListController.m */,
 				967F507021DB8B23006912B5 /* FDFFmpegDemosController.h */,
 				967F507121DB8B23006912B5 /* FDFFmpegDemosController.m */,
+				967F508421DCAE57006912B5 /* FDAVFoundationDeomController.h */,
+				967F508521DCAE57006912B5 /* FDAVFoundationDeomController.m */,
+				967F508721DCB423006912B5 /* FDImageToVideoController.h */,
+				967F508821DCB423006912B5 /* FDImageToVideoController.m */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -588,6 +604,10 @@
 		964572A821B3EA8F009EDCEB /* AVPlayers */ = {
 			isa = PBXGroup;
 			children = (
+				967F508A21DDAA73006912B5 /* FDMovieMaker.h */,
+				967F508B21DDAA73006912B5 /* FDMovieMaker.m */,
+				967F508D21DDAF41006912B5 /* FDAnimationImageFactory.h */,
+				967F508E21DDAF41006912B5 /* FDAnimationImageFactory.m */,
 			);
 			path = AVPlayers;
 			sourceTree = "<group>";
@@ -1048,6 +1068,7 @@
 				9645728C21B2496A009EDCEB /* FDFilesListController.m in Sources */,
 				9645729421B3C686009EDCEB /* FDBrowserImageView.m in Sources */,
 				9645729B21B3CA7A009EDCEB /* FDPresentAnimationTransition.m in Sources */,
+				967F508C21DDAA73006912B5 /* FDMovieMaker.m in Sources */,
 				9645725621AF9CE0009EDCEB /* NSString+FDUtils.m in Sources */,
 				9645726A21AFCC86009EDCEB /* FDNetService.m in Sources */,
 				9645725A21AFB804009EDCEB /* FDNavigationBar.m in Sources */,
@@ -1057,6 +1078,9 @@
 				9645726E21AFD211009EDCEB /* FDRequestController.m in Sources */,
 				967F507221DB8B23006912B5 /* FDFFmpegDemosController.m in Sources */,
 				967F508021DB9229006912B5 /* KxMovieGLView.m in Sources */,
+				967F508621DCAE57006912B5 /* FDAVFoundationDeomController.m in Sources */,
+				967F508F21DDAF41006912B5 /* FDAnimationImageFactory.m in Sources */,
+				967F508921DCB423006912B5 /* FDImageToVideoController.m in Sources */,
 				9645726321AFBCA5009EDCEB /* UIScreen+FDUtils.m in Sources */,
 				9645727C21B0E74E009EDCEB /* FDDownloadRequestView.m in Sources */,
 				964572A721B3CD5A009EDCEB /* FDAnimatedTransition.m in Sources */,
