@@ -96,7 +96,7 @@
 
 - (void)startMakeMovieAction {
     FDAnimationImageFactory *factory = [FDAnimationImageFactory new];
-    factory.screenSize = CGSizeMake(320, 480);
+    factory.screenSize = CGSizeMake(512, 512);
     factory.freamCount = 20;
     factory.totalDuration = 5;
     factory.imageArray = @[self.demoImageView.image];
