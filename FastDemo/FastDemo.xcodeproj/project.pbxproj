@@ -63,7 +63,6 @@
 		967F506921DB85F3006912B5 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 967F505B21DB85F3006912B5 /* libswresample.a */; };
 		967F506A21DB85F3006912B5 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 967F505C21DB85F3006912B5 /* libswscale.a */; };
 		967F506C21DB88E0006912B5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967F506B21DB88E0006912B5 /* AVFoundation.framework */; };
-		967F506F21DB8A57006912B5 /* 1-3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 967F506E21DB8A57006912B5 /* 1-3.mp4 */; };
 		967F507221DB8B23006912B5 /* FDFFmpegDemosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507121DB8B23006912B5 /* FDFFmpegDemosController.m */; };
 		967F507F21DB9229006912B5 /* KxMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507421DB9229006912B5 /* KxMovieViewController.m */; };
 		967F508021DB9229006912B5 /* KxMovieGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507621DB9229006912B5 /* KxMovieGLView.m */; };
@@ -74,6 +73,14 @@
 		967F508921DCB423006912B5 /* FDImageToVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F508821DCB423006912B5 /* FDImageToVideoController.m */; };
 		967F508C21DDAA73006912B5 /* FDMovieMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F508B21DDAA73006912B5 /* FDMovieMaker.m */; };
 		967F508F21DDAF41006912B5 /* FDAnimationImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F508E21DDAF41006912B5 /* FDAnimationImageFactory.m */; };
+		967F509421E1F711006912B5 /* FDAlbumLibraryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F509321E1F711006912B5 /* FDAlbumLibraryController.m */; };
+		967F509821E31D85006912B5 /* FDAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F509721E31D85006912B5 /* FDAlbumModel.m */; };
+		967F509B21E3205F006912B5 /* FDAlbumLibraryContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F509A21E3205F006912B5 /* FDAlbumLibraryContext.m */; };
+		967F509F21E3218A006912B5 /* FDAlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F509E21E3218A006912B5 /* FDAlbumView.m */; };
+		967F50A221E3221D006912B5 /* FDAlbumTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F50A121E3221D006912B5 /* FDAlbumTableView.m */; };
+		967F50A521E32284006912B5 /* FDAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F50A421E32284006912B5 /* FDAlbumTableViewCell.m */; };
+		967F50A821E32A37006912B5 /* FDAlbumCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F50A721E32A36006912B5 /* FDAlbumCollectionCell.m */; };
+		967F50AB21E33135006912B5 /* FDAlbumLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F50AA21E33135006912B5 /* FDAlbumLibraryManager.m */; };
 		96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F421B946B7001A8383 /* FDRealmHelper.m */; };
 		96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F821B94A09001A8383 /* FDRequestParamsModel.m */; };
 		96D809FC21BA5690001A8383 /* FDRequestHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809FB21BA5690001A8383 /* FDRequestHistoryController.m */; };
@@ -302,7 +309,6 @@
 		967F505B21DB85F3006912B5 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
 		967F505C21DB85F3006912B5 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		967F506B21DB88E0006912B5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		967F506E21DB8A57006912B5 /* 1-3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1-3.mp4"; sourceTree = "<group>"; };
 		967F507021DB8B23006912B5 /* FDFFmpegDemosController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFFmpegDemosController.h; sourceTree = "<group>"; };
 		967F507121DB8B23006912B5 /* FDFFmpegDemosController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegDemosController.m; sourceTree = "<group>"; };
 		967F507421DB9229006912B5 /* KxMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieViewController.m; sourceTree = "<group>"; };
@@ -324,6 +330,22 @@
 		967F508B21DDAA73006912B5 /* FDMovieMaker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDMovieMaker.m; sourceTree = "<group>"; };
 		967F508D21DDAF41006912B5 /* FDAnimationImageFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAnimationImageFactory.h; sourceTree = "<group>"; };
 		967F508E21DDAF41006912B5 /* FDAnimationImageFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAnimationImageFactory.m; sourceTree = "<group>"; };
+		967F509221E1F711006912B5 /* FDAlbumLibraryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAlbumLibraryController.h; sourceTree = "<group>"; };
+		967F509321E1F711006912B5 /* FDAlbumLibraryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumLibraryController.m; sourceTree = "<group>"; };
+		967F509621E31D85006912B5 /* FDAlbumModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAlbumModel.h; sourceTree = "<group>"; };
+		967F509721E31D85006912B5 /* FDAlbumModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumModel.m; sourceTree = "<group>"; };
+		967F509921E3205F006912B5 /* FDAlbumLibraryContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAlbumLibraryContext.h; sourceTree = "<group>"; };
+		967F509A21E3205F006912B5 /* FDAlbumLibraryContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumLibraryContext.m; sourceTree = "<group>"; };
+		967F509D21E3218A006912B5 /* FDAlbumView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAlbumView.h; sourceTree = "<group>"; };
+		967F509E21E3218A006912B5 /* FDAlbumView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumView.m; sourceTree = "<group>"; };
+		967F50A021E3221D006912B5 /* FDAlbumTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAlbumTableView.h; sourceTree = "<group>"; };
+		967F50A121E3221D006912B5 /* FDAlbumTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumTableView.m; sourceTree = "<group>"; };
+		967F50A321E32284006912B5 /* FDAlbumTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAlbumTableViewCell.h; sourceTree = "<group>"; };
+		967F50A421E32284006912B5 /* FDAlbumTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumTableViewCell.m; sourceTree = "<group>"; };
+		967F50A621E32A36006912B5 /* FDAlbumCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAlbumCollectionCell.h; sourceTree = "<group>"; };
+		967F50A721E32A36006912B5 /* FDAlbumCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumCollectionCell.m; sourceTree = "<group>"; };
+		967F50A921E33135006912B5 /* FDAlbumLibraryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAlbumLibraryManager.h; sourceTree = "<group>"; };
+		967F50AA21E33135006912B5 /* FDAlbumLibraryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumLibraryManager.m; sourceTree = "<group>"; };
 		96D809F321B946B7001A8383 /* FDRealmHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRealmHelper.h; sourceTree = "<group>"; };
 		96D809F421B946B7001A8383 /* FDRealmHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRealmHelper.m; sourceTree = "<group>"; };
 		96D809F721B94A09001A8383 /* FDRequestParamsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestParamsModel.h; sourceTree = "<group>"; };
@@ -430,9 +452,9 @@
 				9645725721AFB7DE009EDCEB /* EasyViews */,
 				9645724A21AF98DB009EDCEB /* Categorys */,
 				9645724721AF8CEF009EDCEB /* Funcations */,
+				9645726B21AFD1E4009EDCEB /* DemoControllers */,
 				9645721521AF8BF8009EDCEB /* AppDelegate.h */,
 				9645721621AF8BF8009EDCEB /* AppDelegate.m */,
-				9645726B21AFD1E4009EDCEB /* DemoControllers */,
 				9645721821AF8BF8009EDCEB /* ViewController.h */,
 				9645721921AF8BF8009EDCEB /* ViewController.m */,
 				9645721B21AF8BF8009EDCEB /* Main.storyboard */,
@@ -498,6 +520,7 @@
 		9645725721AFB7DE009EDCEB /* EasyViews */ = {
 			isa = PBXGroup;
 			children = (
+				967F509021E1F53A006912B5 /* AlbumLibrary */,
 				9645729021B3C5D6009EDCEB /* PictureBrowser */,
 				9645727D21B0EAFF009EDCEB /* DownloadIndicator */,
 				9645725821AFB804009EDCEB /* FDNavigationBar.h */,
@@ -828,7 +851,6 @@
 		967F506D21DB8A30006912B5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				967F506E21DB8A57006912B5 /* 1-3.mp4 */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -849,6 +871,53 @@
 				967F507421DB9229006912B5 /* KxMovieViewController.m */,
 			);
 			path = kxmovie;
+			sourceTree = "<group>";
+		};
+		967F509021E1F53A006912B5 /* AlbumLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				967F509C21E3215F006912B5 /* View */,
+				967F509521E31D6D006912B5 /* Model */,
+				967F509121E1F6F2006912B5 /* Controller */,
+				967F50A921E33135006912B5 /* FDAlbumLibraryManager.h */,
+				967F50AA21E33135006912B5 /* FDAlbumLibraryManager.m */,
+			);
+			path = AlbumLibrary;
+			sourceTree = "<group>";
+		};
+		967F509121E1F6F2006912B5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				967F509221E1F711006912B5 /* FDAlbumLibraryController.h */,
+				967F509321E1F711006912B5 /* FDAlbumLibraryController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		967F509521E31D6D006912B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				967F509621E31D85006912B5 /* FDAlbumModel.h */,
+				967F509721E31D85006912B5 /* FDAlbumModel.m */,
+				967F509921E3205F006912B5 /* FDAlbumLibraryContext.h */,
+				967F509A21E3205F006912B5 /* FDAlbumLibraryContext.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		967F509C21E3215F006912B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				967F509D21E3218A006912B5 /* FDAlbumView.h */,
+				967F509E21E3218A006912B5 /* FDAlbumView.m */,
+				967F50A021E3221D006912B5 /* FDAlbumTableView.h */,
+				967F50A121E3221D006912B5 /* FDAlbumTableView.m */,
+				967F50A321E32284006912B5 /* FDAlbumTableViewCell.h */,
+				967F50A421E32284006912B5 /* FDAlbumTableViewCell.m */,
+				967F50A621E32A36006912B5 /* FDAlbumCollectionCell.h */,
+				967F50A721E32A36006912B5 /* FDAlbumCollectionCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		96D809F221B946A2001A8383 /* RealmHelper */ = {
@@ -984,7 +1053,6 @@
 				967F506221DB85F3006912B5 /* libavutil.pc in Resources */,
 				967F506121DB85F3006912B5 /* libavformat.pc in Resources */,
 				967F508121DB9229006912B5 /* kxmovie.bundle in Resources */,
-				967F506F21DB8A57006912B5 /* 1-3.mp4 in Resources */,
 				967F506021DB85F3006912B5 /* libavcodec.pc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1061,8 +1129,11 @@
 				96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */,
 				967F507F21DB9229006912B5 /* KxMovieViewController.m in Sources */,
 				967F508221DB9229006912B5 /* KxAudioManager.m in Sources */,
+				967F509821E31D85006912B5 /* FDAlbumModel.m in Sources */,
 				9645728621B223B8009EDCEB /* FDFileDownloader.m in Sources */,
+				967F50AB21E33135006912B5 /* FDAlbumLibraryManager.m in Sources */,
 				9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */,
+				967F50A521E32284006912B5 /* FDAlbumTableViewCell.m in Sources */,
 				9645724D21AF990C009EDCEB /* NSAttributedString+FDUtil.m in Sources */,
 				9645727321B037DB009EDCEB /* FDRequestParamView.m in Sources */,
 				9645728C21B2496A009EDCEB /* FDFilesListController.m in Sources */,
@@ -1078,6 +1149,7 @@
 				9645726E21AFD211009EDCEB /* FDRequestController.m in Sources */,
 				967F507221DB8B23006912B5 /* FDFFmpegDemosController.m in Sources */,
 				967F508021DB9229006912B5 /* KxMovieGLView.m in Sources */,
+				967F509F21E3218A006912B5 /* FDAlbumView.m in Sources */,
 				967F508621DCAE57006912B5 /* FDAVFoundationDeomController.m in Sources */,
 				967F508F21DDAF41006912B5 /* FDAnimationImageFactory.m in Sources */,
 				967F508921DCB423006912B5 /* FDImageToVideoController.m in Sources */,
@@ -1086,12 +1158,16 @@
 				964572A721B3CD5A009EDCEB /* FDAnimatedTransition.m in Sources */,
 				9645722521AF8BF9009EDCEB /* main.m in Sources */,
 				9645729721B3C7DC009EDCEB /* FDAlbumBrowserCell.m in Sources */,
+				967F50A221E3221D006912B5 /* FDAlbumTableView.m in Sources */,
 				9645725021AF9AA7009EDCEB /* NSData+FDUtils.m in Sources */,
+				967F509B21E3205F006912B5 /* FDAlbumLibraryContext.m in Sources */,
 				9645728321B0EB21009EDCEB /* RMDownloadIndicator.m in Sources */,
+				967F509421E1F711006912B5 /* FDAlbumLibraryController.m in Sources */,
 				9645728921B226B4009EDCEB /* UIView+FDUtils.m in Sources */,
 				9645727621B0D05D009EDCEB /* FDDownloadController.m in Sources */,
 				96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */,
 				9645728F21B2CDB2009EDCEB /* FDFilesCell.m in Sources */,
+				967F50A821E32A37006912B5 /* FDAlbumCollectionCell.m in Sources */,
 				9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */,
 				967F508321DB9229006912B5 /* KxMovieDecoder.m in Sources */,
 				9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */,

@@ -9,6 +9,7 @@
 #import "FDImageToVideoController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "FDAnimationImageFactory.h"
+#import "FDAlbumLibraryManager.h"
 #import "FDMovieMaker.h"
 #import "FDKit.h"
 
@@ -38,15 +39,19 @@
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     self.navigationBar.onClickAddAction = ^{
-        UIImagePickerControllerSourceType sourceType;
-        sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        if ([UIImagePickerController isSourceTypeAvailable: sourceType]) {
-            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-            picker.delegate = weakSelf;
-            picker.sourceType = sourceType;
-            picker.allowsEditing = NO;
-            [weakSelf presentViewController:picker animated:YES completion:nil];
-        }
+//        UIImagePickerControllerSourceType sourceType;
+//        sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        if ([UIImagePickerController isSourceTypeAvailable: sourceType]) {
+//            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//            picker.delegate = weakSelf;
+//            picker.sourceType = sourceType;
+//            picker.allowsEditing = NO;
+//            [weakSelf presentViewController:picker animated:YES completion:nil];
+//        }
+        
+        [FDAlbumLibraryManager showPhotosManager:weakSelf withMaxImageCount:10 withAlbumArray:^(NSMutableArray<FDPictureModel *> *albumArray) {
+            NSLog(@"%@",albumArray);
+        }];
     };
     [self addsubview];
 }
