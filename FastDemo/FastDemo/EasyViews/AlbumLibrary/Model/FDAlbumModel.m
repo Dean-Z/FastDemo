@@ -24,7 +24,7 @@
             self.highDefinitionImage = result;
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (self.getPictureAction) {
-                    self.getPictureAction();
+                    self.getPictureAction(self.highDefinitionImage);
                 }
             });
         }];

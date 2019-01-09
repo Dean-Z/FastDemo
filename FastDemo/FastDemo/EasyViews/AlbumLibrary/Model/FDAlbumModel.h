@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) PHAsset *asset;
 @property (nonatomic, strong) UIImage *highDefinitionImage;
-@property (nonatomic, copy) fd_block_void getPictureAction;
+@property (nonatomic, copy) fd_block_object getPictureAction;
 
 @end
 

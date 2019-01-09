@@ -186,7 +186,7 @@
                     FDPictureModel *photoModel = [[FDPictureModel alloc] init];
                     
                     __weak typeof(photoModel) weakPhotoModel = photoModel;
-                    photoModel.getPictureAction = ^{
+                    photoModel.getPictureAction = ^(id result){
                         [photoList addObject:weakPhotoModel];
                         
                         if (photoList.count == [FDAlbumLibraryContext standardAlbumLibraryContext].choiceCount) {

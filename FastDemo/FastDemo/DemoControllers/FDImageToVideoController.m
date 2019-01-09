@@ -20,6 +20,9 @@
 @property (nonatomic, strong) UIButton *makeVideo;
 @property (nonatomic, strong) UILabel *makeVideoProgress;
 
+@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic) NSInteger totalCount;
+
 @end
 
 @implementation FDImageToVideoController
@@ -50,7 +53,16 @@
 //        }
         
         [FDAlbumLibraryManager showPhotosManager:weakSelf withMaxImageCount:10 withAlbumArray:^(NSMutableArray<FDPictureModel *> *albumArray) {
-            NSLog(@"%@",albumArray);
+            weakSelf.totalCount = albumArray.count;
+            for (FDPictureModel *model in albumArray) {
+                if (model.highDefinitionImage == nil) {
+                    model.getPictureAction = ^(id result){
+                        [weakSelf.dataArray addObject:result];
+                    };
+                } else {
+                    [weakSelf.dataArray addObject:model.highDefinitionImage];
+                }
+            }
         }];
     };
     [self addsubview];
@@ -100,23 +112,44 @@
 }
 
 - (void)startMakeMovieAction {
+    if (self.totalCount != self.dataArray.count) {
+        return;
+    } else {
+        
+    }
     FDAnimationImageFactory *factory = [FDAnimationImageFactory new];
     factory.screenSize = CGSizeMake(512, 512);
     factory.freamCount = 20;
     factory.totalDuration = 5;
-    factory.imageArray = @[self.demoImageView.image];
+    NSMutableArray *cropImages = @[].mutableCopy;
+    for (UIImage *image in self.dataArray) {
+        [cropImages addObject:[self imageWithImage:image scaledToSize:factory.screenSize]];
+    }
+    factory.imageArray = cropImages;
     WEAKSELF
     [factory render:^(id imageArray) {
        FDMovieMaker *maker = [FDMovieMaker new];
-        NSString *filePath = [NSString stringWithFormat:@"%@/%@",FDPathDocument,@"test.mov"];
-        [maker compressionSession:imageArray filePath:filePath FPS:20 completion:^(float progress, BOOL success) {
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@",FDPathDocument,@"test2.mov"];
+        [maker compressionSession:imageArray filePath:filePath FPS:10 completion:^(float progress, BOOL success) {
             weakSelf.makeVideoProgress.text = [NSString stringWithFormat:@"%.2f",progress];
             if (success) {
                 weakSelf.makeVideoProgress.text = @"Succeed!";
+                [imageArray removeAllObjects];
             }
         }];
     }];
 }
+
+//对图片尺寸进行压缩--
+-(UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize {
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *pickerImage = info[UIImagePickerControllerOriginalImage];
@@ -174,6 +207,13 @@
         _makeVideoProgress.font = [UIFont systemFontOfSize:13];
     }
     return _makeVideoProgress;
+}
+
+- (NSMutableArray *)dataArray {
+    if (!_dataArray) {
+        _dataArray = @[].mutableCopy;
+    }
+    return _dataArray;
 }
 
 @end

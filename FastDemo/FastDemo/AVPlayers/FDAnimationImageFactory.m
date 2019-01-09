@@ -30,19 +30,65 @@
     self.demoImageView = [UIImageView new];
     self.demoImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.demoImageView.clipsToBounds = YES;
-    self.demoImageView.fd_size = CGSizeMake(200, 200);
-    
 }
 
 - (void)render:(fd_block_object)complete {
     self.screenView.frame = CGRectMake(0, 0, self.screenSize.width, self.screenSize.height);
-    self.demoImageView.center = self.screenView.center;
     [self.screenView addSubview:self.demoImageView];
     self.demoImageView.image = self.imageArray.firstObject;
     [self startMakeImages:complete];
 }
 
 - (void)startMakeImages:(fd_block_object)complete {
+    if (self.imageArray.count == 1) {
+        [self rotateAnimation:complete];
+    } else if(self.imageArray.count > 1) {
+        [self moveAndDismiss:complete];
+    }
+}
+
+- (void)moveAndDismiss:(fd_block_object)complete {
+    self.demoImageView.frame = self.screenView.bounds;
+    NSMutableArray *dataArray = @[].mutableCopy;
+    // 动画持续时长
+    CGFloat duration = 1;
+    for (NSInteger index=0; index<self.imageArray.count - 1; index++) {
+        //开始移动
+        UIImageView *fontImageView = [UIImageView new];
+        fontImageView.contentMode = UIViewContentModeScaleAspectFill;
+        fontImageView.clipsToBounds = YES;
+        fontImageView.frame = self.screenView.bounds;
+        [self.screenView insertSubview:fontImageView belowSubview:self.demoImageView];
+        fontImageView.image = self.imageArray[index + 1];
+        
+        for (NSInteger j=0; j<self.freamCount * duration; j++) {
+            self.demoImageView.frame = CGRectMake(-(j / (CGFloat)self.freamCount * duration)*self.screenSize.width, 0, self.screenSize.width, self.screenSize.height);
+            if (j > self.freamCount * duration * 0.4) {
+                self.demoImageView.alpha = (self.freamCount * duration - j)/(self.freamCount * duration * 0.4);
+            }
+            UIImage *otherFrame = [self.screenView fd_captureScaneView];
+            if (otherFrame) {
+                UIImage *r = [self imageWithImage:otherFrame scaledToSize:self.screenSize];
+                [dataArray addObject:r];
+                if (j == 0) {
+                    for (NSInteger index = 0; index < self.freamCount - 1; index ++) {
+                        [dataArray addObject:r];
+                    }
+                }
+                NSLog(@"Finish Image idx %ld",j + 1);
+            } else {
+                NSLog(@"There has one frame nil %ld",j);
+            }
+            sleep(0.01f);
+        }
+        [self.demoImageView removeFromSuperview];
+        self.demoImageView = fontImageView;
+    }
+    complete(dataArray);
+}
+
+- (void)rotateAnimation:(fd_block_object)complete {
+    self.demoImageView.fd_size = CGSizeMake(200, 200);
     NSMutableArray *dataArray = @[].mutableCopy;
     UIImage *firstFrame = [self.screenView fd_captureScaneView];
     if (!firstFrame) {
@@ -50,8 +96,8 @@
         return;
     }
     UIImage *result = [self imageWithImage:firstFrame scaledToSize:self.screenSize];
-//    NSString *path = [NSString stringWithFormat:@"%@/_0.png",FDPathDocument];
-//    [UIImagePNGRepresentation(result) writeToFile:path atomically:YES];
+    //    NSString *path = [NSString stringWithFormat:@"%@/_0.png",FDPathDocument];
+    //    [UIImagePNGRepresentation(result) writeToFile:path atomically:YES];
     [dataArray addObject:result];
     CGFloat oneAngle = M_PI/(self.freamCount * self.totalDuration/2.f);
     for (NSInteger i=0; i<self.freamCount * self.totalDuration; i++) {
@@ -61,7 +107,7 @@
         
         if (otherFrame) {
             UIImage *r = [self imageWithImage:otherFrame scaledToSize:self.screenSize];
-//            [UIImagePNGRepresentation(r) writeToFile:[NSString stringWithFormat:@"%@/_%ld.png",FDPathDocument,i+1] atomically:YES];
+            //            [UIImagePNGRepresentation(r) writeToFile:[NSString stringWithFormat:@"%@/_%ld.png",FDPathDocument,i+1] atomically:YES];
             [dataArray addObject:r];
             NSLog(@"Finish Image idx %ld",i + 1);
         } else {
