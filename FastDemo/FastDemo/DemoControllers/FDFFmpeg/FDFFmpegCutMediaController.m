@@ -34,6 +34,7 @@
 @property (nonatomic, strong) NSString *subFileNameFieldText;
 
 @property (nonatomic, assign) NSInteger totalDuration;
+@property (nonatomic, strong) NSThread *cutThread;
 
 @end
 
@@ -137,9 +138,10 @@
 
 - (void)fillDesc {
     AVAsset *aset = [AVAsset assetWithURL:[NSURL fileURLWithPath:self.filePath]];
-    CMTimeValue duration = aset.duration.value / aset.duration.timescale;
-    self.totalDuration = duration;
-    self.fileDesc.text = [NSString stringWithFormat:@"%@  Duration: %llds ",self.filePath.lastPathComponent, duration];
+    CMTimeValue aduration = aset.duration.value / aset.duration.timescale;
+    self.totalDuration = (NSInteger)aduration;
+    self.fileDesc.text = [NSString stringWithFormat:@"%@  Duration: %llds ",self.filePath.lastPathComponent, aduration];
+    
 }
 
 - (void)startAction {
@@ -162,7 +164,8 @@
         self.startFieldText = self.startField.text;
         self.endFieldText = self.endField.text;
         [SVProgressHUD show];
-        [NSThread detachNewThreadSelector:@selector(startCutThread) toTarget:self withObject:nil];
+//        [NSThread detachNewThreadSelector:@selector(startCutThread) toTarget:self withObject:nil];
+        [self.cutThread start];
     }
 }
 
@@ -180,11 +183,13 @@
 }
 
 - (void)threadWillExit {
-    WEAKSELF
-    dispatch_async(dispatch_get_main_queue(), ^{
-        weakSelf.playButton.hidden = NO;
-        [SVProgressHUD dismiss];
-    });
+    if ([NSThread currentThread] == self.cutThread) {
+        WEAKSELF
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.playButton.hidden = NO;
+            [SVProgressHUD dismiss];
+        });
+    }
 }
 
 #pragma mark - Getter
@@ -293,8 +298,11 @@
     return _playButton;
 }
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+- (NSThread *)cutThread {
+    if (!_cutThread) {
+        _cutThread = [[NSThread alloc]initWithTarget:self selector:@selector(startCutThread) object:nil];
+    }
+    return _cutThread;
 }
 
 @end
