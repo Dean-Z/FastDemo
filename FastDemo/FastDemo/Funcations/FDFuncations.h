@@ -48,7 +48,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #define DeviceSystemVersion [UIDevice currentDevice].systemVersion.floatValue
 
 /*********
- STRING
+ NSSTRING
  *********/
 #define EMPLYSTRING(string) \
 ({NSCharacterSet *whiteSpace = [NSCharacterSet whitespaceAndNewlineCharacterSet];\

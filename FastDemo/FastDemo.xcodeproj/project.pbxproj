@@ -13,6 +13,15 @@
 		9627928321E7263D006C7749 /* ffmpeg_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9627927F21E7263D006C7749 /* ffmpeg_filter.c */; };
 		9627928421E7263D006C7749 /* cmdutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 9627928021E7263D006C7749 /* cmdutils.c */; };
 		9627928521E7263D006C7749 /* ffmpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = 9627928121E7263D006C7749 /* ffmpeg.c */; };
+		9627928821E72E37006C7749 /* FFmpegCmdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627928721E72E37006C7749 /* FFmpegCmdManager.m */; };
+		9627929C21E72FE4006C7749 /* FDAVFoundationDeomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627928A21E72FE4006C7749 /* FDAVFoundationDeomController.m */; };
+		9627929D21E72FE4006C7749 /* FDImageToVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627928D21E72FE4006C7749 /* FDImageToVideoController.m */; };
+		9627929E21E72FE4006C7749 /* FDDownloadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627929021E72FE4006C7749 /* FDDownloadController.m */; };
+		9627929F21E72FE4006C7749 /* FDFilesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627929221E72FE4006C7749 /* FDFilesListController.m */; };
+		962792A021E72FE4006C7749 /* FDRequestHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627929521E72FE4006C7749 /* FDRequestHistoryController.m */; };
+		962792A121E72FE4006C7749 /* FDRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627929821E72FE4006C7749 /* FDRequestController.m */; };
+		962792A221E72FE4006C7749 /* FDFFmpegDemosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627929B21E72FE4006C7749 /* FDFFmpegDemosController.m */; };
+		962792A521E73037006C7749 /* FDFFmpegCutMediaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792A421E73037006C7749 /* FDFFmpegCutMediaController.m */; };
 		9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645721621AF8BF8009EDCEB /* AppDelegate.m */; };
 		9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645721921AF8BF8009EDCEB /* ViewController.m */; };
 		9645721D21AF8BF8009EDCEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9645721B21AF8BF8009EDCEB /* Main.storyboard */; };
@@ -30,15 +39,12 @@
 		9645726321AFBCA5009EDCEB /* UIScreen+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645726221AFBCA5009EDCEB /* UIScreen+FDUtils.m */; };
 		9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645726521AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m */; };
 		9645726A21AFCC86009EDCEB /* FDNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645726921AFCC86009EDCEB /* FDNetService.m */; };
-		9645726E21AFD211009EDCEB /* FDRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645726D21AFD211009EDCEB /* FDRequestController.m */; };
 		9645727321B037DB009EDCEB /* FDRequestParamView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645727221B037DB009EDCEB /* FDRequestParamView.m */; };
-		9645727621B0D05D009EDCEB /* FDDownloadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645727521B0D05D009EDCEB /* FDDownloadController.m */; };
 		9645727C21B0E74E009EDCEB /* FDDownloadRequestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645727B21B0E74E009EDCEB /* FDDownloadRequestView.m */; };
 		9645728221B0EB21009EDCEB /* RMDisplayLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645727F21B0EB21009EDCEB /* RMDisplayLabel.m */; };
 		9645728321B0EB21009EDCEB /* RMDownloadIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728121B0EB21009EDCEB /* RMDownloadIndicator.m */; };
 		9645728621B223B8009EDCEB /* FDFileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728521B223B8009EDCEB /* FDFileDownloader.m */; };
 		9645728921B226B4009EDCEB /* UIView+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728821B226B4009EDCEB /* UIView+FDUtils.m */; };
-		9645728C21B2496A009EDCEB /* FDFilesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728B21B2496A009EDCEB /* FDFilesListController.m */; };
 		9645728F21B2CDB2009EDCEB /* FDFilesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645728E21B2CDB2009EDCEB /* FDFilesCell.m */; };
 		9645729421B3C686009EDCEB /* FDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645729321B3C686009EDCEB /* FDBrowserImageView.m */; };
 		9645729721B3C7DC009EDCEB /* FDAlbumBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645729621B3C7DC009EDCEB /* FDAlbumBrowserCell.m */; };
@@ -61,14 +67,11 @@
 		967F506921DB85F3006912B5 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 967F505B21DB85F3006912B5 /* libswresample.a */; };
 		967F506A21DB85F3006912B5 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 967F505C21DB85F3006912B5 /* libswscale.a */; };
 		967F506C21DB88E0006912B5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967F506B21DB88E0006912B5 /* AVFoundation.framework */; };
-		967F507221DB8B23006912B5 /* FDFFmpegDemosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507121DB8B23006912B5 /* FDFFmpegDemosController.m */; };
 		967F507F21DB9229006912B5 /* KxMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507421DB9229006912B5 /* KxMovieViewController.m */; };
 		967F508021DB9229006912B5 /* KxMovieGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507621DB9229006912B5 /* KxMovieGLView.m */; };
 		967F508121DB9229006912B5 /* kxmovie.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 967F507821DB9229006912B5 /* kxmovie.bundle */; };
 		967F508221DB9229006912B5 /* KxAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507921DB9229006912B5 /* KxAudioManager.m */; };
 		967F508321DB9229006912B5 /* KxMovieDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F507D21DB9229006912B5 /* KxMovieDecoder.m */; };
-		967F508621DCAE57006912B5 /* FDAVFoundationDeomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F508521DCAE57006912B5 /* FDAVFoundationDeomController.m */; };
-		967F508921DCB423006912B5 /* FDImageToVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F508821DCB423006912B5 /* FDImageToVideoController.m */; };
 		967F508C21DDAA73006912B5 /* FDMovieMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F508B21DDAA73006912B5 /* FDMovieMaker.m */; };
 		967F508F21DDAF41006912B5 /* FDAnimationImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F508E21DDAF41006912B5 /* FDAnimationImageFactory.m */; };
 		967F509421E1F711006912B5 /* FDAlbumLibraryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F509321E1F711006912B5 /* FDAlbumLibraryController.m */; };
@@ -81,7 +84,6 @@
 		967F50AB21E33135006912B5 /* FDAlbumLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F50AA21E33135006912B5 /* FDAlbumLibraryManager.m */; };
 		96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F421B946B7001A8383 /* FDRealmHelper.m */; };
 		96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F821B94A09001A8383 /* FDRequestParamsModel.m */; };
-		96D809FC21BA5690001A8383 /* FDRequestHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809FB21BA5690001A8383 /* FDRequestHistoryController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,24 @@
 		9627927F21E7263D006C7749 /* ffmpeg_filter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffmpeg_filter.c; sourceTree = "<group>"; };
 		9627928021E7263D006C7749 /* cmdutils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmdutils.c; sourceTree = "<group>"; };
 		9627928121E7263D006C7749 /* ffmpeg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffmpeg.c; sourceTree = "<group>"; };
+		9627928621E72E37006C7749 /* FFmpegCmdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFmpegCmdManager.h; sourceTree = "<group>"; };
+		9627928721E72E37006C7749 /* FFmpegCmdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFmpegCmdManager.m; sourceTree = "<group>"; };
+		9627928A21E72FE4006C7749 /* FDAVFoundationDeomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDAVFoundationDeomController.m; sourceTree = "<group>"; };
+		9627928B21E72FE4006C7749 /* FDImageToVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDImageToVideoController.h; sourceTree = "<group>"; };
+		9627928C21E72FE4006C7749 /* FDAVFoundationDeomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAVFoundationDeomController.h; sourceTree = "<group>"; };
+		9627928D21E72FE4006C7749 /* FDImageToVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDImageToVideoController.m; sourceTree = "<group>"; };
+		9627928F21E72FE4006C7749 /* FDDownloadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDownloadController.h; sourceTree = "<group>"; };
+		9627929021E72FE4006C7749 /* FDDownloadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDownloadController.m; sourceTree = "<group>"; };
+		9627929221E72FE4006C7749 /* FDFilesListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDFilesListController.m; sourceTree = "<group>"; };
+		9627929321E72FE4006C7749 /* FDFilesListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDFilesListController.h; sourceTree = "<group>"; };
+		9627929521E72FE4006C7749 /* FDRequestHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDRequestHistoryController.m; sourceTree = "<group>"; };
+		9627929621E72FE4006C7749 /* FDRequestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDRequestController.h; sourceTree = "<group>"; };
+		9627929721E72FE4006C7749 /* FDRequestHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDRequestHistoryController.h; sourceTree = "<group>"; };
+		9627929821E72FE4006C7749 /* FDRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDRequestController.m; sourceTree = "<group>"; };
+		9627929A21E72FE4006C7749 /* FDFFmpegDemosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDFFmpegDemosController.h; sourceTree = "<group>"; };
+		9627929B21E72FE4006C7749 /* FDFFmpegDemosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegDemosController.m; sourceTree = "<group>"; };
+		962792A321E73037006C7749 /* FDFFmpegCutMediaController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFFmpegCutMediaController.h; sourceTree = "<group>"; };
+		962792A421E73037006C7749 /* FDFFmpegCutMediaController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegCutMediaController.m; sourceTree = "<group>"; };
 		9645721221AF8BF8009EDCEB /* FastDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9645721521AF8BF8009EDCEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9645721621AF8BF8009EDCEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -150,13 +170,9 @@
 		9645726521AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FDNavigationBar.m"; sourceTree = "<group>"; };
 		9645726821AFCC86009EDCEB /* FDNetService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDNetService.h; sourceTree = "<group>"; };
 		9645726921AFCC86009EDCEB /* FDNetService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDNetService.m; sourceTree = "<group>"; };
-		9645726C21AFD211009EDCEB /* FDRequestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestController.h; sourceTree = "<group>"; };
-		9645726D21AFD211009EDCEB /* FDRequestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRequestController.m; sourceTree = "<group>"; };
 		9645726F21AFD35C009EDCEB /* FDKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDKit.h; sourceTree = "<group>"; };
 		9645727121B037DB009EDCEB /* FDRequestParamView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestParamView.h; sourceTree = "<group>"; };
 		9645727221B037DB009EDCEB /* FDRequestParamView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRequestParamView.m; sourceTree = "<group>"; };
-		9645727421B0D05D009EDCEB /* FDDownloadController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDDownloadController.h; sourceTree = "<group>"; };
-		9645727521B0D05D009EDCEB /* FDDownloadController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDDownloadController.m; sourceTree = "<group>"; };
 		9645727A21B0E74E009EDCEB /* FDDownloadRequestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDDownloadRequestView.h; sourceTree = "<group>"; };
 		9645727B21B0E74E009EDCEB /* FDDownloadRequestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDDownloadRequestView.m; sourceTree = "<group>"; };
 		9645727E21B0EB21009EDCEB /* RMDownloadIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDownloadIndicator.h; sourceTree = "<group>"; };
@@ -167,8 +183,6 @@
 		9645728521B223B8009EDCEB /* FDFileDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFileDownloader.m; sourceTree = "<group>"; };
 		9645728721B226B4009EDCEB /* UIView+FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FDUtils.h"; sourceTree = "<group>"; };
 		9645728821B226B4009EDCEB /* UIView+FDUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FDUtils.m"; sourceTree = "<group>"; };
-		9645728A21B2496A009EDCEB /* FDFilesListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFilesListController.h; sourceTree = "<group>"; };
-		9645728B21B2496A009EDCEB /* FDFilesListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFilesListController.m; sourceTree = "<group>"; };
 		9645728D21B2CDB2009EDCEB /* FDFilesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFilesCell.h; sourceTree = "<group>"; };
 		9645728E21B2CDB2009EDCEB /* FDFilesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFilesCell.m; sourceTree = "<group>"; };
 		9645729221B3C686009EDCEB /* FDBrowserImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDBrowserImageView.h; sourceTree = "<group>"; };
@@ -293,8 +307,6 @@
 		967F505B21DB85F3006912B5 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
 		967F505C21DB85F3006912B5 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		967F506B21DB88E0006912B5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		967F507021DB8B23006912B5 /* FDFFmpegDemosController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFFmpegDemosController.h; sourceTree = "<group>"; };
-		967F507121DB8B23006912B5 /* FDFFmpegDemosController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegDemosController.m; sourceTree = "<group>"; };
 		967F507421DB9229006912B5 /* KxMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieViewController.m; sourceTree = "<group>"; };
 		967F507521DB9229006912B5 /* KxMovieDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieDecoder.h; sourceTree = "<group>"; };
 		967F507621DB9229006912B5 /* KxMovieGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieGLView.m; sourceTree = "<group>"; };
@@ -306,10 +318,6 @@
 		967F507C21DB9229006912B5 /* KxMovieGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMovieGLView.h; sourceTree = "<group>"; };
 		967F507D21DB9229006912B5 /* KxMovieDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieDecoder.m; sourceTree = "<group>"; };
 		967F507E21DB9229006912B5 /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxAudioManager.h; sourceTree = "<group>"; };
-		967F508421DCAE57006912B5 /* FDAVFoundationDeomController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAVFoundationDeomController.h; sourceTree = "<group>"; };
-		967F508521DCAE57006912B5 /* FDAVFoundationDeomController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAVFoundationDeomController.m; sourceTree = "<group>"; };
-		967F508721DCB423006912B5 /* FDImageToVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDImageToVideoController.h; sourceTree = "<group>"; };
-		967F508821DCB423006912B5 /* FDImageToVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDImageToVideoController.m; sourceTree = "<group>"; };
 		967F508A21DDAA73006912B5 /* FDMovieMaker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDMovieMaker.h; sourceTree = "<group>"; };
 		967F508B21DDAA73006912B5 /* FDMovieMaker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDMovieMaker.m; sourceTree = "<group>"; };
 		967F508D21DDAF41006912B5 /* FDAnimationImageFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAnimationImageFactory.h; sourceTree = "<group>"; };
@@ -334,8 +342,6 @@
 		96D809F421B946B7001A8383 /* FDRealmHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRealmHelper.m; sourceTree = "<group>"; };
 		96D809F721B94A09001A8383 /* FDRequestParamsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestParamsModel.h; sourceTree = "<group>"; };
 		96D809F821B94A09001A8383 /* FDRequestParamsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRequestParamsModel.m; sourceTree = "<group>"; };
-		96D809FA21BA5690001A8383 /* FDRequestHistoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestHistoryController.h; sourceTree = "<group>"; };
-		96D809FB21BA5690001A8383 /* FDRequestHistoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRequestHistoryController.m; sourceTree = "<group>"; };
 		9E9895EC9DC97AC80A86E92C /* Pods-FastDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -416,6 +422,57 @@
 				9627928121E7263D006C7749 /* ffmpeg.c */,
 			);
 			path = statics;
+			sourceTree = "<group>";
+		};
+		9627928921E72FE4006C7749 /* FDAVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				9627928A21E72FE4006C7749 /* FDAVFoundationDeomController.m */,
+				9627928B21E72FE4006C7749 /* FDImageToVideoController.h */,
+				9627928C21E72FE4006C7749 /* FDAVFoundationDeomController.h */,
+				9627928D21E72FE4006C7749 /* FDImageToVideoController.m */,
+			);
+			path = FDAVFoundation;
+			sourceTree = "<group>";
+		};
+		9627928E21E72FE4006C7749 /* FDDownload */ = {
+			isa = PBXGroup;
+			children = (
+				9627928F21E72FE4006C7749 /* FDDownloadController.h */,
+				9627929021E72FE4006C7749 /* FDDownloadController.m */,
+			);
+			path = FDDownload;
+			sourceTree = "<group>";
+		};
+		9627929121E72FE4006C7749 /* FDFile */ = {
+			isa = PBXGroup;
+			children = (
+				9627929321E72FE4006C7749 /* FDFilesListController.h */,
+				9627929221E72FE4006C7749 /* FDFilesListController.m */,
+			);
+			path = FDFile;
+			sourceTree = "<group>";
+		};
+		9627929421E72FE4006C7749 /* FDRequest */ = {
+			isa = PBXGroup;
+			children = (
+				9627929621E72FE4006C7749 /* FDRequestController.h */,
+				9627929821E72FE4006C7749 /* FDRequestController.m */,
+				9627929721E72FE4006C7749 /* FDRequestHistoryController.h */,
+				9627929521E72FE4006C7749 /* FDRequestHistoryController.m */,
+			);
+			path = FDRequest;
+			sourceTree = "<group>";
+		};
+		9627929921E72FE4006C7749 /* FDFFmpeg */ = {
+			isa = PBXGroup;
+			children = (
+				9627929A21E72FE4006C7749 /* FDFFmpegDemosController.h */,
+				9627929B21E72FE4006C7749 /* FDFFmpegDemosController.m */,
+				962792A321E73037006C7749 /* FDFFmpegCutMediaController.h */,
+				962792A421E73037006C7749 /* FDFFmpegCutMediaController.m */,
+			);
+			path = FDFFmpeg;
 			sourceTree = "<group>";
 		};
 		9645720921AF8BF8009EDCEB = {
@@ -544,22 +601,13 @@
 		9645726B21AFD1E4009EDCEB /* DemoControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9627928921E72FE4006C7749 /* FDAVFoundation */,
+				9627928E21E72FE4006C7749 /* FDDownload */,
+				9627929921E72FE4006C7749 /* FDFFmpeg */,
+				9627929121E72FE4006C7749 /* FDFile */,
+				9627929421E72FE4006C7749 /* FDRequest */,
 				96D809F621B946F7001A8383 /* Models */,
 				9645727021B03232009EDCEB /* Views */,
-				9645726C21AFD211009EDCEB /* FDRequestController.h */,
-				9645726D21AFD211009EDCEB /* FDRequestController.m */,
-				96D809FA21BA5690001A8383 /* FDRequestHistoryController.h */,
-				96D809FB21BA5690001A8383 /* FDRequestHistoryController.m */,
-				9645727421B0D05D009EDCEB /* FDDownloadController.h */,
-				9645727521B0D05D009EDCEB /* FDDownloadController.m */,
-				9645728A21B2496A009EDCEB /* FDFilesListController.h */,
-				9645728B21B2496A009EDCEB /* FDFilesListController.m */,
-				967F507021DB8B23006912B5 /* FDFFmpegDemosController.h */,
-				967F507121DB8B23006912B5 /* FDFFmpegDemosController.m */,
-				967F508421DCAE57006912B5 /* FDAVFoundationDeomController.h */,
-				967F508521DCAE57006912B5 /* FDAVFoundationDeomController.m */,
-				967F508721DCB423006912B5 /* FDImageToVideoController.h */,
-				967F508821DCB423006912B5 /* FDImageToVideoController.m */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -643,6 +691,8 @@
 				967F507321DB9229006912B5 /* kxmovie */,
 				967F504D21DB85F3006912B5 /* lib */,
 				967F4FD621DB85E3006912B5 /* include */,
+				9627928621E72E37006C7749 /* FFmpegCmdManager.h */,
+				9627928721E72E37006C7749 /* FFmpegCmdManager.m */,
 			);
 			path = FFmpeg;
 			sourceTree = "<group>";
@@ -1088,7 +1138,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96D809FC21BA5690001A8383 /* FDRequestHistoryController.m in Sources */,
 				96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */,
 				967F507F21DB9229006912B5 /* KxMovieViewController.m in Sources */,
 				967F508221DB9229006912B5 /* KxAudioManager.m in Sources */,
@@ -1101,36 +1150,37 @@
 				9645727321B037DB009EDCEB /* FDRequestParamView.m in Sources */,
 				9627922D21E5DC41006C7749 /* UIImage+FDUtils.m in Sources */,
 				9627928221E7263D006C7749 /* ffmpeg_opt.c in Sources */,
-				9645728C21B2496A009EDCEB /* FDFilesListController.m in Sources */,
 				9645729421B3C686009EDCEB /* FDBrowserImageView.m in Sources */,
 				9645729B21B3CA7A009EDCEB /* FDPresentAnimationTransition.m in Sources */,
 				967F508C21DDAA73006912B5 /* FDMovieMaker.m in Sources */,
 				9645725621AF9CE0009EDCEB /* NSString+FDUtils.m in Sources */,
+				9627929D21E72FE4006C7749 /* FDImageToVideoController.m in Sources */,
 				9645726A21AFCC86009EDCEB /* FDNetService.m in Sources */,
 				9645725A21AFB804009EDCEB /* FDNavigationBar.m in Sources */,
 				9645729E21B3CB3D009EDCEB /* FDAlbumBrowserController.m in Sources */,
 				9645725321AF9B51009EDCEB /* NSData+CommonCrypto.m in Sources */,
 				964572A121B3CB7A009EDCEB /* FDInteractiveTransition.m in Sources */,
-				9645726E21AFD211009EDCEB /* FDRequestController.m in Sources */,
-				967F507221DB8B23006912B5 /* FDFFmpegDemosController.m in Sources */,
+				962792A521E73037006C7749 /* FDFFmpegCutMediaController.m in Sources */,
+				9627929C21E72FE4006C7749 /* FDAVFoundationDeomController.m in Sources */,
 				967F508021DB9229006912B5 /* KxMovieGLView.m in Sources */,
 				967F509F21E3218A006912B5 /* FDAlbumView.m in Sources */,
-				967F508621DCAE57006912B5 /* FDAVFoundationDeomController.m in Sources */,
 				967F508F21DDAF41006912B5 /* FDAnimationImageFactory.m in Sources */,
-				967F508921DCB423006912B5 /* FDImageToVideoController.m in Sources */,
 				9645726321AFBCA5009EDCEB /* UIScreen+FDUtils.m in Sources */,
+				962792A221E72FE4006C7749 /* FDFFmpegDemosController.m in Sources */,
+				962792A021E72FE4006C7749 /* FDRequestHistoryController.m in Sources */,
 				9645727C21B0E74E009EDCEB /* FDDownloadRequestView.m in Sources */,
 				964572A721B3CD5A009EDCEB /* FDAnimatedTransition.m in Sources */,
 				9645722521AF8BF9009EDCEB /* main.m in Sources */,
 				9645729721B3C7DC009EDCEB /* FDAlbumBrowserCell.m in Sources */,
+				9627929F21E72FE4006C7749 /* FDFilesListController.m in Sources */,
 				967F50A221E3221D006912B5 /* FDAlbumTableView.m in Sources */,
 				9645725021AF9AA7009EDCEB /* NSData+FDUtils.m in Sources */,
 				967F509B21E3205F006912B5 /* FDAlbumLibraryContext.m in Sources */,
 				9645728321B0EB21009EDCEB /* RMDownloadIndicator.m in Sources */,
 				967F509421E1F711006912B5 /* FDAlbumLibraryController.m in Sources */,
 				9645728921B226B4009EDCEB /* UIView+FDUtils.m in Sources */,
-				9645727621B0D05D009EDCEB /* FDDownloadController.m in Sources */,
 				9627928521E7263D006C7749 /* ffmpeg.c in Sources */,
+				9627929E21E72FE4006C7749 /* FDDownloadController.m in Sources */,
 				96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */,
 				9645728F21B2CDB2009EDCEB /* FDFilesCell.m in Sources */,
 				967F50A821E32A37006912B5 /* FDAlbumCollectionCell.m in Sources */,
@@ -1139,7 +1189,9 @@
 				9627928321E7263D006C7749 /* ffmpeg_filter.c in Sources */,
 				967F508321DB9229006912B5 /* KxMovieDecoder.m in Sources */,
 				9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */,
+				962792A121E72FE4006C7749 /* FDRequestController.m in Sources */,
 				9645726021AFBAC3009EDCEB /* UIView+FDSeparatorView.m in Sources */,
+				9627928821E72E37006C7749 /* FFmpegCmdManager.m in Sources */,
 				964572A421B3CCA2009EDCEB /* FDDismissAnimationTransition.m in Sources */,
 				9645728221B0EB21009EDCEB /* RMDisplayLabel.m in Sources */,
 			);
@@ -1247,7 +1299,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1300,7 +1352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1321,6 +1373,7 @@
 					"$(PROJECT_DIR)/FastDemo/FFmpeg/include",
 				);
 				INFOPLIST_FILE = FastDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1348,6 +1401,7 @@
 					"$(PROJECT_DIR)/FastDemo/FFmpeg/include",
 				);
 				INFOPLIST_FILE = FastDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

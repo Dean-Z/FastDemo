@@ -8,6 +8,7 @@
 
 #import "FDFFmpegDemosController.h"
 #import "KxMovieViewController.h"
+#import "FDFFmpegCutMediaController.h"
 #import "FDKit.h"
 
 @interface FDFFmpegDemosController ()<UITableViewDelegate,UITableViewDataSource>
@@ -27,14 +28,14 @@
 
 - (void)setup {
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationBar.title = @"FFmpeg Demos";
+    self.navigationBar.title = @"FFmpeg";
     self.navigationBar.parts = FDNavigationBarPartBack;
     WEAKSELF
     self.navigationBar.onClickBackAction = ^{
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     
-    self.itemsArray = @[@"FFmpeg Movie Player"];
+    self.itemsArray = @[@"Cut Media"];
     
     [self.view addSubview:self.tableView];
     [self.tableView setTableFooterView:[UIView new]];
@@ -67,13 +68,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        NSString *url = [[NSBundle mainBundle]pathForResource:@"1-3" ofType:@"mp4"];
-        NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-            parameters[KxMovieParameterDisableDeinterlacing] = @(YES);
-        KxMovieViewController *vc = [KxMovieViewController movieViewControllerWithContentPath:url
-                                                                                   parameters:parameters];
-        [self presentViewController:vc animated:YES completion:nil];
+        FDFFmpegCutMediaController *cut = [FDFFmpegCutMediaController new];
+        [self.navigationController pushViewController:cut animated:YES];
     }
 }
 

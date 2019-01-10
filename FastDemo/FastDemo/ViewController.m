@@ -18,16 +18,6 @@
 #import "FDFFmpegDemosController.h"
 #import "FDAVFoundationDeomController.h"
 
-//#import <libavformat/avformat.h>
-//#import <libavcodec/avcodec.h>
-//#import <libswscale/swscale.h>
-//#import <libavutil/avutil.h>
-//#import <libswresample/swresample.h>
-//#import <libavdevice/avdevice.h>
-//#import <libavfilter/avfilter.h>
-//#import <VideoToolbox/VideoToolbox.h>
-
-
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -41,27 +31,12 @@
     [super viewDidLoad];
     
     [self setup];
-    
-//    AVFormatContext *avFormatContext = avformat_alloc_context();
-//
-//    NSString *url = [[NSBundle mainBundle]pathForResource:@"1-3" ofType:@"mp4"];
-//    if (avformat_open_input(&avFormatContext, [url UTF8String], NULL, NULL) != 0) {
-//        av_log(NULL, AV_LOG_ERROR, "Couldn't open file");
-//        return;
-//    }
-//    if (avformat_find_stream_info(avFormatContext, NULL) < 0) {
-//        av_log(NULL, AV_LOG_ERROR, "Couldn't find stream information");
-//        return;
-//    } else {
-//        av_dump_format(avFormatContext, 0, [url cStringUsingEncoding:NSUTF8StringEncoding], NO);
-//    }
-//    avformat_close_input(&avFormatContext);
 }
 
 - (void)setup {
     self.navigationBar.title = @"FastDemo";
     [self.view addSubview:self.tableView];
-    self.itemsArray = @[@"AFNetworking / Request URL", @"AFNetworking / Download Files", @"NSFileManager / Document Files", @"FFmpeg SDK", @"AVFoundation"];
+    self.itemsArray = @[@"AFNetworking / Request URL", @"AFNetworking / Download Files", @"NSFileManager / Document Files", @"FFmpeg", @"AVFoundation"];
     [self.tableView setTableFooterView:[UIView new]];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.navigationBar.mas_bottom);

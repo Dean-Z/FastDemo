@@ -147,9 +147,13 @@
 - (void)installFileItem {
     [self.contentView addSubview:self.fileItem];
     [self.fileItem mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.rightLastView.mas_left);
         make.width.equalTo(@(30));
         make.top.equalTo(@([self contentCenterY]));
+        if (self.rightLastView) {
+            make.right.equalTo(self.rightLastView.mas_left);
+        } else {
+            make.right.equalTo(self.contentView).offset(-10);
+        }
     }];
 }
 

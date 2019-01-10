@@ -11,7 +11,6 @@
 #import "FDFilesListController.h"
 #import "FDAnimatedTransition.h"
 #import "FDFilesCell.h"
-#import "FDKit.h"
 
 @interface FDFilesListController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -54,6 +53,15 @@
     if ([self.dataArray containsObject:@".DS_Store"]) {
         [self.dataArray removeObject:@".DS_Store"];
     }
+    if (self.type != FDFileChooseAll) {
+        NSMutableArray *tmpArray = @[].mutableCopy;
+        for (NSString *path in self.dataArray) {
+            if ([self ieLegelFilePath:path]) {
+                [tmpArray addObject:path];
+            }
+        }
+        self.dataArray = tmpArray;
+    }
     if (!error) {
         [self.tableView reloadData];
         [self.tableView setTableFooterView:[UIView new]];
@@ -79,6 +87,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *fileName = self.dataArray[indexPath.row];
+    if (self.chooseFinishBlock) {
+        self.chooseFinishBlock([NSString stringWithFormat:@"%@/%@",FDPathDocument,fileName]);
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
     if ([self isImagePath:fileName]) {
         FDAlbumBrowserController *browser = [FDAlbumBrowserController new];
         UIView *fromView = [[UIApplication sharedApplication].keyWindow snapshotViewAfterScreenUpdates:NO];
@@ -114,6 +127,11 @@
     return source;
 }
 
+- (BOOL)isAudioPath:(NSString *)filePath {
+    return ([filePath hasSuffix:@".mp3"] ||
+            [filePath hasSuffix:@".aac"]);
+}
+
 - (BOOL)isVideoPath:(NSString *)filePath {
     return ([filePath hasSuffix:@".mov"] ||
             [filePath hasSuffix:@".mp4"] ||
@@ -124,6 +142,17 @@
     return ([filePath hasSuffix:@".jpg"] ||
             [filePath hasSuffix:@".jpeg"] ||
             [filePath hasSuffix:@".png"]);
+}
+
+- (BOOL)ieLegelFilePath:(NSString *)filePath {
+    if (self.type == FDFileChoosePicture) {
+        return [self isImagePath:filePath];
+    } else if(self.type == FDFileChooseVideo) {
+        return [self isVideoPath:filePath];
+    } else if(self.type == FDFileChooseAudio) {
+        return [self isAudioPath:filePath];
+    }
+    return NO;
 }
 
 #pragma mark - Getter
