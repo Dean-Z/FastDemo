@@ -11,9 +11,10 @@
 #import "FDAnimationImageFactory.h"
 #import "FDAlbumLibraryManager.h"
 #import "FDMovieMaker.h"
+#import "UIImage+FDUtils.h"
 #import "FDKit.h"
 
-@interface FDImageToVideoController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface FDImageToVideoController ()
 
 @property (nonatomic, strong) UIImageView *demoImageView;
 @property (nonatomic, strong) UIButton *showAnimation;
@@ -42,22 +43,14 @@
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     self.navigationBar.onClickAddAction = ^{
-//        UIImagePickerControllerSourceType sourceType;
-//        sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//        if ([UIImagePickerController isSourceTypeAvailable: sourceType]) {
-//            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//            picker.delegate = weakSelf;
-//            picker.sourceType = sourceType;
-//            picker.allowsEditing = NO;
-//            [weakSelf presentViewController:picker animated:YES completion:nil];
-//        }
-        
         [FDAlbumLibraryManager showPhotosManager:weakSelf withMaxImageCount:10 withAlbumArray:^(NSMutableArray<FDPictureModel *> *albumArray) {
             weakSelf.totalCount = albumArray.count;
             for (FDPictureModel *model in albumArray) {
                 if (model.highDefinitionImage == nil) {
                     model.getPictureAction = ^(id result){
-                        [weakSelf.dataArray addObject:result];
+                        if (result) {
+                            [weakSelf.dataArray addObject:result];
+                        }
                     };
                 } else {
                     [weakSelf.dataArray addObject:model.highDefinitionImage];
@@ -114,8 +107,6 @@
 - (void)startMakeMovieAction {
     if (self.totalCount != self.dataArray.count) {
         return;
-    } else {
-        
     }
     FDAnimationImageFactory *factory = [FDAnimationImageFactory new];
     factory.screenSize = CGSizeMake(512, 512);
@@ -123,7 +114,7 @@
     factory.totalDuration = 5;
     NSMutableArray *cropImages = @[].mutableCopy;
     for (UIImage *image in self.dataArray) {
-        [cropImages addObject:[self imageWithImage:image scaledToSize:factory.screenSize]];
+        [cropImages addObject:[image cropWithSize:factory.screenSize]];
     }
     factory.imageArray = cropImages;
     WEAKSELF
@@ -138,27 +129,6 @@
             }
         }];
     }];
-}
-
-//对图片尺寸进行压缩--
--(UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize {
-    UIGraphicsBeginImageContext(newSize);
-    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
-
-
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    UIImage *pickerImage = info[UIImagePickerControllerOriginalImage];
-    self.demoImageView.image = pickerImage;
-    [self dismissViewControllerAnimated:YES completion:^{}];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 #pragma mark Getter

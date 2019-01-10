@@ -28,6 +28,8 @@
 
 @property (nonatomic, strong) FDAlbumView *albumView;
 
+@property (nonatomic, strong) NSMutableArray<PHAsset *> *selectedAsset;
+
 @end
 
 @implementation FDAlbumLibraryController
@@ -120,14 +122,14 @@
     cell.row = indexPath.row;
     cell.asset = self.albumModel.assets[indexPath.row];
     [cell loadImage:indexPath];
-    cell.isSelect = [self.albumModel.selectRows containsObject:@(indexPath.row)];
+    cell.isSelect = [self.selectedAsset containsObject:cell.asset];
     
     WEAKSELF
     __weak typeof(cell) weakCell = cell;
     cell.selectPhotoAction = ^(PHAsset *asset) {
         BOOL isReloadCollectionView = NO;
-        if ([weakSelf.albumModel.selectRows containsObject:@(indexPath.row)]) {
-            [weakSelf.albumModel.selectRows removeObject:@(indexPath.row)];
+        if ([weakSelf.selectedAsset containsObject:weakCell.asset]) {
+            [weakSelf.selectedAsset removeObject:weakCell.asset];
             [FDAlbumLibraryContext standardAlbumLibraryContext].choiceCount--;
             
             isReloadCollectionView = [FDAlbumLibraryContext standardAlbumLibraryContext].choiceCount == [FDAlbumLibraryContext standardAlbumLibraryContext].maxCount - 1;
@@ -135,7 +137,7 @@
             if ([FDAlbumLibraryContext standardAlbumLibraryContext].maxCount == [FDAlbumLibraryContext standardAlbumLibraryContext].choiceCount) {
                 return;
             }
-            [weakSelf.albumModel.selectRows addObject:@(indexPath.row)];
+            [weakSelf.selectedAsset addObject:weakCell.asset];
             [FDAlbumLibraryContext standardAlbumLibraryContext].choiceCount++;
             isReloadCollectionView = [FDAlbumLibraryContext standardAlbumLibraryContext].choiceCount == [FDAlbumLibraryContext standardAlbumLibraryContext].maxCount;
         }
@@ -144,7 +146,7 @@
         if (isReloadCollectionView) {
             [weakSelf.albumCollectionView reloadData];
         } else {
-            weakCell.isSelect = [weakSelf.albumModel.selectRows containsObject:@(indexPath.row)];
+            weakCell.isSelect = [weakSelf.selectedAsset containsObject:weakCell.asset];
         }
     };
     
@@ -177,32 +179,19 @@
 -(void)confirmAction:(UIButton *)button {
     if ([FDAlbumLibraryContext standardAlbumLibraryContext].choiceCount > 0) {
         button.enabled = NO;
-        NSMutableArray<FDPictureModel *> *photoList = [NSMutableArray array];
-        
-        __weak typeof(self) weakSelf = self;
-        for (FDAlbumModel *albumModel in self.assetCollectionList) {
-            for (NSNumber *row in albumModel.selectRows) {
-                if (row.integerValue < albumModel.assets.count) {
-                    FDPictureModel *photoModel = [[FDPictureModel alloc] init];
-                    
-                    __weak typeof(photoModel) weakPhotoModel = photoModel;
-                    photoModel.getPictureAction = ^(id result){
-                        [photoList addObject:weakPhotoModel];
-                        
-                        if (photoList.count == [FDAlbumLibraryContext standardAlbumLibraryContext].choiceCount) {
-                            button.enabled = YES;
-                            
-                            [FDAlbumLibraryContext standardAlbumLibraryContext].photoModelList = photoList;
-                            if (weakSelf.confirmAction) {
-                                weakSelf.confirmAction();
-                            }
-                            [weakSelf dismissViewControllerAnimated:YES completion:nil];
-                        }
-                    };
-                    
-                    photoModel.asset = albumModel.assets[row.integerValue];
-                }
+        if (self.selectedAsset.count == [FDAlbumLibraryContext standardAlbumLibraryContext].choiceCount) {
+            button.enabled = YES;
+            NSMutableArray<FDPictureModel *> *resutlDataArray = @[].mutableCopy;
+            for (PHAsset *asset in self.selectedAsset) {
+                FDPictureModel *model = [FDPictureModel new];
+                model.asset = asset;
+                [resutlDataArray addObject:model];
             }
+            [FDAlbumLibraryContext standardAlbumLibraryContext].photoModelList = resutlDataArray;
+            if (self.confirmAction) {
+                self.confirmAction();
+            }
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }
 }
@@ -285,6 +274,13 @@
         };
     }
     return _albumView;
+}
+
+- (NSMutableArray *)selectedAsset {
+    if (!_selectedAsset) {
+        _selectedAsset = @[].mutableCopy;
+    }
+    return _selectedAsset;
 }
 
 @end
