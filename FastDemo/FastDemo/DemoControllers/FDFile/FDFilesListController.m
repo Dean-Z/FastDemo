@@ -53,15 +53,13 @@
     if ([self.dataArray containsObject:@".DS_Store"]) {
         [self.dataArray removeObject:@".DS_Store"];
     }
-    if (self.type != FDFileChooseAll) {
-        NSMutableArray *tmpArray = @[].mutableCopy;
-        for (NSString *path in self.dataArray) {
-            if ([self ieLegelFilePath:path]) {
-                [tmpArray addObject:path];
-            }
+    NSMutableArray *tmpArray = @[].mutableCopy;
+    for (NSString *path in self.dataArray) {
+        if ([self ieLegelFilePath:path]) {
+            [tmpArray addObject:path];
         }
-        self.dataArray = tmpArray;
     }
+    self.dataArray = tmpArray;
     if (!error) {
         [self.tableView reloadData];
         [self.tableView setTableFooterView:[UIView new]];
@@ -83,6 +81,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        NSInteger row = [indexPath row];
+         [self.dataArray removeObjectAtIndex:row];
+         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -144,6 +155,10 @@
             [filePath hasSuffix:@".png"]);
 }
 
+- (BOOL)isCommonPath:(NSString *)filePath {
+    return (![filePath containsString:@"realm"]);
+}
+
 - (BOOL)ieLegelFilePath:(NSString *)filePath {
     if (self.type == FDFileChoosePicture) {
         return [self isImagePath:filePath];
@@ -151,6 +166,8 @@
         return [self isVideoPath:filePath];
     } else if(self.type == FDFileChooseAudio) {
         return [self isAudioPath:filePath];
+    } else if(self.type == FDFileChooseAll) {
+       return [self isCommonPath:filePath];
     }
     return NO;
 }
