@@ -123,7 +123,7 @@
         make.centerX.equalTo(self.view);
     }];
     [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.startButton.mas_bottom).offset(50);
+        make.top.equalTo(self.startButton.mas_bottom).offset(20);
         make.height.equalTo(@40);
         make.width.equalTo(@120);
         make.centerX.equalTo(self.view);
@@ -164,7 +164,6 @@
         self.startFieldText = self.startField.text;
         self.endFieldText = self.endField.text;
         [SVProgressHUD show];
-//        [NSThread detachNewThreadSelector:@selector(startCutThread) toTarget:self withObject:nil];
         [self.cutThread start];
     }
 }

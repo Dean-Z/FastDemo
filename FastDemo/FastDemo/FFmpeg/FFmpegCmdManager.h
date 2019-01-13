@@ -15,4 +15,7 @@
                 startTime:(char*)startTime
                  duration:(char*)duration;
 
+- (void)concatInputFilePath:(NSString *)inputFilePath
+            outPutVideoPath:(char*)outputPath;
+
 @end

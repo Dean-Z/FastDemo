@@ -120,7 +120,7 @@
     WEAKSELF
     [factory render:^(id imageArray) {
        FDMovieMaker *maker = [FDMovieMaker new];
-        NSString *filePath = [NSString stringWithFormat:@"%@/%@",FDPathDocument,@"test2.mov"];
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@",FDPathDocument,@"test2.mp4"];
         [maker compressionSession:imageArray filePath:filePath FPS:10 completion:^(float progress, BOOL success) {
             weakSelf.makeVideoProgress.text = [NSString stringWithFormat:@"%.2f",progress];
             if (success) {

@@ -22,6 +22,7 @@
 		962792A121E72FE4006C7749 /* FDRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627929821E72FE4006C7749 /* FDRequestController.m */; };
 		962792A221E72FE4006C7749 /* FDFFmpegDemosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627929B21E72FE4006C7749 /* FDFFmpegDemosController.m */; };
 		962792A521E73037006C7749 /* FDFFmpegCutMediaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792A421E73037006C7749 /* FDFFmpegCutMediaController.m */; };
+		962792A821E99E75006C7749 /* FDFFmpegConcatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792A721E99E75006C7749 /* FDFFmpegConcatController.m */; };
 		9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645721621AF8BF8009EDCEB /* AppDelegate.m */; };
 		9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645721921AF8BF8009EDCEB /* ViewController.m */; };
 		9645721D21AF8BF8009EDCEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9645721B21AF8BF8009EDCEB /* Main.storyboard */; };
@@ -134,6 +135,8 @@
 		9627929B21E72FE4006C7749 /* FDFFmpegDemosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegDemosController.m; sourceTree = "<group>"; };
 		962792A321E73037006C7749 /* FDFFmpegCutMediaController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFFmpegCutMediaController.h; sourceTree = "<group>"; };
 		962792A421E73037006C7749 /* FDFFmpegCutMediaController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegCutMediaController.m; sourceTree = "<group>"; };
+		962792A621E99E75006C7749 /* FDFFmpegConcatController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFFmpegConcatController.h; sourceTree = "<group>"; };
+		962792A721E99E75006C7749 /* FDFFmpegConcatController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegConcatController.m; sourceTree = "<group>"; };
 		9645721221AF8BF8009EDCEB /* FastDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9645721521AF8BF8009EDCEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9645721621AF8BF8009EDCEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -427,9 +430,9 @@
 		9627928921E72FE4006C7749 /* FDAVFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				9627928C21E72FE4006C7749 /* FDAVFoundationDeomController.h */,
 				9627928A21E72FE4006C7749 /* FDAVFoundationDeomController.m */,
 				9627928B21E72FE4006C7749 /* FDImageToVideoController.h */,
-				9627928C21E72FE4006C7749 /* FDAVFoundationDeomController.h */,
 				9627928D21E72FE4006C7749 /* FDImageToVideoController.m */,
 			);
 			path = FDAVFoundation;
@@ -471,6 +474,8 @@
 				9627929B21E72FE4006C7749 /* FDFFmpegDemosController.m */,
 				962792A321E73037006C7749 /* FDFFmpegCutMediaController.h */,
 				962792A421E73037006C7749 /* FDFFmpegCutMediaController.m */,
+				962792A621E99E75006C7749 /* FDFFmpegConcatController.h */,
+				962792A721E99E75006C7749 /* FDFFmpegConcatController.m */,
 			);
 			path = FDFFmpeg;
 			sourceTree = "<group>";
@@ -1144,6 +1149,7 @@
 				967F509821E31D85006912B5 /* FDAlbumModel.m in Sources */,
 				9645728621B223B8009EDCEB /* FDFileDownloader.m in Sources */,
 				967F50AB21E33135006912B5 /* FDAlbumLibraryManager.m in Sources */,
+				962792A821E99E75006C7749 /* FDFFmpegConcatController.m in Sources */,
 				9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */,
 				967F50A521E32284006912B5 /* FDAlbumTableViewCell.m in Sources */,
 				9645724D21AF990C009EDCEB /* NSAttributedString+FDUtil.m in Sources */,

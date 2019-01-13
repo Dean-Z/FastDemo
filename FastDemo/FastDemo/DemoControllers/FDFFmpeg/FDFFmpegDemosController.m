@@ -9,6 +9,7 @@
 #import "FDFFmpegDemosController.h"
 #import "KxMovieViewController.h"
 #import "FDFFmpegCutMediaController.h"
+#import "FDFFmpegConcatController.h"
 #import "FDKit.h"
 
 @interface FDFFmpegDemosController ()<UITableViewDelegate,UITableViewDataSource>
@@ -35,7 +36,7 @@
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     
-    self.itemsArray = @[@"Cut Media"];
+    self.itemsArray = @[@"Cut Media",@"Concat Media"];
     
     [self.view addSubview:self.tableView];
     [self.tableView setTableFooterView:[UIView new]];
@@ -70,6 +71,9 @@
     if (indexPath.row == 0) {
         FDFFmpegCutMediaController *cut = [FDFFmpegCutMediaController new];
         [self.navigationController pushViewController:cut animated:YES];
+    } else if(indexPath.row == 1) {
+        FDFFmpegConcatController *concat = [FDFFmpegConcatController new];
+        [self.navigationController pushViewController:concat animated:YES];
     }
 }
 
