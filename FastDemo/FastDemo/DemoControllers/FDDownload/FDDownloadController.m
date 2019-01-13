@@ -103,16 +103,7 @@
 - (void)mockAction {
     [self addDownloadRequestView];
     FDDownloadRequestView *requestView1 = self.downloadRequestViews.lastObject;
-    requestView1.inputTextField.text = @"http://dean.mudao88.com/%E5%93%88%E5%88%A9%E6%B3%A2%E7%89%B9%287%29%E5%93%88%E5%88%A9%E6%B3%A2%E7%89%B9%E4%B8%8E%E6%AD%BB%E4%BA%A1%E5%9C%A3%E5%99%A8.zip";
-    [self addDownloadRequestView];
-    FDDownloadRequestView *requestView2 = self.downloadRequestViews.lastObject;
-    requestView2.inputTextField.text = @"http://dean.mudao88.com/%E5%93%88%E5%88%A9%E6%B3%A2%E7%89%B9%285%29%E5%93%88%E5%88%A9%E6%B3%A2%E7%89%B9%E4%B8%8E%E5%87%A4%E5%87%B0%E7%A4%BE.zip";
-    [self addDownloadRequestView];
-    FDDownloadRequestView *requestView3 = self.downloadRequestViews.lastObject;
-    requestView3.inputTextField.text = @"http://dean.mudao88.com/%E5%86%B0%E4%B8%8E%E7%81%AB%E4%B9%8B%E6%AD%8C%282%29-%E5%88%97%E7%8E%8B%E7%9A%84%E7%BA%B7%E4%BA%89.zip";
-    [self addDownloadRequestView];
-    FDDownloadRequestView *requestView4 = self.downloadRequestViews.lastObject;
-    requestView4.inputTextField.text = @"http://dean.mudao88.com/%E5%86%B0%E4%B8%8E%E7%81%AB%E4%B9%8B%E6%AD%8C%283%29-%E5%86%B0%E9%9B%A8%E7%9A%84%E9%A3%8E%E6%9A%B4.zip";
+    requestView1.inputTextField.text = @"http://dean.mudao88.com/audio.mp3";
     [self addDownloadRequestView];
     FDDownloadRequestView *requestView5 = self.downloadRequestViews.lastObject;
     requestView5.inputTextField.text = @"http://dean.mudao88.com/fgyfyufghkjhl534.jpg";

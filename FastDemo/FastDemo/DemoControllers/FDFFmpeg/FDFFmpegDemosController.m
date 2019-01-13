@@ -10,6 +10,7 @@
 #import "KxMovieViewController.h"
 #import "FDFFmpegCutMediaController.h"
 #import "FDFFmpegConcatController.h"
+#import "FDFFmpegMuxMediaController.h"
 #import "FDKit.h"
 
 @interface FDFFmpegDemosController ()<UITableViewDelegate,UITableViewDataSource>
@@ -36,7 +37,7 @@
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     
-    self.itemsArray = @[@"Cut Media",@"Concat Media"];
+    self.itemsArray = @[@"Cut Media",@"Concat Media", @"Mixture Video & Audio"];
     
     [self.view addSubview:self.tableView];
     [self.tableView setTableFooterView:[UIView new]];
@@ -74,6 +75,9 @@
     } else if(indexPath.row == 1) {
         FDFFmpegConcatController *concat = [FDFFmpegConcatController new];
         [self.navigationController pushViewController:concat animated:YES];
+    } else  if(indexPath.row == 2) {
+        FDFFmpegMuxMediaController *mux = [FDFFmpegMuxMediaController new];
+        [self.navigationController pushViewController:mux animated:YES];
     }
 }
 
