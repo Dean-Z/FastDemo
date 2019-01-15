@@ -18,6 +18,7 @@
 @interface FDFFmpegImageToVideoController ()
 
 @property (nonatomic, strong) UILabel *pictureCountLabel;
+@property (nonatomic, strong) UITextField *maxImagesCountField;
 @property (nonatomic, strong) UITextField *subFileNameField;
 @property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) UIButton *makeVideo;
@@ -53,7 +54,7 @@
     };
     
     self.navigationBar.onClickAddAction = ^{
-        [FDAlbumLibraryManager showPhotosManager:weakSelf withMaxImageCount:10 withAlbumArray:^(NSMutableArray<FDPictureModel *> *albumArray) {
+        [FDAlbumLibraryManager showPhotosManager:weakSelf withMaxImageCount:8 withAlbumArray:^(NSMutableArray<FDPictureModel *> *albumArray) {
             weakSelf.totalCount = albumArray.count;
             for (FDPictureModel *model in albumArray) {
                 if (model.highDefinitionImage == nil) {
@@ -74,6 +75,7 @@
 
 - (void)addsubview {
     [self.view addSubview:self.pictureCountLabel];
+//    [self.view addSubview:self.maxImagesCountField];
     [self.view addSubview:self.subFileNameField];
     [self.view addSubview:self.makeVideo];
     [self.view addSubview:self.playButton];
@@ -82,6 +84,13 @@
         make.left.equalTo(@20);
         make.top.equalTo(self.navigationBar.mas_bottom).offset(20);
     }];
+    
+//    [self.maxImagesCountField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(@20);
+//        make.top.equalTo(self.pictureCountLabel.mas_bottom).offset(20);
+//        make.right.equalTo(self.view).offset(-20);
+//        make.height.equalTo(@40);
+//    }];
     
     [self.subFileNameField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@20);
@@ -151,6 +160,11 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.subFileNameField resignFirstResponder];
+    [self.maxImagesCountField resignFirstResponder];
+}
+
 #pragma mark - Getter
 
 - (UILabel *)pictureCountLabel {
@@ -187,6 +201,19 @@
         _subFileNameField.textAlignment = NSTextAlignmentCenter;
     }
     return _subFileNameField;
+}
+
+- (UITextField *)maxImagesCountField {
+    if (!_maxImagesCountField) {
+        _maxImagesCountField = [UITextField new];
+        _maxImagesCountField.placeholder = @" Please input max imags count";
+        _maxImagesCountField.backgroundColor = HEXCOLOR(0xf1f1f1);
+        _maxImagesCountField.textColor = HEXCOLOR(0x666666);
+        _maxImagesCountField.font = [UIFont systemFontOfSize:13];
+        _maxImagesCountField.textAlignment = NSTextAlignmentCenter;
+        _maxImagesCountField.keyboardType = UIKeyboardTypeNumberPad;
+    }
+    return _maxImagesCountField;
 }
 
 - (UIButton *)playButton {
