@@ -27,4 +27,8 @@
               audioPath:(char*)audioPath
         outPutVideoPath:(char*)outputPath;
 
+- (void)concatImages:(char *)imagesPath
+                rate:(char *)rate
+             toVideo:(char *)videoPath;
+
 @end

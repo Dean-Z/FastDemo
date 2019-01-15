@@ -9,6 +9,8 @@
 #import "FDAnimationImageFactory.h"
 #import "UIView+FDUtils.h"
 
+#define KTmpImageFinder  @"tmp"
+
 @interface FDAnimationImageFactory ()
 
 @property (nonatomic, strong) UIView *screenView;
@@ -30,6 +32,16 @@
     self.demoImageView = [UIImageView new];
     self.demoImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.demoImageView.clipsToBounds = YES;
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *path = [NSString stringWithFormat:@"%@%@",FDPathTemp,KTmpImageFinder];
+    BOOL isDir;
+    if ([fileManager fileExistsAtPath:path isDirectory:&isDir]) {
+        if (isDir) {
+            [fileManager removeItemAtPath:path error:nil];
+        }
+    }
+    [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
 }
 
 - (void)render:(fd_block_object)complete {
@@ -50,6 +62,7 @@
 - (void)moveAndDismiss:(fd_block_object)complete {
     self.demoImageView.frame = self.screenView.bounds;
     NSMutableArray *dataArray = @[].mutableCopy;
+    NSInteger tmpIndex = 1;
     // 动画持续时长
     CGFloat duration = 1;
     for (NSInteger index=0; index<self.imageArray.count - 1; index++) {
@@ -70,9 +83,13 @@
             if (otherFrame) {
                 UIImage *r = [self imageWithImage:otherFrame scaledToSize:self.screenSize];
                 [dataArray addObject:r];
+                [self ifSaveTmpPic:r index:tmpIndex];
+                tmpIndex ++;
                 if (j == 0) {
                     for (NSInteger index = 0; index < self.freamCount - 1; index ++) {
                         [dataArray addObject:r];
+                        [self ifSaveTmpPic:r index:tmpIndex];
+                        tmpIndex ++;
                     }
                 }
                 NSLog(@"Finish Image idx %ld",j + 1);
@@ -84,7 +101,27 @@
         [self.demoImageView removeFromSuperview];
         self.demoImageView = fontImageView;
     }
-    complete(dataArray);
+    if (self.saveTmpPic) {
+        complete([NSString stringWithFormat:@"%@%@",FDPathTemp,KTmpImageFinder]);
+    } else {
+        complete(dataArray);
+    }
+}
+
+- (void)ifSaveTmpPic:(UIImage *)pic index:(NSInteger)index {
+    if (self.saveTmpPic) {
+        NSString *zeroString = @"00000";
+        if (index < 10) {
+            zeroString = [zeroString substringToIndex:zeroString.length - 1];
+        } else if (index >= 10 && index < 100) {
+            zeroString = [zeroString substringToIndex:zeroString.length - 2];
+        } else if (index >= 100 && index < 1000) {
+            zeroString = [zeroString substringToIndex:zeroString.length - 3];
+        } else if (index >= 1000 && index < 10000) {
+            zeroString = [zeroString substringToIndex:zeroString.length - 4];
+        }
+        [UIImageJPEGRepresentation(pic, 0.5) writeToFile:[NSString stringWithFormat:@"%@%@/%@%ld.jpg",FDPathTemp,KTmpImageFinder,zeroString,index] atomically:YES];
+    }
 }
 
 - (void)rotateAnimation:(fd_block_object)complete {

@@ -92,7 +92,7 @@
 - (void)concatVideoPath:(char*)videoPath
               audioPath:(char*)audioPath
         outPutVideoPath:(char*)outputPath {
-    int argc =6;
+    int argc = 6;
     char **arguments = calloc(argc, sizeof(char*));
     if (arguments != NULL) {
         arguments[0] = "ffmpeg";
@@ -101,6 +101,24 @@
         arguments[3] = "-i";
         arguments[4] = audioPath;
         arguments[5] = outputPath;
+        
+        ffmpeg_main(argc, arguments);
+    }
+}
+
+- (void)concatImages:(char *)imagesPath
+                rate:(char *)rate
+             toVideo:(char *)videoPath {
+    int argc = 7;
+    char **arguments = calloc(argc, sizeof(char*));
+    if (arguments != NULL) {
+        arguments[0] = "ffmpeg";
+        arguments[1] = "-y";
+        arguments[2] = "-r";
+        arguments[3] = rate;
+        arguments[4] = "-i";
+        arguments[5] = imagesPath;
+        arguments[6] = videoPath;
         
         ffmpeg_main(argc, arguments);
     }

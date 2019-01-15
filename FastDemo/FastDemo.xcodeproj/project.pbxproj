@@ -24,6 +24,7 @@
 		962792A521E73037006C7749 /* FDFFmpegCutMediaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792A421E73037006C7749 /* FDFFmpegCutMediaController.m */; };
 		962792A821E99E75006C7749 /* FDFFmpegConcatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792A721E99E75006C7749 /* FDFFmpegConcatController.m */; };
 		962792AB21EB1457006C7749 /* FDFFmpegMuxMediaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792AA21EB1457006C7749 /* FDFFmpegMuxMediaController.m */; };
+		962792AE21EE09E4006C7749 /* FDFFmpegImageToVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792AD21EE09E4006C7749 /* FDFFmpegImageToVideoController.m */; };
 		9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645721621AF8BF8009EDCEB /* AppDelegate.m */; };
 		9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645721921AF8BF8009EDCEB /* ViewController.m */; };
 		9645721D21AF8BF8009EDCEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9645721B21AF8BF8009EDCEB /* Main.storyboard */; };
@@ -140,6 +141,8 @@
 		962792A721E99E75006C7749 /* FDFFmpegConcatController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegConcatController.m; sourceTree = "<group>"; };
 		962792A921EB1457006C7749 /* FDFFmpegMuxMediaController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFFmpegMuxMediaController.h; sourceTree = "<group>"; };
 		962792AA21EB1457006C7749 /* FDFFmpegMuxMediaController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegMuxMediaController.m; sourceTree = "<group>"; };
+		962792AC21EE09E4006C7749 /* FDFFmpegImageToVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFFmpegImageToVideoController.h; sourceTree = "<group>"; };
+		962792AD21EE09E4006C7749 /* FDFFmpegImageToVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegImageToVideoController.m; sourceTree = "<group>"; };
 		9645721221AF8BF8009EDCEB /* FastDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9645721521AF8BF8009EDCEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9645721621AF8BF8009EDCEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -481,6 +484,8 @@
 				962792AA21EB1457006C7749 /* FDFFmpegMuxMediaController.m */,
 				962792A621E99E75006C7749 /* FDFFmpegConcatController.h */,
 				962792A721E99E75006C7749 /* FDFFmpegConcatController.m */,
+				962792AC21EE09E4006C7749 /* FDFFmpegImageToVideoController.h */,
+				962792AD21EE09E4006C7749 /* FDFFmpegImageToVideoController.m */,
 			);
 			path = FDFFmpeg;
 			sourceTree = "<group>";
@@ -1150,6 +1155,7 @@
 			files = (
 				96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */,
 				967F507F21DB9229006912B5 /* KxMovieViewController.m in Sources */,
+				962792AE21EE09E4006C7749 /* FDFFmpegImageToVideoController.m in Sources */,
 				967F508221DB9229006912B5 /* KxAudioManager.m in Sources */,
 				967F509821E31D85006912B5 /* FDAlbumModel.m in Sources */,
 				9645728621B223B8009EDCEB /* FDFileDownloader.m in Sources */,

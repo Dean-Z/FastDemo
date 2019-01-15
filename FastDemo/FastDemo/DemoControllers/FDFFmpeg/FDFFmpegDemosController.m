@@ -11,6 +11,7 @@
 #import "FDFFmpegCutMediaController.h"
 #import "FDFFmpegConcatController.h"
 #import "FDFFmpegMuxMediaController.h"
+#import "FDFFmpegImageToVideoController.h"
 #import "FDKit.h"
 
 @interface FDFFmpegDemosController ()<UITableViewDelegate,UITableViewDataSource>
@@ -37,7 +38,7 @@
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     
-    self.itemsArray = @[@"Cut Media",@"Concat Media", @"Mixture Video & Audio"];
+    self.itemsArray = @[@"Pictures to video",@"Cut Media",@"Concat Media", @"Mixture Video & Audio"];
     
     [self.view addSubview:self.tableView];
     [self.tableView setTableFooterView:[UIView new]];
@@ -70,12 +71,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
+        FDFFmpegImageToVideoController *imageToVideo = [FDFFmpegImageToVideoController new];
+        [self.navigationController pushViewController:imageToVideo animated:YES];
+    } else if (indexPath.row == 1) {
         FDFFmpegCutMediaController *cut = [FDFFmpegCutMediaController new];
         [self.navigationController pushViewController:cut animated:YES];
-    } else if(indexPath.row == 1) {
+    } else if(indexPath.row == 2) {
         FDFFmpegConcatController *concat = [FDFFmpegConcatController new];
         [self.navigationController pushViewController:concat animated:YES];
-    } else  if(indexPath.row == 2) {
+    } else  if(indexPath.row == 3) {
         FDFFmpegMuxMediaController *mux = [FDFFmpegMuxMediaController new];
         [self.navigationController pushViewController:mux animated:YES];
     }

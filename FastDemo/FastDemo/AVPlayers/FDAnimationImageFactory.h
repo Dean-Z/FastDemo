@@ -16,6 +16,7 @@
 @property (nonatomic) NSInteger freamCount;  // 每秒多少帧
 @property (nonatomic) CGFloat totalDuration; // 持续时长
 @property (nonatomic, strong) NSArray *imageArray;
+@property (nonatomic) BOOL saveTmpPic;
 
 - (void)render:(fd_block_object)complete;
 
