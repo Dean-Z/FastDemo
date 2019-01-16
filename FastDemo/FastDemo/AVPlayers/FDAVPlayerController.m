@@ -112,19 +112,19 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft) {
         AVPlayerItemStatus status = [change[NSKeyValueChangeNewKey]intValue];
         switch (status) {
             case AVPlayerItemStatusFailed:
-                NSLog(@"item 有误");
+                NSLog(@"Item Failed");
                 self.isReadToPlay = NO;
                 self.status = FDFail;
                 break;
             case AVPlayerItemStatusReadyToPlay:
-                NSLog(@"准好播放了");
+                NSLog(@"Ready To Play");
                 self.isReadToPlay = YES;
                 self.status = FDReadToPlay;
                 self.residueTimeLabel.text = formatTimeInterval(CMTimeGetSeconds([self playerItemDuration]), YES);
                 [self addTimePeriodicTimerObserverToPlayerIfEnabled];
                 break;
             case AVPlayerItemStatusUnknown:
-                NSLog(@"视频资源出现未知错误");
+                NSLog(@"Item Unknown");
                 self.isReadToPlay = NO;
                 self.status = FDFail;
                 break;
