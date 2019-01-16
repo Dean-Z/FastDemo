@@ -9,7 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "FDFFmpegMuxMediaController.h"
 #import "FDFilesListController.h"
-#import "KxMovieViewController.h"
+#import "FDPlayerManager.h"
 #import "FFmpegCmdManager.h"
 #import "SVProgressHUD.h"
 #import "FDKit.h"
@@ -169,11 +169,7 @@
 }
 
 - (void)playAction {
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-        parameters[KxMovieParameterDisableDeinterlacing] = @(YES);
-    KxMovieViewController *vc = [KxMovieViewController movieViewControllerWithContentPath:self.subFileNameFieldText parameters:parameters];
-    [self presentViewController:vc animated:YES completion:nil];
+    [FDPlayerManager showPlayerChooser:self url:self.subFileNameFieldText];
 }
 
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C5A5A06F9E1620EDFC5A0E4 /* libPods-FastDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA0324D7333E19035AF3B05 /* libPods-FastDemo.a */; };
+		960E39F321EEC93A00A08390 /* FDAVPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960E39F221EEC93A00A08390 /* FDAVPlayerController.m */; };
+		960E39F621EEE22500A08390 /* FDPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 960E39F521EEE22500A08390 /* FDPlayerManager.m */; };
 		9627922D21E5DC41006C7749 /* UIImage+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627922C21E5DC41006C7749 /* UIImage+FDUtils.m */; };
 		9627928221E7263D006C7749 /* ffmpeg_opt.c in Sources */ = {isa = PBXBuildFile; fileRef = 9627927B21E7263D006C7749 /* ffmpeg_opt.c */; };
 		9627928321E7263D006C7749 /* ffmpeg_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9627927F21E7263D006C7749 /* ffmpeg_filter.c */; };
@@ -109,6 +111,10 @@
 /* Begin PBXFileReference section */
 		2707151C4027D76844E18682 /* Pods-FastDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		5FA0324D7333E19035AF3B05 /* libPods-FastDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FastDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		960E39F121EEC93A00A08390 /* FDAVPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAVPlayerController.h; sourceTree = "<group>"; };
+		960E39F221EEC93A00A08390 /* FDAVPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAVPlayerController.m; sourceTree = "<group>"; };
+		960E39F421EEE22500A08390 /* FDPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDPlayerManager.h; sourceTree = "<group>"; };
+		960E39F521EEE22500A08390 /* FDPlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDPlayerManager.m; sourceTree = "<group>"; };
 		9627922B21E5DC41006C7749 /* UIImage+FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+FDUtils.h"; sourceTree = "<group>"; };
 		9627922C21E5DC41006C7749 /* UIImage+FDUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FDUtils.m"; sourceTree = "<group>"; };
 		9627927A21E7263D006C7749 /* cmdutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmdutils.h; sourceTree = "<group>"; };
@@ -695,6 +701,10 @@
 				967F508B21DDAA73006912B5 /* FDMovieMaker.m */,
 				967F508D21DDAF41006912B5 /* FDAnimationImageFactory.h */,
 				967F508E21DDAF41006912B5 /* FDAnimationImageFactory.m */,
+				960E39F121EEC93A00A08390 /* FDAVPlayerController.h */,
+				960E39F221EEC93A00A08390 /* FDAVPlayerController.m */,
+				960E39F421EEE22500A08390 /* FDPlayerManager.h */,
+				960E39F521EEE22500A08390 /* FDPlayerManager.m */,
 			);
 			path = AVPlayers;
 			sourceTree = "<group>";
@@ -1157,6 +1167,7 @@
 				967F507F21DB9229006912B5 /* KxMovieViewController.m in Sources */,
 				962792AE21EE09E4006C7749 /* FDFFmpegImageToVideoController.m in Sources */,
 				967F508221DB9229006912B5 /* KxAudioManager.m in Sources */,
+				960E39F321EEC93A00A08390 /* FDAVPlayerController.m in Sources */,
 				967F509821E31D85006912B5 /* FDAlbumModel.m in Sources */,
 				9645728621B223B8009EDCEB /* FDFileDownloader.m in Sources */,
 				967F50AB21E33135006912B5 /* FDAlbumLibraryManager.m in Sources */,
@@ -1208,6 +1219,7 @@
 				967F508321DB9229006912B5 /* KxMovieDecoder.m in Sources */,
 				9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */,
 				962792A121E72FE4006C7749 /* FDRequestController.m in Sources */,
+				960E39F621EEE22500A08390 /* FDPlayerManager.m in Sources */,
 				9645726021AFBAC3009EDCEB /* UIView+FDSeparatorView.m in Sources */,
 				9627928821E72E37006C7749 /* FFmpegCmdManager.m in Sources */,
 				964572A421B3CCA2009EDCEB /* FDDismissAnimationTransition.m in Sources */,

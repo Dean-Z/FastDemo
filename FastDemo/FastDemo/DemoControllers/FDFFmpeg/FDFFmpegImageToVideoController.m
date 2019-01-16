@@ -8,7 +8,7 @@
 
 #import "FDFFmpegImageToVideoController.h"
 #import "FDAnimationImageFactory.h"
-#import "KxMovieViewController.h"
+#import "FDPlayerManager.h"
 #import "FDAlbumLibraryManager.h"
 #import "UIImage+FDUtils.h"
 #import "FFmpegCmdManager.h"
@@ -61,12 +61,12 @@
                     model.getPictureAction = ^(id result){
                         if (result) {
                             [weakSelf.dataArray addObject:result];
-                            weakSelf.pictureCountLabel.text = [NSString stringWithFormat:@"Current choosed images count: %ld",weakSelf.dataArray.count];
+                            weakSelf.pictureCountLabel.text = [NSString stringWithFormat:@"Current choosed images count: %ld",(long)weakSelf.dataArray.count];
                         }
                     };
                 } else {
                     [weakSelf.dataArray addObject:model.highDefinitionImage];
-                    weakSelf.pictureCountLabel.text = [NSString stringWithFormat:@"Current choosed images count: %ld",weakSelf.dataArray.count];
+                    weakSelf.pictureCountLabel.text = [NSString stringWithFormat:@"Current choosed images count: %ld",(long)weakSelf.dataArray.count];
                 }
             }
         }];
@@ -153,11 +153,7 @@
 }
 
 - (void)playAction {
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-        parameters[KxMovieParameterDisableDeinterlacing] = @(YES);
-    KxMovieViewController *vc = [KxMovieViewController movieViewControllerWithContentPath:self.subFileNameFieldText parameters:parameters];
-    [self presentViewController:vc animated:YES completion:nil];
+    [FDPlayerManager showPlayerChooser:self url:self.subFileNameFieldText];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
