@@ -21,4 +21,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) FDFileChooseType type;
 @property (nonatomic, copy) fd_block_object chooseFinishBlock;
 
+@property (nonatomic, strong) NSString *dirPath;
+
 @end

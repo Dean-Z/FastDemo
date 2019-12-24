@@ -11,11 +11,14 @@
 #import "FDFilesListController.h"
 #import "FDKit.h"
 
+static NSString *musicPathName = @"musics";
+
 @interface FDDownloadController ()
 
 @property (nonatomic, strong) NSMutableArray *downloadRequestViews;
 @property (nonatomic, strong) UIButton *requestButton;
 @property (nonatomic, strong) UIButton *mockButton;
+@property (nonatomic, strong) NSString *defaultDownloadPath;
 
 @end
 
@@ -24,13 +27,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setup];
+    if (self.downloadMusicModel) {
+        NSString * docsdir = FDPathDocument;
+        self.defaultDownloadPath = [docsdir stringByAppendingPathComponent:musicPathName];
+        [self setup];
+        [self prepareDownloadMusic];
+    } else {
+        [self setupWithMock];
+    }
 }
 
 - (void)setup {
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationBar.title = @"Download Files";
-    self.navigationBar.parts = FDNavigationBarPartBack | FDNavigationBarPartAdd | FDNavigationBarPartFiles;
+    self.navigationBar.parts = FDNavigationBarPartBack | FDNavigationBarPartFiles;
     WEAKSELF
     self.navigationBar.onClickBackAction = ^{
         [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -43,14 +53,38 @@
         FDFilesListController *vc = [FDFilesListController new];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
-    
     [self.view addSubview:self.requestButton];
+}
+
+- (void)prepareDownloadMusic {
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDir = NO;
+    BOOL existed = [fileManager fileExistsAtPath:self.defaultDownloadPath isDirectory:&isDir];
+    if ( !existed) {
+        [fileManager createDirectoryAtPath:self.defaultDownloadPath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    NSString *pic = self.downloadMusicModel.cover;
+    NSString *url = self.downloadMusicModel.url;
+    if ([pic hasPrefix:@"http"]) {
+        [self addDownloadRequestView];
+        FDDownloadRequestView *requestView1 = self.downloadRequestViews.lastObject;
+        requestView1.defaultDownloadPath = self.defaultDownloadPath;
+        requestView1.inputTextField.text = pic;
+    }
+    if ([url hasPrefix:@"http"]) {
+        [self addDownloadRequestView];
+        FDDownloadRequestView *requestView2 = self.downloadRequestViews.lastObject;
+        requestView2.defaultDownloadPath = self.defaultDownloadPath;
+        requestView2.inputTextField.text = url;
+    }
+}
+
+- (void)setupWithMock {
+    [self setup];
+    
     [self.view addSubview:self.mockButton];
-    [self.requestButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.navigationBar.mas_bottom).offset(20);
-        make.centerX.equalTo(self.view);
-        make.width.equalTo(@(100));
-    }];
     [self.mockButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(20);
         make.height.equalTo(@(40));
@@ -146,6 +180,13 @@
         _mockButton.layer.masksToBounds = YES;
     }
     return _mockButton;
+}
+
+- (NSString *)defaultDownloadPath {
+    if (!_defaultDownloadPath) {
+        _defaultDownloadPath = FDPathDocument;
+    }
+    return _defaultDownloadPath;
 }
 
 @end

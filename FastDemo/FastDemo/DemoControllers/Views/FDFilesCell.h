@@ -10,6 +10,7 @@
 
 @interface FDFilesCell : UITableViewCell
 
+@property (nonatomic, strong) NSString *dirPath;
 - (void)renderWithFileName:(NSString *)name;
 
 @end

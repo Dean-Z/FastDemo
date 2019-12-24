@@ -189,12 +189,13 @@ static NSString * formatTimeInterval(CGFloat seconds, BOOL isLeft) {
 
 - (void)setUrl:(NSString *)url {
     _url = url;
+    NSURL *fileUrl;
     if ([url containsString:@"http"]) {
-        self.item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.url]];
+        fileUrl = [NSURL URLWithString:self.url];
     } else {
-        AVAsset *asset = [AVAsset assetWithURL:[NSURL fileURLWithPath:url]];
-        self.item = [AVPlayerItem playerItemWithAsset:asset];
+        fileUrl = [NSURL fileURLWithPath:url];
     }
+    self.item = [AVPlayerItem playerItemWithURL:fileUrl];
     [self.item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     [self.player replaceCurrentItemWithPlayerItem:self.item];
 }

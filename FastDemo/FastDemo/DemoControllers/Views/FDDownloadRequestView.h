@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FDDownloadRequestView : UIView
 
+@property (nonatomic, strong) NSString *defaultDownloadPath;
 @property (nonatomic, strong) UITextField *inputTextField;
 
 - (instancetype)init;

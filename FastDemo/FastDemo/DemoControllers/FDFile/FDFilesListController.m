@@ -31,7 +31,7 @@
 }
 
 - (void)setup {
-    self.navigationBar.title = @"Document Files";
+    self.navigationBar.title = self.dirPath.lastPathComponent;
     self.navigationBar.parts = FDNavigationBarPartBack;
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -49,7 +49,7 @@
 - (void)loadData {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error = nil;
-    self.dataArray = [fileManager contentsOfDirectoryAtPath:FDPathDocument error:&error].mutableCopy;
+    self.dataArray = [fileManager contentsOfDirectoryAtPath:self.dirPath error:&error].mutableCopy;
     if ([self.dataArray containsObject:@".DS_Store"]) {
         [self.dataArray removeObject:@".DS_Store"];
     }
@@ -74,6 +74,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FDFilesCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FDFilesCell class])];
+    cell.dirPath = self.dirPath;
     [cell renderWithFileName:self.dataArray[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -86,8 +87,14 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         NSInteger row = [indexPath row];
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@",self.dirPath,self.dataArray[row]];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if ([fileManager fileExistsAtPath:filePath]) {
+            [fileManager removeItemAtPath:filePath error:nil];
+        }
          [self.dataArray removeObjectAtIndex:row];
          [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
     }
 }
 
@@ -98,8 +105,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *fileName = self.dataArray[indexPath.row];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@",self.dirPath,fileName];
     if (self.chooseFinishBlock) {
-        self.chooseFinishBlock([NSString stringWithFormat:@"%@/%@",FDPathDocument,fileName]);
+        self.chooseFinishBlock(filePath);
         [self.navigationController popViewControllerAnimated:YES];
         return;
     }
@@ -116,7 +124,16 @@
         [self.animatedTransition setPictureImageViewsFrame:nil];
         [self.animatedTransition setViewController:browser fromWindow:fromView];
     } else if ([self isVideoPath:fileName]) {
-        [FDPlayerManager showPlayerChooser:self url:[NSString stringWithFormat:@"%@/%@",FDPathDocument,fileName]];
+        [FDPlayerManager showPlayerChooser:self url:[NSString stringWithFormat:@"%@/%@",self.dirPath,fileName]];
+    } else {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        BOOL isDir = NO;
+        BOOL exists = [fileManager fileExistsAtPath:filePath isDirectory:&isDir];
+        if (exists && isDir) {
+            FDFilesListController *file = [FDFilesListController new];
+            file.dirPath = filePath;
+            [self.navigationController pushViewController:file animated:YES];
+        }
     }
 }
 
@@ -124,7 +141,7 @@
     NSMutableArray *source = @[].mutableCopy;
     for (NSString *name in self.dataArray) {
         if ([self isImagePath:name]) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",FDPathDocument,name]];
+            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",self.dirPath,name]];
             if (image) {
                 [source addObject:image];
             }
@@ -178,6 +195,13 @@
         _tableView.dataSource = self;
     }
     return _tableView;
+}
+
+- (NSString *)dirPath {
+    if (!_dirPath) {
+        _dirPath = FDPathDocument;
+    }
+    return _dirPath;
 }
 
 @end

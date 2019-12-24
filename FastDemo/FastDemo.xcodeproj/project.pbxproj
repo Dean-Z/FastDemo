@@ -87,6 +87,7 @@
 		967F50A521E32284006912B5 /* FDAlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F50A421E32284006912B5 /* FDAlbumTableViewCell.m */; };
 		967F50A821E32A37006912B5 /* FDAlbumCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F50A721E32A36006912B5 /* FDAlbumCollectionCell.m */; };
 		967F50AB21E33135006912B5 /* FDAlbumLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F50AA21E33135006912B5 /* FDAlbumLibraryManager.m */; };
+		96BB572B23B1A73E00E8B418 /* FDMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BB572A23B1A73E00E8B418 /* FDMusicModel.m */; };
 		96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F421B946B7001A8383 /* FDRealmHelper.m */; };
 		96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F821B94A09001A8383 /* FDRequestParamsModel.m */; };
 /* End PBXBuildFile section */
@@ -353,6 +354,8 @@
 		967F50A721E32A36006912B5 /* FDAlbumCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumCollectionCell.m; sourceTree = "<group>"; };
 		967F50A921E33135006912B5 /* FDAlbumLibraryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAlbumLibraryManager.h; sourceTree = "<group>"; };
 		967F50AA21E33135006912B5 /* FDAlbumLibraryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumLibraryManager.m; sourceTree = "<group>"; };
+		96BB572923B1A73E00E8B418 /* FDMusicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDMusicModel.h; sourceTree = "<group>"; };
+		96BB572A23B1A73E00E8B418 /* FDMusicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDMusicModel.m; sourceTree = "<group>"; };
 		96D809F321B946B7001A8383 /* FDRealmHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRealmHelper.h; sourceTree = "<group>"; };
 		96D809F421B946B7001A8383 /* FDRealmHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRealmHelper.m; sourceTree = "<group>"; };
 		96D809F721B94A09001A8383 /* FDRequestParamsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestParamsModel.h; sourceTree = "<group>"; };
@@ -979,6 +982,8 @@
 			children = (
 				96D809F721B94A09001A8383 /* FDRequestParamsModel.h */,
 				96D809F821B94A09001A8383 /* FDRequestParamsModel.m */,
+				96BB572923B1A73E00E8B418 /* FDMusicModel.h */,
+				96BB572A23B1A73E00E8B418 /* FDMusicModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1120,7 +1125,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FastDemo/Pods-FastDemo-resources.sh",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1131,7 +1136,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FastDemo/Pods-FastDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		984DF209D11BF7F3FB368608 /* [CP] Check Pods Manifest.lock */ = {
@@ -1198,6 +1203,7 @@
 				962792A021E72FE4006C7749 /* FDRequestHistoryController.m in Sources */,
 				9645727C21B0E74E009EDCEB /* FDDownloadRequestView.m in Sources */,
 				964572A721B3CD5A009EDCEB /* FDAnimatedTransition.m in Sources */,
+				96BB572B23B1A73E00E8B418 /* FDMusicModel.m in Sources */,
 				9645722521AF8BF9009EDCEB /* main.m in Sources */,
 				962792AB21EB1457006C7749 /* FDFFmpegMuxMediaController.m in Sources */,
 				9645729721B3C7DC009EDCEB /* FDAlbumBrowserCell.m in Sources */,

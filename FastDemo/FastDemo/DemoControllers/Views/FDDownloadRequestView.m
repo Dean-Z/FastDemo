@@ -57,7 +57,7 @@
     [self setUserInteractionEnabled:NO];
     NSURL *url = [NSURL URLWithString:self.inputTextField.text];
     NSString *fileName = [[self.inputTextField.text lastPathComponent] stringByRemovingPercentEncoding];
-    NSString *filePath = [NSString stringWithFormat:@"%@/%@",FDPathDocument,fileName];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@",self.defaultDownloadPath,fileName];
     WEAKSELF
     [[FDFileDownloader shareDownloader] downloadWithURL:url filePath:filePath progress:^(float progress) {
         [weakSelf.progressView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -102,6 +102,13 @@
         _progressLabel.text = @"-.-";
     }
     return _progressLabel;
+}
+
+- (NSString *)defaultDownloadPath {
+    if(!_defaultDownloadPath) {
+        _defaultDownloadPath = FDPathDocument;
+    }
+    return _defaultDownloadPath;
 }
 
 @end

@@ -109,7 +109,7 @@
 - (void)concatImages:(char *)imagesPath
                 rate:(char *)rate
              toVideo:(char *)videoPath {
-    int argc = 7;
+    int argc = 9;
     char **arguments = calloc(argc, sizeof(char*));
     if (arguments != NULL) {
         arguments[0] = "ffmpeg";
@@ -118,7 +118,9 @@
         arguments[3] = rate;
         arguments[4] = "-i";
         arguments[5] = imagesPath;
-        arguments[6] = videoPath;
+        arguments[6] = "-f";
+        arguments[7] = "mp4";
+        arguments[8] = videoPath;
         
         ffmpeg_main(argc, arguments);
     }

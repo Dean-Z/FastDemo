@@ -66,6 +66,9 @@
     // 动画持续时长
     CGFloat duration = 1;
     for (NSInteger index=0; index<self.imageArray.count - 1; index++) {
+        if (self.framesBlock) {
+            self.framesBlock((int)tmpIndex);
+        }
         //开始移动
         UIImageView *fontImageView = [UIImageView new];
         fontImageView.contentMode = UIViewContentModeScaleAspectFill;

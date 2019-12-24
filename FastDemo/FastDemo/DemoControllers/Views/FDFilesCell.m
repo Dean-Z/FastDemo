@@ -55,22 +55,29 @@
 
 - (void)renderWithFileName:(NSString *)name {
     self.fileName.text = name;
-    NSString *filePath = [NSString stringWithFormat:@"%@/%@",FDPathDocument,name];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@",self.dirPath,name];
     NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDir = NO;
+    [fileManager fileExistsAtPath:filePath isDirectory:&isDir];
     NSError *error = nil;
     NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:filePath error:&error];
     if (fileAttributes != nil) {
-        NSNumber *fileSize =  [fileAttributes objectForKey:NSFileSize];
         NSDate *fileModDate = [fileAttributes objectForKey:NSFileModificationDate];
-        if (fileSize.integerValue > 0) {
-            if (fileSize.intValue > 1024 * 1024) {
-                self.fileSize.text = [NSString stringWithFormat:@"%.2fMB",fileSize.intValue/(1024 * 1024.f)];
-            } else if(fileSize.integerValue > 1024) {
-                self.fileSize.text = [NSString stringWithFormat:@"%dKB",fileSize.intValue/(1024)];
-            } else {
-                self.fileSize.text = [NSString stringWithFormat:@"%dB",fileSize.intValue];
+        if (isDir) {
+            self.fileSize.text = @"";
+        } else {
+            NSNumber *fileSize =  [fileAttributes objectForKey:NSFileSize];
+            if (fileSize.integerValue > 0) {
+                if (fileSize.intValue > 1024 * 1024) {
+                    self.fileSize.text = [NSString stringWithFormat:@"%.2fMB",fileSize.intValue/(1024 * 1024.f)];
+                } else if(fileSize.integerValue > 1024) {
+                    self.fileSize.text = [NSString stringWithFormat:@"%dKB",fileSize.intValue/(1024)];
+                } else {
+                    self.fileSize.text = [NSString stringWithFormat:@"%dB",fileSize.intValue];
+                }
             }
         }
+           
         if (fileModDate) {
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
@@ -86,6 +93,7 @@
         _fileName = [UILabel new];
         _fileName.textColor = HEXCOLOR(0x666666);
         _fileName.font = [UIFont systemFontOfSize:14 weight:UIFontWeightRegular];
+        _fileName.lineBreakMode = NSLineBreakByTruncatingMiddle;
     }
     return _fileName;
 }

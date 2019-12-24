@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSArray *imageArray;
 @property (nonatomic) BOOL saveTmpPic;
 
+@property (nonatomic, copy)fd_block_int framesBlock;
+
 - (void)render:(fd_block_object)complete;
 
 @end

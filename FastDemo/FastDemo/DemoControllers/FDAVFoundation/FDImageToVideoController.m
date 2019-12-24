@@ -10,6 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "FDAnimationImageFactory.h"
 #import "FDAlbumLibraryManager.h"
+#import "FDPlayerManager.h"
 #import "FDMovieMaker.h"
 #import "UIImage+FDUtils.h"
 #import "FDKit.h"
@@ -20,6 +21,9 @@
 @property (nonatomic, strong) UIButton *showAnimation;
 @property (nonatomic, strong) UIButton *makeVideo;
 @property (nonatomic, strong) UILabel *makeVideoProgress;
+@property (nonatomic, strong) UILabel *makeingFramesTips;
+@property (nonatomic, strong) UILabel *makeingVideoTips;
+@property (nonatomic, strong) UIButton *playButton;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic) NSInteger totalCount;
@@ -62,32 +66,46 @@
 }
 
 - (void)addsubview {
-    [self.view addSubview:self.demoImageView];
-    [self.demoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.width.height.equalTo(@200);
+//    [self.view addSubview:self.demoImageView];
+//    [self.demoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(self.view);
+//        make.width.height.equalTo(@200);
+//    }];
+//    [self.view addSubview:self.showAnimation];
+//    [self.showAnimation mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.view).offset(20);
+//        make.bottom.equalTo(self.view).offset(-20);
+//        make.height.equalTo(@35);
+//        make.width.equalTo(@120);
+//    }];
+    
+    [self.view addSubview:self.makeVideoProgress];
+    [self.view addSubview:self.makeingFramesTips];
+    [self.makeingFramesTips mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.equalTo(self.navigationBar.mas_bottom).offset(20);
     }];
-    [self.view addSubview:self.showAnimation];
-    [self.showAnimation mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(20);
-        make.bottom.equalTo(self.view).offset(-20);
-        make.height.equalTo(@35);
-        make.width.equalTo(@120);
+    [self.makeVideoProgress mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.equalTo(self.makeingFramesTips.mas_bottom).offset(20);
     }];
     
     [self.view addSubview:self.makeVideo];
+    [self.view addSubview:self.playButton];
     [self.makeVideo mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.view).offset(-20);
-        make.bottom.equalTo(self.view).offset(-20);
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.makeVideoProgress.mas_bottom).offset(30);
         make.height.equalTo(@35);
         make.width.equalTo(@120);
     }];
     
-    [self.view addSubview:self.makeVideoProgress];
-    [self.makeVideoProgress mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.centerY.equalTo(self.makeVideo.mas_centerY);
+        make.top.equalTo(self.makeVideo.mas_bottom).offset(20);
+        make.height.equalTo(@35);
+        make.width.equalTo(@120);
     }];
+    
 }
 
 #pragma mark - Action
@@ -108,27 +126,39 @@
     if (self.totalCount != self.dataArray.count) {
         return;
     }
-    FDAnimationImageFactory *factory = [FDAnimationImageFactory new];
-    factory.screenSize = CGSizeMake(512, 512);
-    factory.freamCount = 20;
-    factory.totalDuration = 5;
-    NSMutableArray *cropImages = @[].mutableCopy;
-    for (UIImage *image in self.dataArray) {
-        [cropImages addObject:[image cropWithSize:factory.screenSize]];
-    }
-    factory.imageArray = cropImages;
-    WEAKSELF
-    [factory render:^(id imageArray) {
-       FDMovieMaker *maker = [FDMovieMaker new];
-        NSString *filePath = [NSString stringWithFormat:@"%@/%@",FDPathDocument,@"test2.mp4"];
-        [maker compressionSession:imageArray filePath:filePath FPS:10 completion:^(float progress, BOOL success) {
-            weakSelf.makeVideoProgress.text = [NSString stringWithFormat:@"%.2f",progress];
-            if (success) {
-                weakSelf.makeVideoProgress.text = @"Succeed!";
-                [imageArray removeAllObjects];
-            }
+    self.makeingFramesTips.hidden = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        FDAnimationImageFactory *factory = [FDAnimationImageFactory new];
+        factory.screenSize = CGSizeMake(512, 512);
+        factory.freamCount = 20;
+        factory.totalDuration = 5;
+        NSMutableArray *cropImages = @[].mutableCopy;
+        for (UIImage *image in self.dataArray) {
+            [cropImages addObject:[image cropWithSize:factory.screenSize]];
+        }
+        factory.imageArray = cropImages;
+        WEAKSELF
+        [factory render:^(id imageArray) {
+            weakSelf.makeingFramesTips.text = @"Frames completed!";
+            weakSelf.makeVideoProgress.hidden = NO;
+            FDMovieMaker *maker = [FDMovieMaker new];
+            NSString *filePath = [NSString stringWithFormat:@"%@/%@",FDPathDocument,@"test2.mp4"];
+            [maker compressionSession:imageArray filePath:filePath FPS:10 completion:^(float progress, BOOL success) {
+                weakSelf.makeVideoProgress.text = [NSString stringWithFormat:@"Makeing video: %d%@",(int)(progress * 100),@"%"];
+                if (success) {
+                    weakSelf.makeVideoProgress.text = @"Makeing video: 100%";
+                    [imageArray removeAllObjects];
+                    [weakSelf.playButton setHidden:NO];
+                }
+            }];
         }];
-    }];
+    });
+    
+}
+
+- (void)playAction {
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@",FDPathDocument,@"test2.mp4"];
+    [FDPlayerManager showPlayerChooser:self url:filePath];
 }
 
 #pragma mark Getter
@@ -170,13 +200,41 @@
     return _makeVideo;
 }
 
+- (UIButton *)playButton {
+    if (!_playButton) {
+        _playButton = [UIButton new];
+        [_playButton setTitle:@"Play" forState:UIControlStateNormal];
+        [_playButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+        [_playButton.titleLabel setFont:[UIFont systemFontOfSize:16 weight:UIFontWeightMedium]];
+        [_playButton addTarget:self action:@selector(playAction) forControlEvents:UIControlEventTouchUpInside];
+        _playButton.hidden = YES;
+        _playButton.backgroundColor = HEXCOLOR(0xF05353);
+        _playButton.layer.cornerRadius = 5.f;
+        _playButton.layer.masksToBounds = YES;
+    }
+    return _playButton;
+}
+
 - (UILabel *)makeVideoProgress {
     if (!_makeVideoProgress) {
         _makeVideoProgress = [UILabel new];
         _makeVideoProgress.textColor = HEXCOLOR(0x999999);
-        _makeVideoProgress.font = [UIFont systemFontOfSize:13];
+        _makeVideoProgress.font = [UIFont systemFontOfSize:14];
+        _makeVideoProgress.text = @"Makeing video: 0%";
+        _makeVideoProgress.hidden = YES;
     }
     return _makeVideoProgress;
+}
+
+- (UILabel *)makeingFramesTips {
+    if (!_makeingFramesTips) {
+        _makeingFramesTips = [UILabel new];
+        _makeingFramesTips.textColor = HEXCOLOR(0x999999);
+        _makeingFramesTips.font = [UIFont systemFontOfSize:14];
+        _makeingFramesTips.text = @"Makeing frames...";
+        _makeingFramesTips.hidden = YES;
+    }
+    return _makeingFramesTips;
 }
 
 - (NSMutableArray *)dataArray {

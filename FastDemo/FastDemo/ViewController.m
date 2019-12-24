@@ -10,6 +10,7 @@
 #import "Funcations/FDFuncations.h"
 #import "UIViewController+FDNavigationBar.h"
 #import "Masonry.h"
+#import "YYModel.h"
 
 #import "FDRequestController.h"
 #import "FDDownloadController.h"
@@ -31,6 +32,8 @@
     [super viewDidLoad];
     
     [self setup];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 - (void)setup {
@@ -42,6 +45,17 @@
         make.top.equalTo(self.navigationBar.mas_bottom);
         make.left.right.bottom.equalTo(self.view);
     }];
+}
+
+- (void)applicationWillEnterForeground {
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    FDMusicModel *model = [FDMusicModel yy_modelWithJSON:board.string];
+    if (model.url) {
+        FDDownloadController *downloadVC = [FDDownloadController new];
+        downloadVC.downloadMusicModel = model;
+        [self.navigationController pushViewController:downloadVC animated:YES];
+        board.string = @"";
+    }
 }
 
 #pragma mark UITableViewDelegate & UITableViewDataSource
