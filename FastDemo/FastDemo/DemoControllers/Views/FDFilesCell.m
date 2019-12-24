@@ -86,9 +86,10 @@
     }
 }
 
-- (void)plistCellRenderWithName:(NSString *)name artist:(NSString *)artist; {
-    self.fileName.text = name;
-    self.fileCreateDate.text = artist;
+- (void)renderWithMusic:(FDMusicModel *)model {
+    self.fileName.text = model.name;
+    self.fileCreateDate.text = model.artist;
+    self.fileSize.text = model.sizeString;
 }
 
 #pragma mark - Getter

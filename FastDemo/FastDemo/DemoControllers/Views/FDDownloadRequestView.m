@@ -68,7 +68,8 @@
         if (!error) {
             weakSelf.progressLabel.text = @"下载完成";
             if (complete) {
-                complete(path.absoluteString);
+                NSString *result = path.absoluteString;
+                complete(result);
             }
         } else {
             weakSelf.progressLabel.text = @"请求失败";

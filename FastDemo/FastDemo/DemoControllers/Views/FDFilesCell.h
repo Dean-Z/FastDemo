@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FDMusicModel.h"
 
 @interface FDFilesCell : UITableViewCell
 
 @property (nonatomic, strong) NSString *dirPath;
 - (void)renderWithFileName:(NSString *)name;
-- (void)plistCellRenderWithName:(NSString *)name artist:(NSString *)artist;
+- (void)renderWithMusic:(FDMusicModel *)model;
 
 @end

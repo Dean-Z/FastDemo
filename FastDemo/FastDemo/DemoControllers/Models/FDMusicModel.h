@@ -17,5 +17,6 @@
 
 @property (nonatomic, strong) NSString *localPicPath;
 @property (nonatomic, strong) NSString *localAudioPath;
+@property (nonatomic, strong) NSString *sizeString;
 
 @end

@@ -154,10 +154,27 @@ static NSString *musicPlist = @"musics.plist";
         for (FDDownloadRequestView *requestView in self.downloadRequestViews) {
             [requestView download:^(NSString * _Nonnull path) {
                 if (requestView.type == FDDownloadFileType_Pic) {
-                    weakSelf.downloadMusicModel.localPicPath = path;
+                    weakSelf.downloadMusicModel.localPicPath = [path lastPathComponent];
                 } else if (requestView.type == FDDownloadFileType_Audio) {
-                    weakSelf.downloadMusicModel.localAudioPath = path;
+                    weakSelf.downloadMusicModel.localAudioPath = [path lastPathComponent];
                 }
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    NSError *error = nil;
+//                    NSFileManager *fileManager = [NSFileManager defaultManager];
+//                    NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:path error:&error];
+//                    if (fileAttributes != nil) {
+//                        NSNumber *fileSize =  [fileAttributes objectForKey:NSFileSize];
+//                        if (fileSize.integerValue > 0) {
+//                            if (fileSize.intValue > 1024 * 1024) {
+//                                weakSelf.downloadMusicModel.sizeString = [NSString stringWithFormat:@"%.2fMB",fileSize.intValue/(1024 * 1024.f)];
+//                            } else if(fileSize.integerValue > 1024) {
+//                                weakSelf.downloadMusicModel.sizeString = [NSString stringWithFormat:@"%dKB",fileSize.intValue/(1024)];
+//                            } else {
+//                                weakSelf.downloadMusicModel.sizeString = [NSString stringWithFormat:@"%dB",fileSize.intValue];
+//                            }
+//                        }
+//                    }
+//                });
             }];
         }
     }

@@ -7,7 +7,10 @@
 //
 
 #import "FDPlistFileController.h"
+#import "FDMusicPlayerController.h"
 #import "FDFilesCell.h"
+#import "FDMusicModel.h"
+#import "YYModel.h"
 #import "FDKit.h"
 
 @interface FDPlistFileController ()<UITableViewDelegate,UITableViewDataSource>
@@ -22,7 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dataArray = [NSMutableArray arrayWithContentsOfFile:self.filePath];
+    NSArray *data = [NSArray arrayWithContentsOfFile:self.filePath];
+    self.dataArray = [NSArray yy_modelArrayWithClass:[FDMusicModel class] json:data].mutableCopy;
     [self setup];
 }
 
@@ -50,8 +54,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FDFilesCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FDFilesCell class])];
-    NSDictionary *dict = self.dataArray[indexPath.row];
-    [cell plistCellRenderWithName:dict[@"name"] artist:dict[@"artist"]];
+    FDMusicModel *model = self.dataArray[indexPath.row];
+    [cell renderWithMusic:model];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -61,7 +65,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    FDMusicModel *model = self.dataArray[indexPath.row];
+    FDMusicPlayerController *player = [FDMusicPlayerController musicPlayerControllerWithMusicModel:model];
+    player.baseDir = [self.filePath stringByReplacingOccurrencesOfString:[self.filePath lastPathComponent] withString:@""];
+    [self.navigationController pushViewController:player animated:YES];
 }
 
 #pragma mark - Getter
