@@ -10,6 +10,7 @@
 #import "FDPlayerManager.h"
 #import "FDFilesListController.h"
 #import "FDAnimatedTransition.h"
+#import "FDPlistFileController.h"
 #import "FDFilesCell.h"
 
 @interface FDFilesListController ()<UITableViewDelegate,UITableViewDataSource>
@@ -55,7 +56,7 @@
     }
     NSMutableArray *tmpArray = @[].mutableCopy;
     for (NSString *path in self.dataArray) {
-        if ([self ieLegelFilePath:path]) {
+        if ([self isLegelFilePath:path]) {
             [tmpArray addObject:path];
         }
     }
@@ -125,6 +126,10 @@
         [self.animatedTransition setViewController:browser fromWindow:fromView];
     } else if ([self isVideoPath:fileName]) {
         [FDPlayerManager showPlayerChooser:self url:[NSString stringWithFormat:@"%@/%@",self.dirPath,fileName]];
+    } else if([self isPlistPath:fileName]) {
+        FDPlistFileController *plist = [FDPlistFileController new];
+        plist.filePath = filePath;
+        [self.navigationController pushViewController:plist animated:YES];
     } else {
         NSFileManager *fileManager = [NSFileManager defaultManager];
         BOOL isDir = NO;
@@ -171,7 +176,11 @@
     return (![filePath containsString:@"realm"]);
 }
 
-- (BOOL)ieLegelFilePath:(NSString *)filePath {
+- (BOOL)isPlistPath:(NSString *)filePath {
+    return ([filePath hasSuffix:@"plist"]);
+}
+
+- (BOOL)isLegelFilePath:(NSString *)filePath {
     if (self.type == FDFileChoosePicture) {
         return [self isImagePath:filePath];
     } else if(self.type == FDFileChooseVideo) {

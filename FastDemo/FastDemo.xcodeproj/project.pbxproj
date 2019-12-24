@@ -88,6 +88,7 @@
 		967F50A821E32A37006912B5 /* FDAlbumCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F50A721E32A36006912B5 /* FDAlbumCollectionCell.m */; };
 		967F50AB21E33135006912B5 /* FDAlbumLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F50AA21E33135006912B5 /* FDAlbumLibraryManager.m */; };
 		96BB572B23B1A73E00E8B418 /* FDMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BB572A23B1A73E00E8B418 /* FDMusicModel.m */; };
+		96BB572E23B1B47000E8B418 /* FDPlistFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BB572D23B1B47000E8B418 /* FDPlistFileController.m */; };
 		96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F421B946B7001A8383 /* FDRealmHelper.m */; };
 		96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F821B94A09001A8383 /* FDRequestParamsModel.m */; };
 /* End PBXBuildFile section */
@@ -356,6 +357,8 @@
 		967F50AA21E33135006912B5 /* FDAlbumLibraryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAlbumLibraryManager.m; sourceTree = "<group>"; };
 		96BB572923B1A73E00E8B418 /* FDMusicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDMusicModel.h; sourceTree = "<group>"; };
 		96BB572A23B1A73E00E8B418 /* FDMusicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDMusicModel.m; sourceTree = "<group>"; };
+		96BB572C23B1B47000E8B418 /* FDPlistFileController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDPlistFileController.h; sourceTree = "<group>"; };
+		96BB572D23B1B47000E8B418 /* FDPlistFileController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDPlistFileController.m; sourceTree = "<group>"; };
 		96D809F321B946B7001A8383 /* FDRealmHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRealmHelper.h; sourceTree = "<group>"; };
 		96D809F421B946B7001A8383 /* FDRealmHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRealmHelper.m; sourceTree = "<group>"; };
 		96D809F721B94A09001A8383 /* FDRequestParamsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestParamsModel.h; sourceTree = "<group>"; };
@@ -467,6 +470,8 @@
 			children = (
 				9627929321E72FE4006C7749 /* FDFilesListController.h */,
 				9627929221E72FE4006C7749 /* FDFilesListController.m */,
+				96BB572C23B1B47000E8B418 /* FDPlistFileController.h */,
+				96BB572D23B1B47000E8B418 /* FDPlistFileController.m */,
 			);
 			path = FDFile;
 			sourceTree = "<group>";
@@ -1200,6 +1205,7 @@
 				967F508F21DDAF41006912B5 /* FDAnimationImageFactory.m in Sources */,
 				9645726321AFBCA5009EDCEB /* UIScreen+FDUtils.m in Sources */,
 				962792A221E72FE4006C7749 /* FDFFmpegDemosController.m in Sources */,
+				96BB572E23B1B47000E8B418 /* FDPlistFileController.m in Sources */,
 				962792A021E72FE4006C7749 /* FDRequestHistoryController.m in Sources */,
 				9645727C21B0E74E009EDCEB /* FDDownloadRequestView.m in Sources */,
 				964572A721B3CD5A009EDCEB /* FDAnimatedTransition.m in Sources */,

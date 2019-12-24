@@ -9,9 +9,11 @@
 #import "FDDownloadController.h"
 #import "FDDownloadRequestView.h"
 #import "FDFilesListController.h"
+#import "YYModel.h"
 #import "FDKit.h"
 
 static NSString *musicPathName = @"musics";
+static NSString *musicPlist = @"musics.plist";
 
 @interface FDDownloadController ()
 
@@ -37,6 +39,24 @@ static NSString *musicPathName = @"musics";
     }
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    if (self.downloadMusicModel) {
+        NSDictionary *dict = [self.downloadMusicModel yy_modelToJSONObject];
+        NSString *plistPath = [self.defaultDownloadPath stringByAppendingPathComponent:musicPlist];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        BOOL isDir = NO;
+        NSMutableArray *dataArray = @[].mutableCopy;
+        if ([fileManager fileExistsAtPath:plistPath isDirectory:&isDir]) {
+            dataArray = [NSMutableArray arrayWithContentsOfFile:plistPath];
+        }
+        [dataArray addObject:dict];
+        [dataArray writeToFile:plistPath atomically:YES];
+        self.downloadMusicModel = nil;
+    }
+}
+
 - (void)setup {
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationBar.title = @"Download Files";
@@ -57,11 +77,10 @@ static NSString *musicPathName = @"musics";
 }
 
 - (void)prepareDownloadMusic {
-    
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL isDir = NO;
     BOOL existed = [fileManager fileExistsAtPath:self.defaultDownloadPath isDirectory:&isDir];
-    if ( !existed) {
+    if (!existed) {
         [fileManager createDirectoryAtPath:self.defaultDownloadPath withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
@@ -71,12 +90,14 @@ static NSString *musicPathName = @"musics";
         [self addDownloadRequestView];
         FDDownloadRequestView *requestView1 = self.downloadRequestViews.lastObject;
         requestView1.defaultDownloadPath = self.defaultDownloadPath;
+        requestView1.type = FDDownloadFileType_Pic;
         requestView1.inputTextField.text = pic;
     }
     if ([url hasPrefix:@"http"]) {
         [self addDownloadRequestView];
         FDDownloadRequestView *requestView2 = self.downloadRequestViews.lastObject;
         requestView2.defaultDownloadPath = self.defaultDownloadPath;
+        requestView2.type = FDDownloadFileType_Audio;
         requestView2.inputTextField.text = url;
     }
 }
@@ -127,9 +148,17 @@ static NSString *musicPathName = @"musics";
 }
 
 - (void)downloadAction {
+    self.requestButton.hidden = YES;
     if (self.downloadRequestViews.count > 0) {
+        WEAKSELF
         for (FDDownloadRequestView *requestView in self.downloadRequestViews) {
-            [requestView download];
+            [requestView download:^(NSString * _Nonnull path) {
+                if (requestView.type == FDDownloadFileType_Pic) {
+                    weakSelf.downloadMusicModel.localPicPath = path;
+                } else if (requestView.type == FDDownloadFileType_Audio) {
+                    weakSelf.downloadMusicModel.localAudioPath = path;
+                }
+            }];
         }
     }
 }

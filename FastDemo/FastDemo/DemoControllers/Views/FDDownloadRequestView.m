@@ -47,10 +47,9 @@
         make.left.top.bottom.equalTo(self);
         make.width.equalTo(@(0));
     }];
-
 }
 
-- (void)download {
+- (void)download:(void (^)(NSString * _Nonnull))complete {
     if (EMPLYSTRING(self.inputTextField.text)) {
         return;
     }
@@ -68,6 +67,9 @@
     } complete:^(NSURL *path, NSError *error) {
         if (!error) {
             weakSelf.progressLabel.text = @"下载完成";
+            if (complete) {
+                complete(path.absoluteString);
+            }
         } else {
             weakSelf.progressLabel.text = @"请求失败";
         }

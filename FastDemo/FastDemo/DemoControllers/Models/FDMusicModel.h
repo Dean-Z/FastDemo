@@ -15,4 +15,7 @@
 @property (nonatomic, strong) NSString *cover;
 @property (nonatomic, strong) NSString *url;
 
+@property (nonatomic, strong) NSString *localPicPath;
+@property (nonatomic, strong) NSString *localAudioPath;
+
 @end

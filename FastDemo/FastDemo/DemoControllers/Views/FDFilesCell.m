@@ -86,6 +86,11 @@
     }
 }
 
+- (void)plistCellRenderWithName:(NSString *)name artist:(NSString *)artist; {
+    self.fileName.text = name;
+    self.fileCreateDate.text = artist;
+}
+
 #pragma mark - Getter
 
 - (UILabel *)fileName {

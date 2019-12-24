@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSString *dirPath;
 - (void)renderWithFileName:(NSString *)name;
+- (void)plistCellRenderWithName:(NSString *)name artist:(NSString *)artist;
 
 @end
