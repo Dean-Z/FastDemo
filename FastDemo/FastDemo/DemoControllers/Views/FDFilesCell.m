@@ -84,6 +84,17 @@
             self.fileCreateDate.text = [formatter stringFromDate:fileModDate];
         }
     }
+    if ([name hasSuffix:@"plist"]) {
+        self.backgroundColor = HEXCOLOR(0x999999);
+        self.fileName.textColor = [UIColor whiteColor];
+        self.fileSize.textColor = [UIColor whiteColor];
+        self.fileCreateDate.textColor = [UIColor whiteColor];
+    } else {
+        self.backgroundColor = [UIColor whiteColor];
+        self.fileName.textColor = HEXCOLOR(0x666666);
+        self.fileSize.textColor = HEXCOLOR(0x666666);
+        self.fileCreateDate.textColor = HEXCOLOR(0x666666);
+    }
 }
 
 - (void)renderWithMusic:(FDMusicModel *)model {

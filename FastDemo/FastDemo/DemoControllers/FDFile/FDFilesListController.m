@@ -124,7 +124,7 @@
         [self.animatedTransition setPresentFromWithView:(UIImageView *)self.view];
         [self.animatedTransition setPictureImageViewsFrame:nil];
         [self.animatedTransition setViewController:browser fromWindow:fromView];
-    } else if ([self isVideoPath:fileName]) {
+    } else if ([self isVideoPath:fileName] || [self isAudioPath:fileName]) {
         [FDPlayerManager showPlayerChooser:self url:[NSString stringWithFormat:@"%@/%@",self.dirPath,fileName]];
     } else if([self isPlistPath:fileName]) {
         FDPlistFileController *plist = [FDPlistFileController new];
@@ -157,7 +157,8 @@
 
 - (BOOL)isAudioPath:(NSString *)filePath {
     return ([filePath hasSuffix:@".mp3"] ||
-            [filePath hasSuffix:@".aac"]);
+            [filePath hasSuffix:@".aac"] ||
+            [filePath hasSuffix:@".m4a"]);
 }
 
 - (BOOL)isVideoPath:(NSString *)filePath {

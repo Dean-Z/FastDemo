@@ -6,6 +6,7 @@
 //  Copyright © 2019 Jason. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import "FDMusicPlayerController.h"
 #import "FDKit.h"
 
@@ -13,6 +14,8 @@
 
 @property (nonatomic, strong) UIImageView *backgrounImageView;
 @property (nonatomic, strong) FDMusicModel *musicModel;
+@property (nonatomic, strong) UIButton *playButton;
+@property (nonatomic, strong) AVAudioPlayer *player;
 
 @end
 
@@ -37,6 +40,12 @@
     [self addEffect];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.player stop];
+    self.player = nil;
+}
+
 - (void)setup {
     [self.view addSubview:self.backgrounImageView];
     [self.backgrounImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -51,12 +60,30 @@
     self.navigationBar.onClickBackAction = ^{
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
+    
+    [self.view addSubview:self.playButton];
+    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+    }];
 }
 
 - (void)loadData {
     NSString *filePath = [self.baseDir stringByAppendingString:self.musicModel.localPicPath];
     UIImage *image = [UIImage imageWithContentsOfFile:filePath];
     self.backgrounImageView.image = image;
+    
+    NSURL *url = [NSURL fileURLWithPath:[self.baseDir stringByAppendingString:self.musicModel.localAudioPath]];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    [self.player prepareToPlay];
+}
+
+- (void)playAction {
+    if (self.playButton.isSelected) {
+        [self.player pause];
+    } else {
+        [self.player play];
+    }
+    [self.playButton setSelected:!self.playButton.isSelected];
 }
 
 #pragma mark  - Getter
@@ -79,6 +106,18 @@
     [UIView animateWithDuration:0.3f animations:^{
         effectView.alpha = 0.9f;
     }];
+}
+
+- (UIButton *)playButton {
+    if (!_playButton) {
+        _playButton = [UIButton new];
+        [_playButton setTitle:@"PLAY" forState:UIControlStateNormal];
+        [_playButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_playButton setTitle:@"PAUSE" forState:UIControlStateSelected];
+        [_playButton addTarget:self action:@selector(playAction) forControlEvents:UIControlEventTouchUpInside];
+        [_playButton.titleLabel setFont:[UIFont systemFontOfSize:35 weight:UIFontWeightBold]];
+    }
+    return _playButton;
 }
 
 @end
