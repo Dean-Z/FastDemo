@@ -19,6 +19,8 @@
 #import "FDFFmpegDemosController.h"
 #import "FDAVFoundationDeomController.h"
 
+#import "FDDrawViewController.h"
+
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -39,7 +41,12 @@
 - (void)setup {
     self.navigationBar.title = @"FastDemo";
     [self.view addSubview:self.tableView];
-    self.itemsArray = @[@"AFNetworking / Request URL", @"AFNetworking / Download Files", @"NSFileManager / Document Files", @"FFmpeg", @"AVFoundation"];
+    self.itemsArray = @[@"AFNetworking / Request URL",
+                        @"AFNetworking / Download Files",
+                        @"NSFileManager / Document Files",
+                        @"FFmpeg",
+                        @"AVFoundation",
+                        @"CALayer / DrawBoard"];
     [self.tableView setTableFooterView:[UIView new]];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.navigationBar.mas_bottom);
@@ -95,6 +102,9 @@
     } else if (indexPath.row == 4) {
         FDAVFoundationDeomController *avfoundation = [FDAVFoundationDeomController new];
         [self.navigationController pushViewController:avfoundation animated:YES];
+    } else if (indexPath.row == 5) {
+        FDDrawViewController *draw = [FDDrawViewController new];
+        [self.navigationController pushViewController:draw animated:YES];
     }
 }
 

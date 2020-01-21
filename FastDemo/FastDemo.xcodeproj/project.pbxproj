@@ -10,6 +10,8 @@
 		2C5A5A06F9E1620EDFC5A0E4 /* libPods-FastDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA0324D7333E19035AF3B05 /* libPods-FastDemo.a */; };
 		960E39F321EEC93A00A08390 /* FDAVPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 960E39F221EEC93A00A08390 /* FDAVPlayerController.m */; };
 		960E39F621EEE22500A08390 /* FDPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 960E39F521EEE22500A08390 /* FDPlayerManager.m */; };
+		9625F76723D6AA570097CF9E /* FDDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9625F76623D6AA570097CF9E /* FDDrawViewController.m */; };
+		9625F76B23D6AA800097CF9E /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9625F76A23D6AA800097CF9E /* DrawingView.m */; };
 		9627922D21E5DC41006C7749 /* UIImage+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627922C21E5DC41006C7749 /* UIImage+FDUtils.m */; };
 		9627928221E7263D006C7749 /* ffmpeg_opt.c in Sources */ = {isa = PBXBuildFile; fileRef = 9627927B21E7263D006C7749 /* ffmpeg_opt.c */; };
 		9627928321E7263D006C7749 /* ffmpeg_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9627927F21E7263D006C7749 /* ffmpeg_filter.c */; };
@@ -118,6 +120,10 @@
 		960E39F221EEC93A00A08390 /* FDAVPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAVPlayerController.m; sourceTree = "<group>"; };
 		960E39F421EEE22500A08390 /* FDPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDPlayerManager.h; sourceTree = "<group>"; };
 		960E39F521EEE22500A08390 /* FDPlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDPlayerManager.m; sourceTree = "<group>"; };
+		9625F76523D6AA570097CF9E /* FDDrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDDrawViewController.h; sourceTree = "<group>"; };
+		9625F76623D6AA570097CF9E /* FDDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDDrawViewController.m; sourceTree = "<group>"; };
+		9625F76923D6AA800097CF9E /* DrawingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
+		9625F76A23D6AA800097CF9E /* DrawingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
 		9627922B21E5DC41006C7749 /* UIImage+FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+FDUtils.h"; sourceTree = "<group>"; };
 		9627922C21E5DC41006C7749 /* UIImage+FDUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FDUtils.m"; sourceTree = "<group>"; };
 		9627927A21E7263D006C7749 /* cmdutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmdutils.h; sourceTree = "<group>"; };
@@ -433,6 +439,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9625F76423D6AA350097CF9E /* DrawBoard */ = {
+			isa = PBXGroup;
+			children = (
+				9625F76823D6AA680097CF9E /* View */,
+				9625F76523D6AA570097CF9E /* FDDrawViewController.h */,
+				9625F76623D6AA570097CF9E /* FDDrawViewController.m */,
+			);
+			path = DrawBoard;
+			sourceTree = "<group>";
+		};
+		9625F76823D6AA680097CF9E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9625F76923D6AA800097CF9E /* DrawingView.h */,
+				9625F76A23D6AA800097CF9E /* DrawingView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9627927921E7263D006C7749 /* statics */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,6 +658,7 @@
 		9645726B21AFD1E4009EDCEB /* DemoControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9625F76423D6AA350097CF9E /* DrawBoard */,
 				96BB572F23B1CC7200E8B418 /* FDMusicPlayer */,
 				9627928921E72FE4006C7749 /* FDAVFoundation */,
 				9627928E21E72FE4006C7749 /* FDDownload */,
@@ -1221,6 +1247,7 @@
 				962792A221E72FE4006C7749 /* FDFFmpegDemosController.m in Sources */,
 				96BB572E23B1B47000E8B418 /* FDPlistFileController.m in Sources */,
 				962792A021E72FE4006C7749 /* FDRequestHistoryController.m in Sources */,
+				9625F76B23D6AA800097CF9E /* DrawingView.m in Sources */,
 				9645727C21B0E74E009EDCEB /* FDDownloadRequestView.m in Sources */,
 				964572A721B3CD5A009EDCEB /* FDAnimatedTransition.m in Sources */,
 				96BB572B23B1A73E00E8B418 /* FDMusicModel.m in Sources */,
@@ -1242,6 +1269,7 @@
 				9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */,
 				9627928421E7263D006C7749 /* cmdutils.c in Sources */,
 				9627928321E7263D006C7749 /* ffmpeg_filter.c in Sources */,
+				9625F76723D6AA570097CF9E /* FDDrawViewController.m in Sources */,
 				967F508321DB9229006912B5 /* KxMovieDecoder.m in Sources */,
 				9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */,
 				962792A121E72FE4006C7749 /* FDRequestController.m in Sources */,
