@@ -9,6 +9,13 @@
 #ifndef FDFuncations_h
 #define FDFuncations_h
 
+#define FDSetUserDefaults(value,key) \
+[[NSUserDefaults standardUserDefaults] setValue:value forKey:key]; \
+[[NSUserDefaults standardUserDefaults] synchronize]
+
+#define FDGetUserDefaults(key) \
+[[NSUserDefaults standardUserDefaults] valueForKey:key]
+
 /*********
  FAST COLOR
  *********/

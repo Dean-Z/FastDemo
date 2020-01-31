@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Funcations/FDFuncations.h"
 #import "UIViewController+FDNavigationBar.h"
+#import "FDMusicPlayerManager.h"
 #import "Masonry.h"
 #import "YYModel.h"
 
@@ -20,11 +21,13 @@
 #import "FDAVFoundationDeomController.h"
 
 #import "FDDrawViewController.h"
+#import "FDMusicPlayerController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *itemsArray;
+@property (nonatomic, strong) UIButton *recordBtn;
 
 @end
 
@@ -51,6 +54,16 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.navigationBar.mas_bottom);
         make.left.right.bottom.equalTo(self.view);
+    }];
+    [self prepareRecordBtn];
+}
+
+- (void)prepareRecordBtn {
+    [self.navigationBar addSubview:self.recordBtn];
+    [self.recordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(@(-10));
+        make.centerY.equalTo(self.navigationBar.titleLabel);
+        make.width.height.equalTo(@(40));
     }];
 }
 
@@ -108,6 +121,19 @@
     }
 }
 
+#pragma mark Action
+
+- (void)recordAction {
+    if (FDGetUserDefaults(kLastMusciModelJasonData)) {
+        FDMusicModel *model = [FDMusicModel yy_modelWithJSON:FDGetUserDefaults(kLastMusciModelJasonData)];
+        if (model) {
+            FDMusicPlayerController *music = [FDMusicPlayerController musicPlayerControllerWithMusicModel:model];
+            music.baseDir = [FDPathDocument stringByAppendingPathComponent:@"musics"];
+            [self.navigationController pushViewController:music animated:YES];
+        }
+    }
+}
+
 #pragma mark - Getter
 
 - (UITableView *)tableView {
@@ -119,6 +145,15 @@
         _tableView.delegate = self;
     }
     return _tableView;
+}
+
+- (UIButton *)recordBtn {
+    if (!_recordBtn) {
+        _recordBtn = [UIButton new];
+        [_recordBtn setImage:[UIImage imageNamed:@"disk"] forState:UIControlStateNormal];
+        [_recordBtn addTarget:self action:@selector(recordAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _recordBtn;
 }
 
 @end

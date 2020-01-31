@@ -8,6 +8,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import "FDMusicPlayerController.h"
+#import "FDMusicPlayerManager.h"
 #import "FDKit.h"
 
 @interface FDMusicPlayerController ()
@@ -84,9 +85,19 @@
         [self.player play];
     }
     [self.playButton setSelected:!self.playButton.isSelected];
+    
+    FDMusicPlayerManager *playerManager = [FDMusicPlayerManager sharePlayerManager];
+    [playerManager playerWithMusicModel:self.musicModel];
 }
 
 #pragma mark  - Getter
+
+- (NSString *)baseDir {
+    if ([_baseDir hasSuffix:@"/"]) {
+        return _baseDir;
+    }
+    return [_baseDir stringByAppendingString:@"/"];
+}
 
 - (UIImageView *)backgrounImageView {
     if (!_backgrounImageView) {
