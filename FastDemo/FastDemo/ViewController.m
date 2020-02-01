@@ -23,6 +23,9 @@
 #import "FDDrawViewController.h"
 #import "FDMusicPlayerController.h"
 
+static NSString * const KRecordIconButtonAnimationPath = @"transform.rotation.z";
+static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnimationKey";
+
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -39,6 +42,8 @@
     [self setup];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDidPlaying) name:kMusicPlayerDidPlaying object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDidPaused) name:kMusicPlayerDidPaused object:nil];
 }
 
 - (void)setup {
@@ -65,6 +70,7 @@
         make.centerY.equalTo(self.navigationBar.titleLabel);
         make.width.height.equalTo(@(40));
     }];
+    [self playerDidPaused];
 }
 
 - (void)applicationWillEnterForeground {
@@ -128,10 +134,30 @@
         FDMusicModel *model = [FDMusicModel yy_modelWithJSON:FDGetUserDefaults(kLastMusciModelJasonData)];
         if (model) {
             FDMusicPlayerController *music = [FDMusicPlayerController musicPlayerControllerWithMusicModel:model];
-            music.baseDir = [FDPathDocument stringByAppendingPathComponent:@"musics"];
             [self.navigationController pushViewController:music animated:YES];
         }
     }
+}
+
+- (void)playerDidPaused {
+    [self.recordBtn.imageView stopAnimating];
+    if (self.recordBtn.layer.speed != 0) {
+        CFTimeInterval pauseTime = [self.recordBtn.layer convertTime:CACurrentMediaTime() fromLayer:nil];
+        self.recordBtn.layer.speed = 0;
+        self.recordBtn.layer.timeOffset = pauseTime;
+    }
+}
+
+- (void)playerDidPlaying {
+    if (self.recordBtn.layer.speed != 1) {
+        CFTimeInterval pauseTime = self.recordBtn.layer.timeOffset;
+        self.recordBtn.layer.speed = 1;
+        self.recordBtn.layer.timeOffset = 0;
+        self.recordBtn.layer.beginTime = 0;
+        CFTimeInterval timeSincePause = [self.recordBtn.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pauseTime;
+        self.recordBtn.layer.beginTime = timeSincePause;
+    }
+    [self.recordBtn.imageView startAnimating];
 }
 
 #pragma mark - Getter
@@ -152,6 +178,15 @@
         _recordBtn = [UIButton new];
         [_recordBtn setImage:[UIImage imageNamed:@"disk"] forState:UIControlStateNormal];
         [_recordBtn addTarget:self action:@selector(recordAction) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_recordBtn.layer removeAnimationForKey:KRecordIconButtonAnimationPath];
+        CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:KRecordIconButtonAnimationPath];
+        rotationAnimation.fromValue = @(0);
+        rotationAnimation.toValue = @(M_PI * 2);
+        rotationAnimation.duration = 5;
+        rotationAnimation.repeatCount = MAXFLOAT;
+        rotationAnimation.removedOnCompletion = NO;
+        [_recordBtn.layer addAnimation:rotationAnimation forKey:KRecordIconButtonAnimationKey];
     }
     return _recordBtn;
 }

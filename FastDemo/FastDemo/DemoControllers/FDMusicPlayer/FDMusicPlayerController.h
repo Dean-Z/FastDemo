@@ -11,7 +11,6 @@
 
 @interface FDMusicPlayerController : UIViewController
 
-@property (nonatomic, strong) NSString *baseDir;
 + (instancetype)musicPlayerControllerWithMusicModel:(FDMusicModel *)musicModel;
 
 @end

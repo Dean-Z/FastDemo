@@ -66,9 +66,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     FDMusicModel *model = self.dataArray[indexPath.row];
-    FDMusicPlayerController *player = [FDMusicPlayerController musicPlayerControllerWithMusicModel:model];
-    player.baseDir = [self.filePath stringByReplacingOccurrencesOfString:[self.filePath lastPathComponent] withString:@""];
-    [self.navigationController pushViewController:player animated:YES];
+    if (self.callBackAction) {
+        self.callBackAction(model);
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        FDMusicPlayerController *player = [FDMusicPlayerController musicPlayerControllerWithMusicModel:model];
+        [self.navigationController pushViewController:player animated:YES];
+    }
 }
 
 #pragma mark - Getter

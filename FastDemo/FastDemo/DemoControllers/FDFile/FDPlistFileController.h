@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FDKit.h"
 
 @interface FDPlistFileController : UIViewController
 
 @property (nonatomic, strong) NSString *filePath;
+@property (nonatomic, copy) fd_block_object callBackAction;
 
 @end

@@ -182,6 +182,13 @@
     }
 }
 
+#pragma mark - Setter
+
+- (void)setHiddenBottomLine:(BOOL)hiddenBottomLine {
+    _hiddenBottomLine = hiddenBottomLine;
+    [self setHiddenLine:hiddenBottomLine];
+}
+
 #pragma mark - Getter
 
 - (UIView *)contentView {

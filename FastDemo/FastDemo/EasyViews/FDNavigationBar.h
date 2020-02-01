@@ -23,6 +23,7 @@ typedef NS_OPTIONS(NSInteger, FDNavigationBarParts) {
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic) FDNavigationBarParts parts;
+@property (nonatomic, assign) BOOL hiddenBottomLine;
 
 @property (nonatomic, copy) fd_block_void onClickBackAction;
 @property (nonatomic, copy) fd_block_void onClickAddAction;
