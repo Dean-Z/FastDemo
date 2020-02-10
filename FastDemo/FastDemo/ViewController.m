@@ -23,6 +23,8 @@
 #import "FDDrawViewController.h"
 #import "FDMusicPlayerController.h"
 
+#import "FDMapViewController.h"
+
 static NSString * const KRecordIconButtonAnimationPath = @"transform.rotation.z";
 static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnimationKey";
 
@@ -54,7 +56,8 @@ static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnima
                         @"NSFileManager / Document Files",
                         @"FFmpeg",
                         @"AVFoundation",
-                        @"CALayer / DrawBoard"];
+                        @"CALayer / DrawBoard",
+                        @"MapKit"];
     [self.tableView setTableFooterView:[UIView new]];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.navigationBar.mas_bottom);
@@ -124,6 +127,9 @@ static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnima
     } else if (indexPath.row == 5) {
         FDDrawViewController *draw = [FDDrawViewController new];
         [self.navigationController pushViewController:draw animated:YES];
+    } else if (indexPath.row == 6) {
+        FDMapViewController *map = [FDMapViewController new];
+        [self.navigationController pushViewController:map animated:YES];
     }
 }
 

@@ -20,6 +20,7 @@ typedef NS_OPTIONS(NSInteger, FDNavigationBarParts) {
 
 @property (nonatomic, strong, readonly) UILabel *titleLabel;
 @property (nonatomic, strong, readonly) UIButton *backItem;
+@property (nonatomic, strong, readonly) UIButton *addItem;
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic) FDNavigationBarParts parts;

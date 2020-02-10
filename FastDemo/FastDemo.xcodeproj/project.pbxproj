@@ -13,6 +13,9 @@
 		9625F76723D6AA570097CF9E /* FDDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9625F76623D6AA570097CF9E /* FDDrawViewController.m */; };
 		9625F76B23D6AA800097CF9E /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9625F76A23D6AA800097CF9E /* DrawingView.m */; };
 		9625F76F23E45C370097CF9E /* FDMusicPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9625F76E23E45C370097CF9E /* FDMusicPlayerManager.m */; };
+		9625F85523F0FE970097CF9E /* FDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9625F85423F0FE970097CF9E /* FDMapViewController.m */; };
+		9625F85A23F1057E0097CF9E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9625F85923F1057E0097CF9E /* MapKit.framework */; };
+		9625F85D23F126AA0097CF9E /* FDAnnonation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9625F85C23F126AA0097CF9E /* FDAnnonation.m */; };
 		9627922D21E5DC41006C7749 /* UIImage+FDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9627922C21E5DC41006C7749 /* UIImage+FDUtils.m */; };
 		9627928221E7263D006C7749 /* ffmpeg_opt.c in Sources */ = {isa = PBXBuildFile; fileRef = 9627927B21E7263D006C7749 /* ffmpeg_opt.c */; };
 		9627928321E7263D006C7749 /* ffmpeg_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9627927F21E7263D006C7749 /* ffmpeg_filter.c */; };
@@ -127,6 +130,11 @@
 		9625F76A23D6AA800097CF9E /* DrawingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
 		9625F76D23E45C370097CF9E /* FDMusicPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDMusicPlayerManager.h; sourceTree = "<group>"; };
 		9625F76E23E45C370097CF9E /* FDMusicPlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDMusicPlayerManager.m; sourceTree = "<group>"; };
+		9625F85323F0FE970097CF9E /* FDMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDMapViewController.h; sourceTree = "<group>"; };
+		9625F85423F0FE970097CF9E /* FDMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDMapViewController.m; sourceTree = "<group>"; };
+		9625F85923F1057E0097CF9E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9625F85B23F126AA0097CF9E /* FDAnnonation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDAnnonation.h; sourceTree = "<group>"; };
+		9625F85C23F126AA0097CF9E /* FDAnnonation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDAnnonation.m; sourceTree = "<group>"; };
 		9627922B21E5DC41006C7749 /* UIImage+FDUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+FDUtils.h"; sourceTree = "<group>"; };
 		9627922C21E5DC41006C7749 /* UIImage+FDUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FDUtils.m"; sourceTree = "<group>"; };
 		9627927A21E7263D006C7749 /* cmdutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmdutils.h; sourceTree = "<group>"; };
@@ -385,6 +393,7 @@
 			files = (
 				967F506C21DB88E0006912B5 /* AVFoundation.framework in Frameworks */,
 				967F506921DB85F3006912B5 /* libswresample.a in Frameworks */,
+				9625F85A23F1057E0097CF9E /* MapKit.framework in Frameworks */,
 				967F506521DB85F3006912B5 /* libavfilter.a in Frameworks */,
 				967F4F4021DB82D7006912B5 /* CoreMedia.framework in Frameworks */,
 				967F506721DB85F3006912B5 /* libavformat.a in Frameworks */,
@@ -421,6 +430,7 @@
 		0D78915D58DA2F2DB12D9B94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9625F85923F1057E0097CF9E /* MapKit.framework */,
 				967F506B21DB88E0006912B5 /* AVFoundation.framework */,
 				967F4F3F21DB82D7006912B5 /* CoreMedia.framework */,
 				967F4F3D21DB8225006912B5 /* VideoToolbox.framework */,
@@ -468,6 +478,17 @@
 				9625F76E23E45C370097CF9E /* FDMusicPlayerManager.m */,
 			);
 			path = PlayerManager;
+			sourceTree = "<group>";
+		};
+		9625F85223F0FE710097CF9E /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				9625F85323F0FE970097CF9E /* FDMapViewController.h */,
+				9625F85423F0FE970097CF9E /* FDMapViewController.m */,
+				9625F85B23F126AA0097CF9E /* FDAnnonation.h */,
+				9625F85C23F126AA0097CF9E /* FDAnnonation.m */,
+			);
+			path = MapKit;
 			sourceTree = "<group>";
 		};
 		9627927921E7263D006C7749 /* statics */ = {
@@ -670,6 +691,7 @@
 		9645726B21AFD1E4009EDCEB /* DemoControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9625F85223F0FE710097CF9E /* MapKit */,
 				9625F76423D6AA350097CF9E /* DrawBoard */,
 				96BB572F23B1CC7200E8B418 /* FDMusicPlayer */,
 				9627928921E72FE4006C7749 /* FDAVFoundation */,
@@ -1228,6 +1250,7 @@
 				96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */,
 				967F507F21DB9229006912B5 /* KxMovieViewController.m in Sources */,
 				962792AE21EE09E4006C7749 /* FDFFmpegImageToVideoController.m in Sources */,
+				9625F85523F0FE970097CF9E /* FDMapViewController.m in Sources */,
 				967F508221DB9229006912B5 /* KxAudioManager.m in Sources */,
 				960E39F321EEC93A00A08390 /* FDAVPlayerController.m in Sources */,
 				967F509821E31D85006912B5 /* FDAlbumModel.m in Sources */,
@@ -1240,6 +1263,7 @@
 				9645727321B037DB009EDCEB /* FDRequestParamView.m in Sources */,
 				9627922D21E5DC41006C7749 /* UIImage+FDUtils.m in Sources */,
 				9627928221E7263D006C7749 /* ffmpeg_opt.c in Sources */,
+				9625F85D23F126AA0097CF9E /* FDAnnonation.m in Sources */,
 				9645729421B3C686009EDCEB /* FDBrowserImageView.m in Sources */,
 				96BB573223B1CC8D00E8B418 /* FDMusicPlayerController.m in Sources */,
 				9645729B21B3CA7A009EDCEB /* FDPresentAnimationTransition.m in Sources */,
