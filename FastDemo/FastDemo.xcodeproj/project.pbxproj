@@ -96,6 +96,9 @@
 		96BB572B23B1A73E00E8B418 /* FDMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BB572A23B1A73E00E8B418 /* FDMusicModel.m */; };
 		96BB572E23B1B47000E8B418 /* FDPlistFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BB572D23B1B47000E8B418 /* FDPlistFileController.m */; };
 		96BB573223B1CC8D00E8B418 /* FDMusicPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BB573123B1CC8D00E8B418 /* FDMusicPlayerController.m */; };
+		96C551CF23FE630800872EF1 /* FDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C551CE23FE630800872EF1 /* FDWebViewController.m */; };
+		96C551D223FE6A3A00872EF1 /* FDMainScrollController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C551D123FE6A3A00872EF1 /* FDMainScrollController.m */; };
+		96C551D523FE847500872EF1 /* FDImageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C551D423FE847500872EF1 /* FDImageTableCell.m */; };
 		96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F421B946B7001A8383 /* FDRealmHelper.m */; };
 		96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F821B94A09001A8383 /* FDRequestParamsModel.m */; };
 /* End PBXBuildFile section */
@@ -379,6 +382,12 @@
 		96BB572D23B1B47000E8B418 /* FDPlistFileController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDPlistFileController.m; sourceTree = "<group>"; };
 		96BB573023B1CC8D00E8B418 /* FDMusicPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDMusicPlayerController.h; sourceTree = "<group>"; };
 		96BB573123B1CC8D00E8B418 /* FDMusicPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDMusicPlayerController.m; sourceTree = "<group>"; };
+		96C551CD23FE630800872EF1 /* FDWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDWebViewController.h; sourceTree = "<group>"; };
+		96C551CE23FE630800872EF1 /* FDWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDWebViewController.m; sourceTree = "<group>"; };
+		96C551D023FE6A3A00872EF1 /* FDMainScrollController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDMainScrollController.h; sourceTree = "<group>"; };
+		96C551D123FE6A3A00872EF1 /* FDMainScrollController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDMainScrollController.m; sourceTree = "<group>"; };
+		96C551D323FE847500872EF1 /* FDImageTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDImageTableCell.h; sourceTree = "<group>"; };
+		96C551D423FE847500872EF1 /* FDImageTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDImageTableCell.m; sourceTree = "<group>"; };
 		96D809F321B946B7001A8383 /* FDRealmHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRealmHelper.h; sourceTree = "<group>"; };
 		96D809F421B946B7001A8383 /* FDRealmHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRealmHelper.m; sourceTree = "<group>"; };
 		96D809F721B94A09001A8383 /* FDRequestParamsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestParamsModel.h; sourceTree = "<group>"; };
@@ -691,6 +700,7 @@
 		9645726B21AFD1E4009EDCEB /* DemoControllers */ = {
 			isa = PBXGroup;
 			children = (
+				96C551C923FE626A00872EF1 /* WKWebView */,
 				9625F85223F0FE710097CF9E /* MapKit */,
 				9625F76423D6AA350097CF9E /* DrawBoard */,
 				96BB572F23B1CC7200E8B418 /* FDMusicPlayer */,
@@ -1047,6 +1057,19 @@
 			path = FDMusicPlayer;
 			sourceTree = "<group>";
 		};
+		96C551C923FE626A00872EF1 /* WKWebView */ = {
+			isa = PBXGroup;
+			children = (
+				96C551CD23FE630800872EF1 /* FDWebViewController.h */,
+				96C551CE23FE630800872EF1 /* FDWebViewController.m */,
+				96C551D023FE6A3A00872EF1 /* FDMainScrollController.h */,
+				96C551D123FE6A3A00872EF1 /* FDMainScrollController.m */,
+				96C551D323FE847500872EF1 /* FDImageTableCell.h */,
+				96C551D423FE847500872EF1 /* FDImageTableCell.m */,
+			);
+			path = WKWebView;
+			sourceTree = "<group>";
+		};
 		96D809F221B946A2001A8383 /* RealmHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1249,6 +1272,7 @@
 			files = (
 				96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */,
 				967F507F21DB9229006912B5 /* KxMovieViewController.m in Sources */,
+				96C551D523FE847500872EF1 /* FDImageTableCell.m in Sources */,
 				962792AE21EE09E4006C7749 /* FDFFmpegImageToVideoController.m in Sources */,
 				9625F85523F0FE970097CF9E /* FDMapViewController.m in Sources */,
 				967F508221DB9229006912B5 /* KxAudioManager.m in Sources */,
@@ -1263,6 +1287,7 @@
 				9645727321B037DB009EDCEB /* FDRequestParamView.m in Sources */,
 				9627922D21E5DC41006C7749 /* UIImage+FDUtils.m in Sources */,
 				9627928221E7263D006C7749 /* ffmpeg_opt.c in Sources */,
+				96C551D223FE6A3A00872EF1 /* FDMainScrollController.m in Sources */,
 				9625F85D23F126AA0097CF9E /* FDAnnonation.m in Sources */,
 				9645729421B3C686009EDCEB /* FDBrowserImageView.m in Sources */,
 				96BB573223B1CC8D00E8B418 /* FDMusicPlayerController.m in Sources */,
@@ -1316,6 +1341,7 @@
 				9627928821E72E37006C7749 /* FFmpegCmdManager.m in Sources */,
 				964572A421B3CCA2009EDCEB /* FDDismissAnimationTransition.m in Sources */,
 				9645728221B0EB21009EDCEB /* RMDisplayLabel.m in Sources */,
+				96C551CF23FE630800872EF1 /* FDWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

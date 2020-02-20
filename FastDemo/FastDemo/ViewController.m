@@ -24,6 +24,7 @@
 #import "FDMusicPlayerController.h"
 
 #import "FDMapViewController.h"
+#import "FDWebViewController.h"
 
 static NSString * const KRecordIconButtonAnimationPath = @"transform.rotation.z";
 static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnimationKey";
@@ -57,7 +58,8 @@ static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnima
                         @"FFmpeg",
                         @"AVFoundation",
                         @"CALayer / DrawBoard",
-                        @"MapKit"];
+                        @"MapKit",
+                        @"WKWebView"];
     [self.tableView setTableFooterView:[UIView new]];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.navigationBar.mas_bottom);
@@ -130,6 +132,9 @@ static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnima
     } else if (indexPath.row == 6) {
         FDMapViewController *map = [FDMapViewController new];
         [self.navigationController pushViewController:map animated:YES];
+    } else if(indexPath.row == 7) {
+        FDWebViewController *web = [FDWebViewController new];
+        [self.navigationController pushViewController:web animated:YES];
     }
 }
 
