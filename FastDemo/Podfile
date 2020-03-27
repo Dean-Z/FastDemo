@@ -8,4 +8,6 @@ pod 'Realm'
 pod 'YYWebImage'
 pod 'YYModel'
 
+pod 'MMKV'
+
 end

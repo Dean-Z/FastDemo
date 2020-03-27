@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - Masonry (1.1.0)
+  - MMKV (1.0.23)
   - Realm (3.11.0):
     - Realm/Headers (= 3.11.0)
   - Realm/Headers (3.11.0)
@@ -31,6 +32,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Masonry
+  - MMKV
   - Realm
   - SVProgressHUD
   - YYModel
@@ -40,6 +42,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - Masonry
+    - MMKV
     - Realm
     - SVProgressHUD
     - YYCache
@@ -50,6 +53,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MMKV: 031ae51aedc0af1b250922f7ed8a6b6ee2f94c4c
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
@@ -57,6 +61,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 443c0a72ce5650afde1e7def5d75dac885b9a386
+PODFILE CHECKSUM: 2381ee96e2000b0219a40eafdcf771d2661cae46
 
 COCOAPODS: 1.6.1
