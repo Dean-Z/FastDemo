@@ -33,6 +33,9 @@
 		962792A821E99E75006C7749 /* FDFFmpegConcatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792A721E99E75006C7749 /* FDFFmpegConcatController.m */; };
 		962792AB21EB1457006C7749 /* FDFFmpegMuxMediaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792AA21EB1457006C7749 /* FDFFmpegMuxMediaController.m */; };
 		962792AE21EE09E4006C7749 /* FDFFmpegImageToVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792AD21EE09E4006C7749 /* FDFFmpegImageToVideoController.m */; };
+		96434FB2244D75E000E5224C /* timg-6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96434FB1244D75E000E5224C /* timg-6.jpg */; };
+		96434FB8244D76E200E5224C /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434FB7244D76E200E5224C /* UIImage+RoundedCorner.m */; };
+		96434FCD244FE53C00E5224C /* FDYYTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434FCC244FE53C00E5224C /* FDYYTextController.m */; };
 		9645721721AF8BF8009EDCEB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645721621AF8BF8009EDCEB /* AppDelegate.m */; };
 		9645721A21AF8BF8009EDCEB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9645721921AF8BF8009EDCEB /* ViewController.m */; };
 		9645721D21AF8BF8009EDCEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9645721B21AF8BF8009EDCEB /* Main.storyboard */; };
@@ -101,6 +104,9 @@
 		96C551D523FE847500872EF1 /* FDImageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C551D423FE847500872EF1 /* FDImageTableCell.m */; };
 		96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F421B946B7001A8383 /* FDRealmHelper.m */; };
 		96D809F921B94A09001A8383 /* FDRequestParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D809F821B94A09001A8383 /* FDRequestParamsModel.m */; };
+		96FAFFD02446A90C00A1DBF1 /* FDTuLingRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FAFFCF2446A90C00A1DBF1 /* FDTuLingRequestModel.m */; };
+		96FAFFE52448320F00A1DBF1 /* FDTuLingResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FAFFE42448320F00A1DBF1 /* FDTuLingResponseModel.m */; };
+		96FAFFE82448345200A1DBF1 /* FDTuLingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FAFFE72448345200A1DBF1 /* FDTuLingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +178,11 @@
 		962792AA21EB1457006C7749 /* FDFFmpegMuxMediaController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegMuxMediaController.m; sourceTree = "<group>"; };
 		962792AC21EE09E4006C7749 /* FDFFmpegImageToVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFFmpegImageToVideoController.h; sourceTree = "<group>"; };
 		962792AD21EE09E4006C7749 /* FDFFmpegImageToVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegImageToVideoController.m; sourceTree = "<group>"; };
+		96434FB1244D75E000E5224C /* timg-6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "timg-6.jpg"; sourceTree = "<group>"; };
+		96434FB6244D76E200E5224C /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		96434FB7244D76E200E5224C /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		96434FCB244FE53C00E5224C /* FDYYTextController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDYYTextController.h; sourceTree = "<group>"; };
+		96434FCC244FE53C00E5224C /* FDYYTextController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDYYTextController.m; sourceTree = "<group>"; };
 		9645721221AF8BF8009EDCEB /* FastDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9645721521AF8BF8009EDCEB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9645721621AF8BF8009EDCEB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -392,6 +403,12 @@
 		96D809F421B946B7001A8383 /* FDRealmHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRealmHelper.m; sourceTree = "<group>"; };
 		96D809F721B94A09001A8383 /* FDRequestParamsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDRequestParamsModel.h; sourceTree = "<group>"; };
 		96D809F821B94A09001A8383 /* FDRequestParamsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDRequestParamsModel.m; sourceTree = "<group>"; };
+		96FAFFCE2446A90C00A1DBF1 /* FDTuLingRequestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDTuLingRequestModel.h; sourceTree = "<group>"; };
+		96FAFFCF2446A90C00A1DBF1 /* FDTuLingRequestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDTuLingRequestModel.m; sourceTree = "<group>"; };
+		96FAFFE32448320F00A1DBF1 /* FDTuLingResponseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDTuLingResponseModel.h; sourceTree = "<group>"; };
+		96FAFFE42448320F00A1DBF1 /* FDTuLingResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDTuLingResponseModel.m; sourceTree = "<group>"; };
+		96FAFFE62448345200A1DBF1 /* FDTuLingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDTuLingManager.h; sourceTree = "<group>"; };
+		96FAFFE72448345200A1DBF1 /* FDTuLingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDTuLingManager.m; sourceTree = "<group>"; };
 		9E9895EC9DC97AC80A86E92C /* Pods-FastDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastDemo/Pods-FastDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -553,6 +570,12 @@
 				9627929821E72FE4006C7749 /* FDRequestController.m */,
 				9627929721E72FE4006C7749 /* FDRequestHistoryController.h */,
 				9627929521E72FE4006C7749 /* FDRequestHistoryController.m */,
+				96FAFFCE2446A90C00A1DBF1 /* FDTuLingRequestModel.h */,
+				96FAFFCF2446A90C00A1DBF1 /* FDTuLingRequestModel.m */,
+				96FAFFE32448320F00A1DBF1 /* FDTuLingResponseModel.h */,
+				96FAFFE42448320F00A1DBF1 /* FDTuLingResponseModel.m */,
+				96FAFFE62448345200A1DBF1 /* FDTuLingManager.h */,
+				96FAFFE72448345200A1DBF1 /* FDTuLingManager.m */,
 			);
 			path = FDRequest;
 			sourceTree = "<group>";
@@ -572,6 +595,15 @@
 				962792AD21EE09E4006C7749 /* FDFFmpegImageToVideoController.m */,
 			);
 			path = FDFFmpeg;
+			sourceTree = "<group>";
+		};
+		96434FCA244FE50200E5224C /* YYText */ = {
+			isa = PBXGroup;
+			children = (
+				96434FCB244FE53C00E5224C /* FDYYTextController.h */,
+				96434FCC244FE53C00E5224C /* FDYYTextController.m */,
+			);
+			path = YYText;
 			sourceTree = "<group>";
 		};
 		9645720921AF8BF8009EDCEB = {
@@ -670,6 +702,8 @@
 				9645728821B226B4009EDCEB /* UIView+FDUtils.m */,
 				9627922B21E5DC41006C7749 /* UIImage+FDUtils.h */,
 				9627922C21E5DC41006C7749 /* UIImage+FDUtils.m */,
+				96434FB6244D76E200E5224C /* UIImage+RoundedCorner.h */,
+				96434FB7244D76E200E5224C /* UIImage+RoundedCorner.m */,
 			);
 			path = Categorys;
 			sourceTree = "<group>";
@@ -700,6 +734,7 @@
 		9645726B21AFD1E4009EDCEB /* DemoControllers */ = {
 			isa = PBXGroup;
 			children = (
+				96434FCA244FE50200E5224C /* YYText */,
 				96C551C923FE626A00872EF1 /* WKWebView */,
 				9625F85223F0FE710097CF9E /* MapKit */,
 				9625F76423D6AA350097CF9E /* DrawBoard */,
@@ -978,6 +1013,7 @@
 		967F506D21DB8A30006912B5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				96434FB1244D75E000E5224C /* timg-6.jpg */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1198,6 +1234,7 @@
 				9645722221AF8BF9009EDCEB /* LaunchScreen.storyboard in Resources */,
 				9645721F21AF8BF9009EDCEB /* Assets.xcassets in Resources */,
 				9645721D21AF8BF8009EDCEB /* Main.storyboard in Resources */,
+				96434FB2244D75E000E5224C /* timg-6.jpg in Resources */,
 				967F508121DB9229006912B5 /* kxmovie.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1294,7 +1331,11 @@
 				9645729B21B3CA7A009EDCEB /* FDPresentAnimationTransition.m in Sources */,
 				967F508C21DDAA73006912B5 /* FDMovieMaker.m in Sources */,
 				9645725621AF9CE0009EDCEB /* NSString+FDUtils.m in Sources */,
+				96434FB8244D76E200E5224C /* UIImage+RoundedCorner.m in Sources */,
 				9627929D21E72FE4006C7749 /* FDImageToVideoController.m in Sources */,
+				96FAFFE82448345200A1DBF1 /* FDTuLingManager.m in Sources */,
+				96434FCD244FE53C00E5224C /* FDYYTextController.m in Sources */,
+				96FAFFE52448320F00A1DBF1 /* FDTuLingResponseModel.m in Sources */,
 				9645726A21AFCC86009EDCEB /* FDNetService.m in Sources */,
 				9645725A21AFB804009EDCEB /* FDNavigationBar.m in Sources */,
 				9645729E21B3CB3D009EDCEB /* FDAlbumBrowserController.m in Sources */,
@@ -1329,6 +1370,7 @@
 				96D809F521B946B7001A8383 /* FDRealmHelper.m in Sources */,
 				9645728F21B2CDB2009EDCEB /* FDFilesCell.m in Sources */,
 				967F50A821E32A37006912B5 /* FDAlbumCollectionCell.m in Sources */,
+				96FAFFD02446A90C00A1DBF1 /* FDTuLingRequestModel.m in Sources */,
 				9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */,
 				9627928421E7263D006C7749 /* cmdutils.c in Sources */,
 				9627928321E7263D006C7749 /* ffmpeg_filter.c in Sources */,

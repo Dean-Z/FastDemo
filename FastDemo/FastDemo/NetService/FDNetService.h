@@ -23,4 +23,7 @@
                   complete:(fd_block_object)complete
                     failed:(fd_block_object)failed;
 
+- (void)postJsonToServer:(NSString *)jsonString
+                complete:(fd_block_object_object)complete;
+
 @end

@@ -14,5 +14,6 @@
 #import "UIViewController+FDNavigationBar.h"
 #import "UIView+FDUtils.h"
 #import "Masonry.h"
+#import "YYModel.h"
 
 #endif /* FDKit_h */

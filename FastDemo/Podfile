@@ -7,6 +7,7 @@ pod 'Masonry'
 pod 'Realm'
 pod 'YYWebImage'
 pod 'YYModel'
+pod 'YYText'
 
 pod 'MMKV'
 

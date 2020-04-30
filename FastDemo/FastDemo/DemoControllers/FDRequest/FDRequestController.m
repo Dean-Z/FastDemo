@@ -17,6 +17,9 @@
 #import "FDRequestHistoryController.h"
 #import "FDRealmHelper.h"
 
+#import "FDTuLingRequestModel.h"
+#import "YYModel.h"
+
 @interface FDRequestController ()
 
 @property (nonatomic, strong) UIScrollView *contentView;
@@ -130,31 +133,50 @@
 }
 
 - (void)requestAction {
-    [self resignAllFirstResponder];
-    WEAKSELF
-    if ([self.methodButton.titleLabel.text isEqualToString:@"GET"]) {
-        [[FDNetService sharedInstance] getRequestWithURL:self.requestURLTextField.text
-                                              parameters:[self allParmas] complete:^(id result) {
-                                                  [weakSelf saveRequestData:result];
-                                                  weakSelf.requestReultLabel.text = [weakSelf convertToJSONData:result];
-                                                  [weakSelf.requestReultLabel layoutIfNeeded];
-                                                  CGSize size = [weakSelf.requestReultLabel.text fd_sizeWithFont:weakSelf.requestReultLabel.font constrainedToSize:CGSizeMake(weakSelf.requestReultLabel.frame.size.width, CGFLOAT_MAX)];
-                                                  weakSelf.contentView.contentSize = CGSizeMake(0, weakSelf.requestReultLabel.frame.origin.y + size.height);
-                                              } failed:^(NSError *error) {
-                                                  NSLog(@"%@",error.localizedDescription);
-                                              }];
-    } else {
-        [[FDNetService sharedInstance] postRequestWithURL:self.requestURLTextField.text
-                                              parameters:[self allParmas] complete:^(id result) {
-                                                  [weakSelf saveRequestData:result];
-                                                  weakSelf.requestReultLabel.text = [weakSelf convertToJSONData:result];
-                                                  [weakSelf.requestReultLabel layoutIfNeeded];
-                                                  CGSize size = [weakSelf.requestReultLabel.text fd_sizeWithFont:weakSelf.requestReultLabel.font constrainedToSize:CGSizeMake(weakSelf.requestReultLabel.frame.size.width, CGFLOAT_MAX)];
-                                                  weakSelf.contentView.contentSize = CGSizeMake(0, weakSelf.requestReultLabel.frame.origin.y + size.height);
-                                              } failed:^(NSError *error) {
-                                                  NSLog(@"%@",error.localizedDescription);
-                                              }];
-    }
+    
+    FDTuLingRequestModel *requstModel = [FDTuLingRequestModel new];
+    requstModel.perception.inputText.text = @"今天心情不好啊";
+    
+    NSString *jsonString = [requstModel yy_modelToJSONString];
+    [[FDNetService sharedInstance] postJsonToServer:jsonString complete:^(id resp, id error) {
+        if (!error) {
+            NSLog(@"%@",resp);
+        }
+    }];
+    
+//    NSDictionary *dict = @{@"perception":[requstModel.perception yy_modelToJSONString],@"userInfo":[requstModel.userInfo yy_modelToJSONString]};
+//    NSDictionary *data = @{@"dat":[dict yy_modelToJSONString]};
+//    [[FDNetService sharedInstance] postRequestWithURL:@"http://openapi.tuling123.com/openapi/api/v2" parameters:data complete:^(id resp) {
+//        NSLog(@"%@",resp);
+//    } failed:^(id resp) {
+//        NSLog(@"%@",resp);
+//    }];
+    
+//    [self resignAllFirstResponder];
+//    WEAKSELF
+//    if ([self.methodButton.titleLabel.text isEqualToString:@"GET"]) {
+//        [[FDNetService sharedInstance] getRequestWithURL:self.requestURLTextField.text
+//                                              parameters:[self allParmas] complete:^(id result) {
+//                                                  [weakSelf saveRequestData:result];
+//                                                  weakSelf.requestReultLabel.text = [weakSelf convertToJSONData:result];
+//                                                  [weakSelf.requestReultLabel layoutIfNeeded];
+//                                                  CGSize size = [weakSelf.requestReultLabel.text fd_sizeWithFont:weakSelf.requestReultLabel.font constrainedToSize:CGSizeMake(weakSelf.requestReultLabel.frame.size.width, CGFLOAT_MAX)];
+//                                                  weakSelf.contentView.contentSize = CGSizeMake(0, weakSelf.requestReultLabel.frame.origin.y + size.height);
+//                                              } failed:^(NSError *error) {
+//                                                  NSLog(@"%@",error.localizedDescription);
+//                                              }];
+//    } else {
+//        [[FDNetService sharedInstance] postRequestWithURL:self.requestURLTextField.text
+//                                              parameters:[self allParmas] complete:^(id result) {
+//                                                  [weakSelf saveRequestData:result];
+//                                                  weakSelf.requestReultLabel.text = [weakSelf convertToJSONData:result];
+//                                                  [weakSelf.requestReultLabel layoutIfNeeded];
+//                                                  CGSize size = [weakSelf.requestReultLabel.text fd_sizeWithFont:weakSelf.requestReultLabel.font constrainedToSize:CGSizeMake(weakSelf.requestReultLabel.frame.size.width, CGFLOAT_MAX)];
+//                                                  weakSelf.contentView.contentSize = CGSizeMake(0, weakSelf.requestReultLabel.frame.origin.y + size.height);
+//                                              } failed:^(NSError *error) {
+//                                                  NSLog(@"%@",error.localizedDescription);
+//                                              }];
+//    }
 }
 
 - (void)saveRequestData:(NSDictionary *)result {

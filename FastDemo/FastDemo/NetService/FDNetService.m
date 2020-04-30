@@ -47,6 +47,8 @@
     requestSerializer.allowsCellularAccess = YES;
     requestSerializer.HTTPShouldHandleCookies = YES;
     sessionManager.requestSerializer = requestSerializer;
+    
+    
 }
 
 - (void)getRequestWithURL:(NSString *)requestURL
@@ -87,6 +89,31 @@
                                  failed(error);
                              }
                          }];
+}
+
+
+- (void)postJsonToServer:(NSString *)jsonString complete:(fd_block_object_object)complete {
+
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:@"http://openapi.tuling123.com/openapi/api/v2" parameters:nil error:nil];
+
+    req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
+    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+
+    [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [[manager dataTaskWithRequest:req uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+    } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
+    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (complete) {
+            complete(responseObject,error);
+        }
+    }] resume];
+
 }
 
 @end
