@@ -1,6 +1,7 @@
 platform :ios,'8.0'
 
 target 'FastDemo' do
+pod 'TZImagePickerController'
 pod 'SVProgressHUD'
 pod 'AFNetworking'
 pod 'Masonry'

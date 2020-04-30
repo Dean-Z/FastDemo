@@ -20,6 +20,7 @@ PODS:
     - Realm/Headers (= 3.11.0)
   - Realm/Headers (3.11.0)
   - SVProgressHUD (2.2.5)
+  - TZImagePickerController (3.3.1)
   - YYCache (1.0.4)
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - MMKV
   - Realm
   - SVProgressHUD
+  - TZImagePickerController
   - YYModel
   - YYText
   - YYWebImage
@@ -47,6 +49,7 @@ SPEC REPOS:
     - MMKV
     - Realm
     - SVProgressHUD
+    - TZImagePickerController
     - YYCache
     - YYImage
     - YYModel
@@ -59,12 +62,13 @@ SPEC CHECKSUMS:
   MMKV: 031ae51aedc0af1b250922f7ed8a6b6ee2f94c4c
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: c5d2b3ba81b084752a953f230077f17a21e43ab9
+PODFILE CHECKSUM: af10029f08d379145707b95e00102fbc5a329852
 
 COCOAPODS: 1.6.1

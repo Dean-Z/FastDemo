@@ -27,6 +27,7 @@
 #import "FDWebViewController.h"
 
 #import "FDYYTextController.h"
+#import "FDRecordController.h"
 
 static NSString * const KRecordIconButtonAnimationPath = @"transform.rotation.z";
 static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnimationKey";
@@ -62,7 +63,8 @@ static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnima
                         @"CALayer / DrawBoard",
                         @"MapKit",
                         @"WKWebView",
-                        @"YYText"];
+                        @"YYText",
+                        @"Record"];
     [self.tableView setTableFooterView:[UIView new]];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.navigationBar.mas_bottom);
@@ -141,6 +143,9 @@ static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnima
     } else if(indexPath.row == 8) {
         FDYYTextController *text = [FDYYTextController new];
         [self.navigationController pushViewController:text animated:YES];
+    } else if(indexPath.row == 9) {
+        FDRecordController *record = [FDRecordController new];
+        [self.navigationController pushViewController:record animated:YES];
     }
 }
 
