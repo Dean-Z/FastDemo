@@ -33,6 +33,8 @@
 		962792A821E99E75006C7749 /* FDFFmpegConcatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792A721E99E75006C7749 /* FDFFmpegConcatController.m */; };
 		962792AB21EB1457006C7749 /* FDFFmpegMuxMediaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792AA21EB1457006C7749 /* FDFFmpegMuxMediaController.m */; };
 		962792AE21EE09E4006C7749 /* FDFFmpegImageToVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962792AD21EE09E4006C7749 /* FDFFmpegImageToVideoController.m */; };
+		96362889247564970091385A /* FDMakeCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96362888247564970091385A /* FDMakeCardController.m */; };
+		9636288C247575A30091385A /* FDPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9636288B247575A30091385A /* FDPreviewController.m */; };
 		96434FB2244D75E000E5224C /* timg-6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96434FB1244D75E000E5224C /* timg-6.jpg */; };
 		96434FB8244D76E200E5224C /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434FB7244D76E200E5224C /* UIImage+RoundedCorner.m */; };
 		96434FCD244FE53C00E5224C /* FDYYTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96434FCC244FE53C00E5224C /* FDYYTextController.m */; };
@@ -191,6 +193,10 @@
 		962792AA21EB1457006C7749 /* FDFFmpegMuxMediaController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegMuxMediaController.m; sourceTree = "<group>"; };
 		962792AC21EE09E4006C7749 /* FDFFmpegImageToVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDFFmpegImageToVideoController.h; sourceTree = "<group>"; };
 		962792AD21EE09E4006C7749 /* FDFFmpegImageToVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDFFmpegImageToVideoController.m; sourceTree = "<group>"; };
+		96362887247564970091385A /* FDMakeCardController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDMakeCardController.h; sourceTree = "<group>"; };
+		96362888247564970091385A /* FDMakeCardController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDMakeCardController.m; sourceTree = "<group>"; };
+		9636288A247575A30091385A /* FDPreviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDPreviewController.h; sourceTree = "<group>"; };
+		9636288B247575A30091385A /* FDPreviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDPreviewController.m; sourceTree = "<group>"; };
 		96434FB1244D75E000E5224C /* timg-6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "timg-6.jpg"; sourceTree = "<group>"; };
 		96434FB6244D76E200E5224C /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		96434FB7244D76E200E5224C /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
@@ -631,6 +637,17 @@
 			path = FDFFmpeg;
 			sourceTree = "<group>";
 		};
+		963628862475647C0091385A /* MakeCard */ = {
+			isa = PBXGroup;
+			children = (
+				96362887247564970091385A /* FDMakeCardController.h */,
+				96362888247564970091385A /* FDMakeCardController.m */,
+				9636288A247575A30091385A /* FDPreviewController.h */,
+				9636288B247575A30091385A /* FDPreviewController.m */,
+			);
+			path = MakeCard;
+			sourceTree = "<group>";
+		};
 		96434FCA244FE50200E5224C /* YYText */ = {
 			isa = PBXGroup;
 			children = (
@@ -770,6 +787,7 @@
 		9645726B21AFD1E4009EDCEB /* DemoControllers */ = {
 			isa = PBXGroup;
 			children = (
+				963628862475647C0091385A /* MakeCard */,
 				9649C169245AEE58003A93EA /* Publish */,
 				9649C135245A7D12003A93EA /* Record */,
 				96434FCA244FE50200E5224C /* YYText */,
@@ -1460,6 +1478,7 @@
 				9627929F21E72FE4006C7749 /* FDFilesListController.m in Sources */,
 				967F50A221E3221D006912B5 /* FDAlbumTableView.m in Sources */,
 				9645725021AF9AA7009EDCEB /* NSData+FDUtils.m in Sources */,
+				96362889247564970091385A /* FDMakeCardController.m in Sources */,
 				9649C13B245AAD76003A93EA /* Waver.m in Sources */,
 				967F509B21E3205F006912B5 /* FDAlbumLibraryContext.m in Sources */,
 				9645728321B0EB21009EDCEB /* RMDownloadIndicator.m in Sources */,
@@ -1474,6 +1493,7 @@
 				9649C138245A7D2B003A93EA /* FDRecordController.m in Sources */,
 				9649C16C245AEE6C003A93EA /* FDPublishController.m in Sources */,
 				9645726621AFC1AA009EDCEB /* UIViewController+FDNavigationBar.m in Sources */,
+				9636288C247575A30091385A /* FDPreviewController.m in Sources */,
 				9627928421E7263D006C7749 /* cmdutils.c in Sources */,
 				9627928321E7263D006C7749 /* ffmpeg_filter.c in Sources */,
 				9625F76723D6AA570097CF9E /* FDDrawViewController.m in Sources */,

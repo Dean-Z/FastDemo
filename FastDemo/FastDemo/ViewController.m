@@ -29,6 +29,8 @@
 #import "FDYYTextController.h"
 #import "FDRecordController.h"
 
+#import "FDMakeCardController.h"
+
 static NSString * const KRecordIconButtonAnimationPath = @"transform.rotation.z";
 static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnimationKey";
 
@@ -50,6 +52,11 @@ static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnima
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationDidBecomeActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDidPlaying) name:kMusicPlayerDidPlaying object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDidPaused) name:kMusicPlayerDidPaused object:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        FDMakeCardController *make = [FDMakeCardController new];
+        [self.navigationController pushViewController:make animated:YES];
+    });
 }
 
 - (void)setup {
@@ -64,7 +71,8 @@ static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnima
                         @"MapKit",
                         @"WKWebView",
                         @"YYText",
-                        @"Record"];
+                        @"Record",
+                        @"安斋会员卡"];
     [self.tableView setTableFooterView:[UIView new]];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.navigationBar.mas_bottom);
@@ -146,6 +154,9 @@ static NSString * const KRecordIconButtonAnimationKey = @"KRecordIconButtonAnima
     } else if(indexPath.row == 9) {
         FDRecordController *record = [FDRecordController new];
         [self.navigationController pushViewController:record animated:YES];
+    } else if(indexPath.row == 10) {
+        FDMakeCardController *make = [FDMakeCardController new];
+        [self.navigationController pushViewController:make animated:YES];
     }
 }
 

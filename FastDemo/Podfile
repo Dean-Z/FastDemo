@@ -11,5 +11,6 @@ pod 'YYModel'
 pod 'YYText'
 
 pod 'MMKV'
+pod 'HUPhotoBrowser'
 
 end
